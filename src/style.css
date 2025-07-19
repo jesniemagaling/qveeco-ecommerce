@@ -1,0 +1,50 @@
+@import 'tailwindcss';
+
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-spartan: 'League Spartan', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+  }
+  body {
+    font-family: var(--font-inter);
+  }
+}
+
+@layer components {
+  .primary-heading {
+    font-family: var(--font-spartan);
+    @apply text-7xl font-black tracking-tighter text-black;
+  }
+  .company-name {
+    font-family: var(--font-spartan);
+    @apply text-[32px] font-black tracking-tighter text-black;
+  }
+  .heading-1 {
+    font-family: var(--font-spartan);
+    @apply text-5xl font-black tracking-tighter text-black;
+  }
+  .heading-2 {
+    font-family: var(--font-spartan);
+    @apply text-xl font-black tracking-tighter text-black;
+  }
+  .heading-3 {
+    font-family: var(--font-inter);
+    @apply text-base text-black/80;
+  }
+
+  .btn-primary {
+    @apply w-full rounded-md bg-black px-4 py-[16.5px] text-center text-[16px] font-medium text-white transition-colors duration-200;
+  }
+  .btn-primary:hover {
+    @apply bg-neutral-800;
+  }
+
+  .btn-secondary {
+    @apply w-full rounded-md border border-neutral-300 bg-white px-4 py-[16.5px] text-center text-[16px] font-medium text-black transition-colors duration-200;
+  }
+  .btn-secondary:hover {
+    @apply bg-neutral-100;
+  }
+}
