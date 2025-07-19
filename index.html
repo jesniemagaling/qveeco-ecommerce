@@ -8,17 +8,59 @@
     <link href="/src/style.css" rel="stylesheet" />
     <title>qvee</title>
   </head>
-  <body class="m-auto">
+  <body class="m-auto max-w-[1440px]">
     <header>
-      <nav class="m-auto flex max-w-[1440px] px-2 py-6">
+      <nav class="mx-auto flex w-full items-center justify-between px-2 py-6">
+        <div class="flex items-center lg:hidden">
+          <img class="size-7 cursor-pointer" src="/src/assets/images/menu-icon.svg" alt="" />
+          <img class="size-7 cursor-pointer" src="/src/assets/images/close-icon.svg" alt="" />
+        </div>
         <div class="company-name">QVEE.CO</div>
-        <div class="links">
-          <a href="#" class="flex items-center gap-1"
-            >Shop <span><img src="/src/assets/images/dropdown-icon.svg" alt="" /></span
-          ></a>
+        <div class="nav-links grid hidden w-full items-center justify-center gap-5 lg:flex">
+          <div class="dropdown dropdown-bottom">
+            <div tabindex="0" role="button" class="a-links flex items-center gap-2">
+              Shop <span><img src="/src/assets/images/dropdown-icon.svg" alt="" /></span>
+            </div>
+            <ul
+              tabindex="0"
+              class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+            >
+              <li><a>Item 1</a></li>
+              <li><a>Item 2</a></li>
+            </ul>
+          </div>
+          <a href="#" class="a-links">On Sale</a>
+          <a href="#" class="a-links">New Arrivals</a>
+          <a href="#" class="a-links">Brands </a>
+          <div class="search-tab">
+            <label class="input w-xs">
+              <img src="/src/assets/images/search-icon.svg" alt="" />
+              <input class="ff-primary text-lg" type="search" required placeholder="Search" />
+            </label>
+          </div>
+        </div>
+        <div class="nav-info flex items-center gap-3">
+          <a href="@"><img src="/src/assets/images/cart-icon.svg" alt="" class="size-7" /></a>
+          <a href="@"><img src="/src/assets/images/profile-icon.svg" alt="" class="size-7" /></a>
         </div>
       </nav>
     </header>
+
+    <main>
+      <div class="mt-6 grid w-full items-center gap-4 lg:flex lg:items-center lg:justify-between">
+        <div class="hero-details max-w-xl px-4 md:w-3xl">
+          <h1 class="primary-heading">FIND CLOTHES THAT MATCHES YOUR STYLES</h1>
+          <p class="heading-3 mt-2">
+            Browse through our diverse range of meticulously crafted garments, designed to bring out
+            your individuality and cater to your sense of style.
+          </p>
+          <button class="btn-primary mt-6 sm:max-w-2xs">Shop Now</button>
+        </div>
+        <div class="hero-banner">
+          <img src="src/assets/images/homepage-banner.svg" alt="" class="w-full max-w-[720px]" />
+        </div>
+      </div>
+    </main>
 
     <script type="module" src="/src/main.js"></script>
   </body>

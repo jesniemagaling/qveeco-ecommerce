@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=League+Spartan:wght@100..900&display=swap');
 @import 'tailwindcss';
+@plugin "daisyui";
 
 @tailwind utilities;
 
@@ -13,36 +15,49 @@
 }
 
 @layer components {
+  .ff-primary {
+    font-family: var(--font-spartan);
+  }
+
   .primary-heading {
     font-family: var(--font-spartan);
-    @apply text-7xl font-black tracking-tighter text-black;
+    @apply text-5xl font-black tracking-tighter text-black md:text-6xl lg:text-7xl;
   }
+
   .company-name {
     font-family: var(--font-spartan);
-    @apply text-[32px] font-black tracking-tighter text-black;
+    @apply text-xl font-black tracking-tighter text-black sm:text-2xl md:text-3xl lg:text-[32px];
   }
+
   .heading-1 {
     font-family: var(--font-spartan);
-    @apply text-5xl font-black tracking-tighter text-black;
+    @apply text-2xl font-black tracking-tighter text-black sm:text-3xl md:text-4xl lg:text-5xl;
   }
+
   .heading-2 {
     font-family: var(--font-spartan);
-    @apply text-xl font-black tracking-tighter text-black;
+    @apply text-base font-black tracking-tighter text-black sm:text-lg md:text-xl;
   }
+
   .heading-3 {
     font-family: var(--font-inter);
-    @apply text-base text-black/80;
+    @apply text-sm text-black/80 sm:text-base;
+  }
+
+  .a-links {
+    font-family: var(--font-spartan);
+    @apply text-lg font-normal text-black/80;
   }
 
   .btn-primary {
-    @apply w-full rounded-md bg-black px-4 py-[16.5px] text-center text-[16px] font-medium text-white transition-colors duration-200;
+    @apply w-full rounded-full bg-black px-2 py-[14.5px] text-center text-sm text-[16px] font-medium text-white transition-colors duration-200 sm:px-4 sm:py-[16.5px] sm:text-base;
   }
   .btn-primary:hover {
     @apply bg-neutral-800;
   }
 
   .btn-secondary {
-    @apply w-full rounded-md border border-neutral-300 bg-white px-4 py-[16.5px] text-center text-[16px] font-medium text-black transition-colors duration-200;
+    @apply w-full rounded-full border border-neutral-300 bg-white px-4 py-[16.5px] text-center text-sm text-[16px] font-medium text-black transition-colors duration-200 sm:text-base;
   }
   .btn-secondary:hover {
     @apply bg-neutral-100;
