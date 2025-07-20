@@ -1,5 +1,6 @@
 import './style.css';
 import { products, newArrival, topSelling } from './product';
+import { ratings } from './rating';
 
 const menuTab = document.querySelector('.menu-tab');
 const closeTab = document.querySelector('.close-tab');
@@ -64,3 +65,8 @@ topSelling.forEach((product) => {
 });
 
 document.querySelector('.js-top-selling').innerHTML = topSellingHTML;
+
+// customer rating
+let ratingHTML = '';
+
+ratings.forEach((rating) => {});

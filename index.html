@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/src/style.css" rel="stylesheet" />
     <link href="/src/style.css" rel="stylesheet" />
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <title>qvee</title>
   </head>
   <body>
@@ -186,6 +188,68 @@
       </div>
     </section>
 
+    <section class="container py-16">
+      <div class="mb-12 flex items-center justify-between">
+        <h1 class="heading-1 text-left">OUR HAPPY CUSTOMERS</h1>
+        <div class="rating-swiper-controls flex gap-2">
+          <div class="rating-btn-prev cursor-pointer">
+            <img src="/src/assets/images/left-arrow.svg" alt="" />
+          </div>
+          <div class="rating-btn-next cursor-pointer">
+            <img src="/src/assets/images/right-arrow.svg" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="slider-rating-container">
+        <div class="rating-swiper swiper">
+          <div class="swiper-wrapper cursor-grab">
+            <article class="swiper-slide flex flex-col justify-center">
+              <div class="rating-card p-4">
+                <div>
+                  <img src="/src/assets/images/5-star.svg" alt="" />
+                </div>
+                <h3 class="ff-primary my-2 flex gap-1 text-2xl font-bold">
+                  Sarah M. <img src="/src/assets/images/check-icon.svg" alt="" class="-mt-1" />
+                </h3>
+                <p class="text-black/80">
+                  "I'm blown away by the quality and style of the clothes I received from Shop.co.
+                  From casual wear to elegant dresses, every piece I've bought has exceeded my
+                  expectations.”
+                </p>
+              </div>
+              <div class="rating-card p-4">
+                <div>
+                  <img src="/src/assets/images/5-star.svg" alt="" />
+                </div>
+                <h3 class="ff-primary my-2 flex gap-1 text-2xl font-bold">
+                  Sarah M. <img src="/src/assets/images/check-icon.svg" alt="" class="-mt-1" />
+                </h3>
+                <p class="text-black/80">
+                  "I'm blown away by the quality and style of the clothes I received from Shop.co.
+                  From casual wear to elegant dresses, every piece I've bought has exceeded my
+                  expectations.”
+                </p>
+              </div>
+              <div class="rating-card p-4">
+                <div>
+                  <img src="/src/assets/images/5-star.svg" alt="" />
+                </div>
+                <h3 class="ff-primary my-2 flex gap-1 text-2xl font-bold">
+                  Sarah M. <img src="/src/assets/images/check-icon.svg" alt="" class="-mt-1" />
+                </h3>
+                <p class="text-black/80">
+                  "I'm blown away by the quality and style of the clothes I received from Shop.co.
+                  From casual wear to elegant dresses, every piece I've bought has exceeded my
+                  expectations.”
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/swiper.js"></script>
   </body>
 </html>
