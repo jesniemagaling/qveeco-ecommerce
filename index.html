@@ -8,7 +8,7 @@
     <link href="/src/style.css" rel="stylesheet" />
     <title>qvee</title>
   </head>
-  <body class="">
+  <body>
     <header class="fixed w-full bg-white px-4 py-6 lg:px-14">
       <nav class="relative flex items-center justify-between bg-white">
         <div class="mobile-toggle z-40 flex items-center lg:hidden">
@@ -28,13 +28,18 @@
           class="nav-links absolute top-full left-0 z-20 hidden w-full bg-white px-2 px-4 py-6 lg:static lg:flex lg:max-w-full lg:items-center lg:justify-center lg:gap-6 lg:p-0"
         >
           <div class="search-tab pb-4 lg:order-3 lg:p-0">
-            <label class="input w-full lg:max-w-xs">
+            <label class="input w-full bg-white text-black lg:max-w-xs">
               <img src="/src/assets/images/search-icon.svg" alt="" />
-              <input class="ff-primary text-lg" type="search" required placeholder="Search" />
+              <input
+                class="ff-primary text-lg focus-within:outline-2 focus-within:outline-indigo-600"
+                type="search"
+                required
+                placeholder="Search"
+              />
             </label>
           </div>
 
-          <ul class="grid gap-5 px-4 lg:order-2 lg:flex lg:items-center lg:gap-6">
+          <ul class="grid gap-5 px-4 lg:order-2 lg:flex lg:items-center lg:gap-6 lg:px-0">
             <li>
               <a href="#" class="a-links">On Sale</a>
             </li>
@@ -75,7 +80,7 @@
           </p>
           <button class="btn-primary mt-6 sm:max-w-2xs">Shop Now</button>
           <div
-            class="ff-primary mx-auto mt-10 mb-2 grid w-2xs grid-cols-2 gap-4 md:mx-0 md:w-full md:grid-cols-3 md:text-lg"
+            class="ff-primary text-neutral mx-auto mt-10 mb-2 grid w-2xs grid-cols-2 gap-4 md:mx-0 md:w-full md:grid-cols-3 md:text-lg"
           >
             <div class="brands">
               <h2 class="text-3xl font-bold md:text-5xl">200+</h2>
@@ -95,7 +100,7 @@
           <img
             src="src/assets/images/homepage-banner.svg"
             alt=""
-            class="m-h-[496px] m-w-[510px] w-full max-w-[780px] sm:max-w-[610px]"
+            class="m-h-[496px] m-w-[510px] w-full max-w-[780px] sm:max-w-[620px]"
           />
         </div>
       </div>
@@ -124,8 +129,27 @@
     </section>
 
     <section>
-      <div class="container pt-18">
+      <div class="container py-18">
         <h1 class="heading-1 text-center">NEW ARRIVALS</h1>
+        <div class="grid grid-cols-1 place-items-center gap-6 px-4 md:grid-cols-2 xl:grid-cols-4">
+          <article>
+            <figure>
+              <img
+                src="/src/assets/images/football-jersey.png"
+                class="w-full max-w-[460px]"
+                alt=""
+              />
+            </figure>
+            <h3 class="heading-2">Football Jersey</h3>
+            <div class="flex items-center gap-3.5 py-1">
+              <img src="/src/assets/images/5-star.svg" class="" alt="" />
+              <p class="ff-primary text-normal pt-1 text-black">
+                5.0/<span class="text-normal text-black/80">5</span>
+              </p>
+            </div>
+            <strong class="heading-2">$120</strong>
+          </article>
+        </div>
       </div>
     </section>
 

@@ -2,6 +2,10 @@
 @import 'tailwindcss';
 @plugin "daisyui";
 
+@plugin "daisyui" {
+  themes: light --default;
+}
+
 @tailwind utilities;
 
 @layer base {
@@ -23,8 +27,8 @@
   }
   html,
   body {
-    /* ... existing styles ... */
-    overflow-x: hidden; /* Temporarily add this to test */
+    background-color: var(--color-white);
+    overflow-x: hidden;
   }
 }
 
@@ -51,12 +55,13 @@
 
   .container {
     max-width: 1440px;
+    margin: 0 1rem;
     margin: 0 auto;
   }
 
   .heading-2 {
     font-family: var(--font-spartan);
-    @apply text-lg font-black tracking-tighter text-black md:text-xl;
+    @apply text-xl font-bold tracking-tighter text-black md:text-2xl;
   }
 
   .heading-3 {
