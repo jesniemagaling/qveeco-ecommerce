@@ -200,7 +200,7 @@ export const newArrival = [
     name: 'Coogi-Style Knit Sweater',
     rating: 5,
     type: 'knitted',
-    priceCents: 1100,
+    priceCents: 11000,
   },
 ];
 

@@ -28,6 +28,7 @@
   html,
   body {
     background-color: var(--color-white);
+    color: black;
     overflow-x: hidden;
   }
 }
@@ -50,11 +51,12 @@
 
   .heading-1 {
     font-family: var(--font-spartan);
-    @apply text-2xl font-black tracking-tighter text-black sm:text-3xl md:text-4xl lg:text-5xl;
+    @apply text-4xl font-black tracking-tighter text-black sm:text-3xl md:text-4xl lg:text-5xl;
   }
 
   .container {
     max-width: 1440px;
+    width: 100%;
     margin: 0 1rem;
     margin: 0 auto;
   }
