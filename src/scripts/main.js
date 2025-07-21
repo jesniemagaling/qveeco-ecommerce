@@ -1,4 +1,4 @@
-import './style.css';
+import '../style.css';
 import { products, newArrival, topSelling } from './product';
 import { ratings } from './rating';
 
