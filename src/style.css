@@ -34,12 +34,24 @@
   html:focus-within {
     scroll-behavior: smooth;
   }
+  button {
+    cursor: pointer;
+  }
+  a {
+    cursor: pointer;
+  }
 }
 
 @layer components {
+  .container-section {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 1rem;
+    margin: 0 auto;
+  }
   .ff-primary {
     font-family: var(--font-spartan);
-    @apply tracking-tighter;
+    @apply tracking-tight;
   }
 
   .sec-heading {
@@ -49,7 +61,7 @@
 
   .primary-heading {
     font-family: var(--font-spartan);
-    @apply text-5xl font-black tracking-tighter text-black md:text-6xl lg:text-7xl;
+    @apply text-5xl font-black tracking-tighter text-black md:text-6xl lg:text-7xl xl:text-[80px];
   }
 
   .company-name {
@@ -60,13 +72,6 @@
   .heading-1 {
     font-family: var(--font-spartan);
     @apply text-4xl font-black tracking-tighter text-black sm:text-3xl md:text-4xl lg:text-5xl;
-  }
-
-  .container-section {
-    max-width: 1440px;
-    width: 100%;
-    margin: 0 1rem;
-    margin: 0 auto;
   }
 
   .heading-2 {
@@ -85,7 +90,7 @@
   }
 
   .btn-primary {
-    @apply w-full cursor-pointer rounded-full bg-black px-2 py-[14.5px] text-center text-sm text-[16px] font-medium text-white transition-colors duration-200 sm:px-4 sm:py-[16.5px] sm:text-base;
+    @apply w-full cursor-pointer rounded-full bg-black px-2 py-[14.5px] text-center text-sm text-[16px] font-medium text-white transition-colors duration-200 sm:px-4 sm:py-[14px] sm:text-base;
   }
   .btn-primary:hover {
     @apply bg-neutral-800;

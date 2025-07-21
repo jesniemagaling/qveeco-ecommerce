@@ -1,5 +1,5 @@
 import '../style.css';
-import { products, newArrival, topSelling } from './product';
+import { newArrival, topSelling } from './utils/product';
 import { ratings } from './rating';
 
 const menuTab = document.querySelector('.menu-tab');

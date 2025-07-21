@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/src/style.css" rel="stylesheet" />
+    <link href="/src/style.css" rel="stylesheet" />
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <title>qvee</title>
+  </head>
+  <body>
+    <header class="fixed z-10 w-full bg-white px-4 py-6 lg:px-8">
+      <div class="mx-auto max-w-[1920px]">
+        <nav class="relative flex items-center justify-between bg-white">
+          <div class="mobile-toggle flex items-center lg:hidden">
+            <img
+              class="menu-tab size-7 cursor-pointer rounded-full transition hover:bg-gray-300 hover:shadow-md"
+              src="/src/assets/images/menu-icon.svg"
+              alt=""
+            />
+            <img
+              class="close-tab hidden size-7 cursor-pointer rounded-full transition hover:bg-gray-300 hover:shadow-md"
+              src="/src/assets/images/close-icon.svg"
+              alt=""
+            />
+          </div>
+          <a class="company-name" href="#">QVEE.CO</a>
+          <div
+            class="nav-links absolute top-full left-0 z-20 hidden w-full bg-white px-2 py-6 lg:static lg:flex lg:max-w-full lg:items-center lg:justify-center lg:gap-6 lg:p-0"
+          >
+            <div class="search-tab pb-4 lg:order-3 lg:p-0">
+              <label
+                class="input focus-within:outline-base-100 w-full bg-white text-black focus-within:outline-2 lg:max-w-xs"
+              >
+                <img src="/src/assets/images/search-icon.svg" alt="" />
+                <input
+                  type="search"
+                  required
+                  placeholder="Search"
+                  class="ff-primary text-lg outline-none"
+                />
+              </label>
+            </div>
+
+            <ul class="grid gap-5 px-4 lg:order-2 lg:flex lg:items-center lg:gap-6 lg:px-0">
+              <li>
+                <a href="#" class="a-links">On Sale</a>
+              </li>
+              <li>
+                <a href="#" class="a-links">New Arrivals</a>
+              </li>
+              <li>
+                <a href="#" class="a-links">Brands</a>
+              </li>
+            </ul>
+            <div class="dropdown dropdown-bottom cursor-pointer px-4 pt-4 lg:order-1 lg:p-0">
+              <div tabindex="0" role="button" class="a-links flex items-center gap-2">
+                Shop <span><img src="/src/assets/images/dropdown-icon.svg" alt="" /></span>
+              </div>
+              <ul
+                tabindex="0"
+                class="dropdown-content menu bg-base-100 rounded-box z-1 mt-2 w-52 p-2 text-white shadow-sm"
+              >
+                <li><a>Item 1</a></li>
+                <li><a>Item 2</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="nav-info relative flex items-center gap-4">
+            <a href="#"><img src="/src/assets/images/cart-icon.svg" alt="" class="w-8" /></a>
+            <span
+              class="absolute -top-1.5 left-4 rounded-full bg-black px-1.5 py-0.5 text-xs text-white"
+              >3</span
+            >
+            <a href="#"><img src="/src/assets/images/profile-icon.svg" alt="" class="w-8" /></a>
+          </div>
+        </nav>
+        <div class="breadcrumbs mt-6 text-lg">
+          <ul class="ff-primary text-black">
+            <li><a href="#" class="text-black/60">Home</a></li>
+            <li>Products</li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <div class="my-40 grid grid-cols-[280px_1fr] px-8">
+        <aside>
+          <button class="mb-8 flex w-full items-center justify-between">
+            <h2 class="heading-2">Filters</h2>
+            <img src="/src/assets/images/filter-icon.svg" alt="" />
+          </button>
+          <div class="grid gap-6">
+            <div class="grid gap-2 text-lg">
+              <button class="flex w-full items-center justify-between">
+                <p class="sec-heading">All</p>
+                <img src="/src/assets/images/right-btn.svg" alt="" />
+              </button>
+              <button class="flex w-full items-center justify-between">
+                <p class="sec-heading">Jackets</p>
+                <img src="/src/assets/images/right-btn.svg" alt="" />
+              </button>
+              <button class="flex w-full items-center justify-between">
+                <p class="sec-heading">Knitted</p>
+                <img src="/src/assets/images/right-btn.svg" alt="" />
+              </button>
+              <button class="flex w-full items-center justify-between">
+                <p class="sec-heading">Pants</p>
+                <img src="/src/assets/images/right-btn.svg" alt="" />
+              </button>
+              <button class="flex w-full items-center justify-between">
+                <p class="sec-heading">Shorts</p>
+                <img src="/src/assets/images/right-btn.svg" alt="" />
+              </button>
+              <button class="flex w-full items-center justify-between">
+                <p class="sec-heading">Outerwear</p>
+                <img src="/src/assets/images/right-btn.svg" alt="" />
+              </button>
+            </div>
+            <div class="grid gap-2">
+              <button class="flex w-full items-center justify-between">
+                <h2 class="heading-2">Price</h2>
+                <img src="/src/assets/images/dropdown-icon.svg" alt="" />
+              </button>
+              <div class="flex flex-col gap-2">
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="40"
+                  class="range text-black-100 [--range-bg:black] [--range-fill:0] [--range-thumb:white]"
+                />
+                <label
+                  for="price-range"
+                  class="flex justify-between text-sm font-medium text-black"
+                >
+                  <span>$50</span>
+                  <span>$200</span>
+                </label>
+              </div>
+            </div>
+            <div class="grid gap-2">
+              <button class="flex w-full items-center justify-between">
+                <h2 class="heading-2">Colors</h2>
+                <img src="/src/assets/images/dropdown-icon.svg" alt="" />
+              </button>
+              <div class="flex gap-2">
+                <button
+                  class="h-10 w-10 rounded-full bg-black ring-1 ring-black/20 ring-inset"
+                ></button>
+                <button
+                  class="h-10 w-10 rounded-full bg-white ring-1 ring-black/60 ring-inset"
+                ></button>
+                <button
+                  class="h-10 w-10 rounded-full bg-[#EECFBD] ring-1 ring-black/20 ring-inset"
+                ></button>
+                <button
+                  class="h-10 w-10 rounded-full bg-blue-500 ring-1 ring-black/20 ring-inset"
+                ></button>
+                <button
+                  class="h-10 w-10 rounded-full bg-red-800 ring-1 ring-black/20 ring-inset"
+                ></button>
+                <button
+                  class="h-10 w-10 rounded-full bg-gray-500 ring-1 ring-black/20 ring-inset"
+                ></button>
+              </div>
+            </div>
+            <div class="grid gap-2">
+              <button class="flex w-full items-center justify-between">
+                <h2 class="heading-2">Size</h2>
+                <img src="/src/assets/images/dropdown-icon.svg" alt="" />
+              </button>
+              <div class="flex flex-wrap gap-2">
+                <button class="rounded-full px-6 py-2 hover:bg-black hover:text-white">
+                  Small
+                </button>
+                <button class="rounded-full px-6 py-2 hover:bg-black hover:text-white">
+                  Medium
+                </button>
+                <button class="rounded-full px-6 py-2 hover:bg-black hover:text-white">
+                  Large
+                </button>
+                <button class="rounded-full px-6 py-2 hover:bg-black hover:text-white">
+                  XX-Large
+                </button>
+              </div>
+            </div>
+            <div class="grid gap-2">
+              <button class="flex w-full items-center justify-between">
+                <h2 class="heading-2">Dress Style</h2>
+                <img src="/src/assets/images/dropdown-icon.svg" alt="" />
+              </button>
+              <div class="flex flex-wrap gap-2 text-lg">
+                <button class="flex w-full items-center justify-between">
+                  <p class="sec-heading">Casual</p>
+                  <img src="/src/assets/images/right-btn.svg" alt="" />
+                </button>
+                <button class="flex w-full items-center justify-between">
+                  <p class="sec-heading">Formal</p>
+                  <img src="/src/assets/images/right-btn.svg" alt="" />
+                </button>
+                <button class="flex w-full items-center justify-between">
+                  <p class="sec-heading">Modern</p>
+                  <img src="/src/assets/images/right-btn.svg" alt="" />
+                </button>
+                <button class="flex w-full items-center justify-between">
+                  <p class="sec-heading">Streetwear</p>
+                  <img src="/src/assets/images/right-btn.svg" alt="" />
+                </button>
+              </div>
+            </div>
+            <button class="btn-primary">Apply Filter</button>
+          </div>
+        </aside>
+        <main>
+          <section>
+            <div class="pl-8">
+              <div class="flex items-center justify-between">
+                <h1 class="ff-primary text-left text-4xl font-bold">All Products</h1>
+                <p class="ff-primary text-black/60">Showing 10 of 100 products</p>
+              </div>
+              <div
+                class="js-category mt-4 grid grid-cols-1 place-items-center gap-6 px-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+              ></div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </section>
+
+    <footer class="lg:px-8">
+      <div
+        class="email-newsletter m-4 flex flex-col items-center justify-between gap-6 rounded-3xl bg-black p-8 sm:flex-row"
+      >
+        <h1 class="heading-1 text-white xl:max-w-[720px] xl:text-5xl">
+          STAY UP TO DATE ABOUT OUR LATEST OFFERS
+        </h1>
+        <form action="subscribe" class="mr-auto md:mr-0 md:ml-auto xl:max-w-[420px]">
+          <label class="input h-[44px] w-full rounded-full bg-white lg:h-[48px] xl:h-[52px]">
+            <img src="src/assets/images/email-icon.svg" alt="" />
+            <input class="text-sm" type="email" required placeholder="Enter your email address" />
+          </label>
+          <button class="btn-secondary mt-3 py-2 lg:py-2.5 xl:py-3">Subscribe to Newsletter</button>
+        </form>
+      </div>
+      <div class="mx-4 my-8 mb-10 grid items-center gap-8 lg:grid-cols-5 lg:justify-around">
+        <div class="grid gap-2">
+          <a href="#" class="company-name">QVEE.CO</a>
+          <p class="sec-heading text-lg text-black/60">
+            We have clothes that suits your style and which you’re proud to wear. From women to men.
+          </p>
+          <div class="social-links flex gap-4">
+            <a href="#"
+              ><img src="/src/assets/images/fb-icon.svg" alt="" class="size-5 rounded-full"
+            /></a>
+            <a href="#"
+              ><img src="/src/assets/images/tw-icon.svg" alt="" class="size-5 rounded-full"
+            /></a>
+            <a href="#"
+              ><img src="/src/assets/images/ig-icon.svg" alt="" class="size-5 rounded-full"
+            /></a>
+            <a href="#"
+              ><img src="/src/assets/images/github-icon.svg" alt="" class="size-5 rounded-full"
+            /></a>
+          </div>
+        </div>
+        <div class="grid gap-2 lg:ml-auto">
+          <div class="h2 text-lg font-medium tracking-widest">COMPANY</div>
+          <a href="#" class="a-links w-fit hover:underline">About</a>
+          <a href="#" class="a-links w-fit hover:underline">Features</a>
+          <a href="#" class="a-links w-fit hover:underline">Works</a>
+          <a href="#" class="a-links w-fit hover:underline">Career</a>
+        </div>
+        <div class="grid gap-2 lg:ml-auto">
+          <div class="h2 text-lg font-medium tracking-widest">HELP</div>
+          <a href="#" class="a-links w-fit hover:underline">Customer Support</a>
+          <a href="#" class="a-links w-fit hover:underline">Delivery Details</a>
+          <a href="#" class="a-links w-fit hover:underline">Terms & Conditions</a>
+          <a href="#" class="a-links w-fit hover:underline">Privacy Policy</a>
+        </div>
+        <div class="grid gap-2 lg:ml-auto">
+          <div class="h2 text-lg font-medium tracking-widest">FAQ</div>
+          <a href="#" class="a-links w-fit hover:underline">Account</a>
+          <a href="#" class="a-links w-fit hover:underline">Manage Delivery</a>
+          <a href="#" class="a-links w-fit hover:underline">Orders</a>
+          <a href="#" class="a-links w-fit hover:underline">Payments</a>
+        </div>
+        <div class="grid gap-2 lg:ml-auto">
+          <div class="h2 text-lg font-medium tracking-widest">RESOURCES</div>
+          <a href="#" class="a-links w-fit hover:underline">Free eBooks</a>
+          <a href="#" class="a-links w-fit hover:underline">Developments</a>
+          <a href="#" class="a-links w-fit hover:underline">Join Our Newsletter</a>
+          <a href="#" class="a-links w-fit hover:underline">Exclusive Deals</a>
+        </div>
+      </div>
+      <div class="mx-4 flex flex-col justify-center gap-2 text-lg sm:flex-row sm:justify-between">
+        <p class="sec-heading text-center">QVEE.CO &copy; 2025, All rights reserved</p>
+        <div class="payment-options -mt-1 flex flex-wrap justify-center gap-2">
+          <img src="src/assets/images/visa-icon.svg" alt="" class="h-auto max-w-[58px]" />
+          <img src="src/assets/images/mastercard-icon.svg" alt="" class="h-auto max-w-[58px]" />
+          <img src="src/assets/images/paypal-icon.svg" alt="" class="h-auto max-w-[58px]" />
+          <img src="src/assets/images/apple-pay-icon.svg" alt="" class="h-auto max-w-[58px]" />
+          <img src="src/assets/images/google-pay-icon.svg" alt="" class="h-auto max-w-[58px]" />
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/scripts/category.js"></script>
+    <script type="module" src="/src/scripts/swiper.js"></script>
+  </body>
+</html>
