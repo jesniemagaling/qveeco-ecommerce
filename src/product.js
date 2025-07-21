@@ -5,6 +5,7 @@ export const products = [
     name: 'Cropped Tech Bomber – Black',
     rating: 5,
     type: 'jacket',
+    size: ['Medium', 'Large', 'X-large', 'XX-large'],
     priceCents: 11000,
   },
   {
@@ -13,6 +14,7 @@ export const products = [
     name: 'Everyday Shirt – Beige',
     rating: 4,
     type: 'shirts',
+    size: ['Small', 'Medium', 'Large', 'X-large'],
     priceCents: 4200,
   },
   {
@@ -21,14 +23,16 @@ export const products = [
     name: 'Soft Knit Cardigan – Teal',
     rating: 5,
     type: 'knitted',
+    size: ['Small', 'Medium', 'Large', 'X-large'],
     priceCents: 7000,
   },
   {
     id: 'PT-DNM-LGT-028',
-    image: '/src/assets/images/beige-trouser.png',
+    image: '/src/assets/images/light-denim-jeans.png',
     name: 'Loose Fit Denim – Light',
     rating: 5,
     type: 'pants',
+    size: ['Small', 'Medium', 'Large', 'X-large', 'XX-large'],
     priceCents: 8200,
   },
   {
@@ -37,6 +41,7 @@ export const products = [
     name: 'Relaxed Sweat Shorts – Grey',
     rating: 5,
     type: 'shorts',
+    size: ['Small', 'Medium', 'Large', 'X-large', 'XX-large'],
     priceCents: 6500,
   },
   {
@@ -45,6 +50,7 @@ export const products = [
     name: 'Boxy Polo Shirt – Black',
     rating: 5,
     type: 'shirts',
+    size: ['Small', 'Medium', 'Large', 'X-large'],
     priceCents: 4200,
   },
   {
@@ -53,6 +59,7 @@ export const products = [
     name: 'Vintage Sweatshirt – Blue',
     rating: 5,
     type: 'outerwear',
+    size: ['Medium', 'Large', 'X-large', 'XX-large'],
     priceCents: 13000,
   },
   {
@@ -61,6 +68,7 @@ export const products = [
     name: 'Varsity Wool – Navy',
     rating: 4,
     type: 'jacket',
+    size: ['Medium', 'Large', 'X-large', 'XX-large'],
     priceCents: 12500,
   },
   {
@@ -69,6 +77,7 @@ export const products = [
     name: 'Retro Mesh Football Jersey – Red',
     rating: 5,
     type: 'shirts',
+    size: ['Small', 'Medium', 'Large', 'X-large'],
     priceCents: 9000,
   },
   {
@@ -77,6 +86,7 @@ export const products = [
     name: 'Vintage Knit Sweater – Multi',
     rating: 5,
     type: 'knitted',
+    size: ['Small', 'Medium', 'Large', 'X-large'],
     priceCents: 11000,
   },
   {
@@ -85,6 +95,7 @@ export const products = [
     name: 'Classic Sweatpants – Grey',
     rating: 5,
     type: 'pants',
+    size: ['Small', 'Medium', 'Large', 'X-large', 'XX-large'],
     priceCents: 7000,
   },
   {
@@ -93,6 +104,7 @@ export const products = [
     name: 'Denim Shorts – Light Wash',
     rating: 5,
     type: 'shorts',
+    size: ['Small', 'Medium', 'Large', 'X-large'],
     priceCents: 4800,
   },
   {
@@ -101,6 +113,7 @@ export const products = [
     name: 'Resort Collar Polo – Beige',
     rating: 4,
     type: 'shirts',
+    size: ['Small', 'Medium', 'Large', 'X-large'],
     priceCents: 4600,
   },
   {
@@ -109,6 +122,7 @@ export const products = [
     name: 'Essential Zip Hoodie – Grey',
     rating: 4,
     type: 'outerwear',
+    size: ['Small', 'Medium', 'Large', 'X-large', 'XX-large'],
     priceCents: 4600,
   },
   {
@@ -117,6 +131,7 @@ export const products = [
     name: 'Classic Leather Jacket – Black',
     rating: 4,
     type: 'jacket',
+    size: ['Medium', 'Large', 'X-large', 'XX-large'],
     priceCents: 18500,
   },
   {
@@ -125,6 +140,7 @@ export const products = [
     name: 'Classic Knit Vest – Olive',
     rating: 4,
     type: 'knitted',
+    size: ['Small', 'Medium', 'Large', 'X-large'],
     priceCents: 6000,
   },
   {
@@ -133,6 +149,7 @@ export const products = [
     name: 'Classic Vintage Denim – Grey',
     rating: 5,
     type: 'pants',
+    size: ['Small', 'Medium', 'Large', 'X-large'],
     priceCents: 9000,
   },
   {
@@ -141,6 +158,7 @@ export const products = [
     name: 'Soft Chino Shorts – Beige',
     rating: 4,
     type: 'shorts',
+    size: ['Small', 'Medium', 'Large', 'X-large'],
     priceCents: 4500,
   },
   {
@@ -149,6 +167,7 @@ export const products = [
     name: 'Essential Cardigan – Beige',
     rating: 5,
     type: 'knitted',
+    size: ['Small', 'Medium', 'Large', 'X-large'],
     priceCents: 6800,
   },
   {
@@ -157,6 +176,7 @@ export const products = [
     name: 'Coogi-Style Knit Sweater',
     rating: 5,
     type: 'knitted',
+    size: ['Small', 'Medium', 'Large', 'X-large'],
     priceCents: 1100,
   },
   {
@@ -165,6 +185,7 @@ export const products = [
     name: 'Tapered Trousers – Beige',
     rating: 4,
     type: 'pants',
+    size: ['Small', 'Medium', 'Large', 'X-large'],
     priceCents: 6500,
   },
 ];
@@ -176,6 +197,7 @@ export const newArrival = [
     name: 'Varsity Wool – Navy',
     rating: 4,
     type: 'jacket',
+    size: ['Medium', 'Large', 'X-large', 'XX-large'],
     priceCents: 12500,
   },
   {
@@ -184,6 +206,7 @@ export const newArrival = [
     name: 'Boxy Polo Shirt – Black',
     rating: 5,
     type: 'shirts',
+    size: ['Small', 'Medium', 'Large', 'X-large'],
     priceCents: 4200,
   },
   {
@@ -192,6 +215,7 @@ export const newArrival = [
     name: 'Denim Shorts – Light Wash',
     rating: 5,
     type: 'shorts',
+    size: ['Small', 'Medium', 'Large', 'X-large'],
     priceCents: 4800,
   },
   {
@@ -200,6 +224,7 @@ export const newArrival = [
     name: 'Coogi-Style Knit Sweater',
     rating: 5,
     type: 'knitted',
+    size: ['Small', 'Medium', 'Large', 'X-large'],
     priceCents: 11000,
   },
 ];
@@ -211,7 +236,17 @@ export const topSelling = [
     name: 'Retro Mesh Football Jersey – Red',
     rating: 5,
     type: 'shirts',
+    size: ['Small', 'Medium', 'Large', 'X-large'],
     priceCents: 9000,
+  },
+  {
+    id: 'SW-SFT-BLU-041',
+    image: '/src/assets/images/blue-sweatshirt.png',
+    name: 'Vintage Sweatshirt – Blue',
+    rating: 5,
+    size: ['Medium', 'Large', 'X-large', 'XX-large'],
+    type: 'outerwear',
+    priceCents: 13000,
   },
   {
     id: 'KN-CDGN-BGE-013',
@@ -219,15 +254,8 @@ export const topSelling = [
     name: 'Essential Cardigan – Beige',
     rating: 5,
     type: 'knitted',
+    size: ['Small', 'Medium', 'Large', 'X-large'],
     priceCents: 6800,
-  },
-  {
-    id: 'SW-SFT-BLU-041',
-    image: '/src/assets/images/blue-sweatshirt.png',
-    name: 'Vintage Sweatshirt – Blue',
-    rating: 5,
-    type: 'outerwear',
-    priceCents: 13000,
   },
   {
     id: 'KN-VINT-MUL-016',
@@ -235,6 +263,7 @@ export const topSelling = [
     name: 'Vintage Knit Sweater – Multi',
     rating: 5,
     type: 'knitted',
+    size: ['Small', 'Medium', 'Large', 'X-large'],
     priceCents: 11000,
   },
 ];

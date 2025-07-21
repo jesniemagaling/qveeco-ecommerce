@@ -33,7 +33,7 @@ newArrival.forEach((product) => {
       <div class="flex items-center gap-3.5 py-1">
         <img src="/src/assets/images/${product.rating}-star.svg" class="" alt="" />
         <p class="ff-primary text-normal pt-1 text-black">
-          ${product.rating}.0/<span class="text-normal text-black/80">5</span>
+          ${product.rating}.0/<span class="text-normal text-black/60">5</span>
         </p>
       </div>
       <strong class="heading-2">$${product.priceCents / 100}</strong>
@@ -56,7 +56,7 @@ topSelling.forEach((product) => {
       <div class="flex items-center gap-3.5 py-1">
         <img src="/src/assets/images/${product.rating}-star.svg" class="" alt="" />
         <p class="ff-primary text-normal pt-1 text-black">
-          ${product.rating}.0/<span class="text-normal text-black/80">5</span>
+          ${product.rating}.0/<span class="text-normal text-black/60">5</span>
         </p>
       </div>
       <strong class="heading-2">$${product.priceCents / 100}</strong>

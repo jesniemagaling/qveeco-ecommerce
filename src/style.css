@@ -31,12 +31,20 @@
     color: black;
     overflow-x: hidden;
   }
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
 }
 
 @layer components {
   .ff-primary {
     font-family: var(--font-spartan);
     @apply tracking-tighter;
+  }
+
+  .sec-heading {
+    font-family: var(--font-spartan);
+    @apply tracking-tighter text-black/60;
   }
 
   .primary-heading {
@@ -46,7 +54,7 @@
 
   .company-name {
     font-family: var(--font-spartan);
-    @apply text-2xl font-black tracking-tighter text-black md:text-3xl lg:text-[32px];
+    @apply text-3xl font-black tracking-tighter text-black md:text-3xl lg:text-[32px];
   }
 
   .heading-1 {
@@ -54,7 +62,7 @@
     @apply text-4xl font-black tracking-tighter text-black sm:text-3xl md:text-4xl lg:text-5xl;
   }
 
-  .container {
+  .container-section {
     max-width: 1440px;
     width: 100%;
     margin: 0 1rem;
@@ -68,12 +76,12 @@
 
   .heading-3 {
     font-family: var(--font-inter);
-    @apply text-base text-black/80 sm:text-lg;
+    @apply text-base text-black/60 sm:text-lg;
   }
 
   .a-links {
     font-family: var(--font-spartan);
-    @apply text-lg font-normal text-black/80;
+    @apply text-lg font-normal text-black/60;
   }
 
   .btn-primary {
