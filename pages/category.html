@@ -11,7 +11,7 @@
     <title>qvee</title>
   </head>
   <body>
-    <header class="fixed z-10 w-full bg-white px-4 py-6 lg:px-8">
+    <header class="fixed z-10 w-full bg-white px-4 py-6 lg:px-14">
       <div class="mx-auto max-w-[1920px]">
         <nav class="relative flex items-center justify-between bg-white">
           <div class="mobile-toggle flex items-center lg:hidden">
@@ -77,9 +77,9 @@
             <a href="#"><img src="/src/assets/images/profile-icon.svg" alt="" class="w-8" /></a>
           </div>
         </nav>
-        <div class="breadcrumbs mt-6 text-lg">
+        <div class="breadcrumbs relative mt-6 text-lg">
           <ul class="ff-primary text-black">
-            <li><a href="#" class="text-black/60">Home</a></li>
+            <li><a href="homepage.html" class="text-black/60">Home</a></li>
             <li>Products</li>
           </ul>
         </div>
@@ -87,13 +87,25 @@
     </header>
 
     <section>
-      <div class="my-40 grid grid-cols-[280px_1fr] px-8">
-        <aside>
-          <button class="mb-8 flex w-full items-center justify-between">
-            <h2 class="heading-2">Filters</h2>
-            <img src="/src/assets/images/filter-icon.svg" alt="" />
+      <div class="relative my-40 grid px-4 md:static md:grid-cols-[280px_1fr] lg:px-14">
+        <div
+          id="filterOverlay"
+          class="fixed inset-0 z-0 hidden bg-black/50 backdrop-blur-sm transition-opacity duration-600 md:hidden"
+        ></div>
+        <aside
+          id="filterAside"
+          class="fixed top-34.5 left-0 z-10 h-[calc(100vh-8.625rem)] w-full overflow-y-auto rounded-2xl p-6 md:static md:z-0 md:h-auto md:rounded-none md:p-0"
+        >
+          <button
+            class="js-filter mb-6 ml-auto flex w-fit items-center justify-between md:mb-8 md:w-full"
+          >
+            <h2 class="heading-2 js-filter-heading hidden md:block">Filters</h2>
+            <img src="/src/assets/images/filter-icon.svg" alt="" id="filterIcon" class="ml-auto" />
+            <img src="/src/assets/images/close-icon.svg" alt="" class="hidden" id="closeIcon" />
           </button>
-          <div class="grid gap-6">
+          <div
+            class="js-collapse grid max-h-0 gap-6 overflow-hidden transition-all duration-400 ease-in-out md:overflow-visible"
+          >
             <div class="grid gap-2 text-lg">
               <button class="flex w-full items-center justify-between">
                 <p class="sec-heading">All</p>
@@ -121,17 +133,24 @@
               </button>
             </div>
             <div class="grid gap-2">
-              <button class="flex w-full items-center justify-between">
+              <button class="js-price flex w-full items-center justify-between">
                 <h2 class="heading-2">Price</h2>
-                <img src="/src/assets/images/dropdown-icon.svg" alt="" />
+                <img
+                  src="/src/assets/images/dropdown-icon.svg"
+                  alt=""
+                  id="priceDropdownIcon"
+                  class="transition-transform duration-200"
+                />
               </button>
-              <div class="flex flex-col gap-2">
+              <div
+                class="js-price-collapse flex max-h-96 flex-col gap-2 overflow-hidden transition-all duration-300 ease-in-out"
+              >
                 <input
                   type="range"
                   min="0"
                   max="100"
                   value="40"
-                  class="range text-black-100 [--range-bg:black] [--range-fill:0] [--range-thumb:white]"
+                  class="range text-black-100 w-full [--range-bg:black] [--range-fill:0] [--range-thumb:white]"
                 />
                 <label
                   for="price-range"
@@ -143,11 +162,18 @@
               </div>
             </div>
             <div class="grid gap-2">
-              <button class="flex w-full items-center justify-between">
+              <button class="js-color flex w-full items-center justify-between">
                 <h2 class="heading-2">Colors</h2>
-                <img src="/src/assets/images/dropdown-icon.svg" alt="" />
+                <img
+                  src="/src/assets/images/dropdown-icon.svg"
+                  alt=""
+                  id="colorDropdownIcon"
+                  class="transition-transform duration-200"
+                />
               </button>
-              <div class="flex gap-2">
+              <div
+                class="js-color-collapse flex max-h-96 gap-2 overflow-hidden transition-all duration-300 ease-in-out"
+              >
                 <button
                   class="h-10 w-10 rounded-full bg-black ring-1 ring-black/20 ring-inset"
                 ></button>
@@ -169,11 +195,18 @@
               </div>
             </div>
             <div class="grid gap-2">
-              <button class="flex w-full items-center justify-between">
+              <button class="js-size flex w-full items-center justify-between">
                 <h2 class="heading-2">Size</h2>
-                <img src="/src/assets/images/dropdown-icon.svg" alt="" />
+                <img
+                  src="/src/assets/images/dropdown-icon.svg"
+                  alt=""
+                  id="sizeDropdownIcon"
+                  class="transition-transform duration-200"
+                />
               </button>
-              <div class="flex flex-wrap gap-2">
+              <div
+                class="js-size-collapse flex max-h-96 flex-wrap gap-2 overflow-hidden transition-all duration-300 ease-in-out"
+              >
                 <button class="rounded-full px-6 py-2 hover:bg-black hover:text-white">
                   Small
                 </button>
@@ -189,11 +222,18 @@
               </div>
             </div>
             <div class="grid gap-2">
-              <button class="flex w-full items-center justify-between">
+              <button class="js-style flex w-full items-center justify-between">
                 <h2 class="heading-2">Dress Style</h2>
-                <img src="/src/assets/images/dropdown-icon.svg" alt="" />
+                <img
+                  src="/src/assets/images/dropdown-icon.svg"
+                  alt=""
+                  id="styleDropdownIcon"
+                  class="transition-transform duration-200"
+                />
               </button>
-              <div class="flex flex-wrap gap-2 text-lg">
+              <div
+                class="js-style-collapse flex max-h-96 flex-wrap gap-2 overflow-hidden text-lg transition-all duration-300 ease-in-out"
+              >
                 <button class="flex w-full items-center justify-between">
                   <p class="sec-heading">Casual</p>
                   <img src="/src/assets/images/right-btn.svg" alt="" />
@@ -217,13 +257,15 @@
         </aside>
         <main>
           <section>
-            <div class="pl-8">
-              <div class="flex items-center justify-between">
-                <h1 class="ff-primary text-left text-4xl font-bold">All Products</h1>
-                <p class="ff-primary text-black/60">Showing 10 of 100 products</p>
+            <div class="md:pl-8">
+              <div class="flex max-w-2xs items-center justify-between md:max-w-full">
+                <h1 class="ff-primary text-left text-2xl font-bold md:text-4xl">All Products</h1>
+                <p class="ff-primary my-auto text-sm text-black/60 md:text-base">
+                  Showing 10 of 100 products
+                </p>
               </div>
               <div
-                class="js-category mt-4 grid grid-cols-1 place-items-center gap-6 px-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+                class="js-category mt-4 grid grid-cols-1 place-items-center gap-6 px-4 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3"
               ></div>
             </div>
           </section>

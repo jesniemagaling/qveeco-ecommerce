@@ -76,7 +76,7 @@
 
   .heading-2 {
     font-family: var(--font-spartan);
-    @apply text-xl font-bold tracking-tighter text-black md:text-2xl;
+    @apply text-xl font-bold text-black md:text-2xl;
   }
 
   .heading-3 {
