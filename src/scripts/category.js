@@ -1,53 +1,76 @@
 import { products } from './utils/product';
 
+// Select DOM elements
 const filterBtn = document.querySelector('.js-filter');
 const filterHeading = document.querySelector('.js-filter-heading');
 const filterCollapse = document.querySelector('.js-collapse');
-const priceBtn = document.querySelector('.js-price');
-const priceCollapse = document.querySelector('.js-price-collapse');
-const colorBtn = document.querySelector('.js-color');
-const colorCollapse = document.querySelector('.js-color-collapse');
-const sizeBtn = document.querySelector('.js-size');
-const sizeCollapse = document.querySelector('.js-size-collapse');
-const styleBtn = document.querySelector('.js-style');
-const styleCollapse = document.querySelector('.js-style-collapse');
-const priceDropdown = document.getElementById('priceDropdownIcon');
-const colorDropdown = document.getElementById('colorDropdownIcon');
-const sizeDropdown = document.getElementById('sizeDropdownIcon');
-const styleDropdown = document.getElementById('styleDropdownIcon');
+
 const filterIcon = document.getElementById('filterIcon');
 const closeIcon = document.getElementById('closeIcon');
 const filterAside = document.getElementById('filterAside');
 const filterOverlay = document.getElementById('filterOverlay');
 
+const sections = {
+  price: {
+    btn: document.querySelector('.js-price'),
+    collapse: document.querySelector('.js-price-collapse'),
+    icon: document.getElementById('priceDropdownIcon'),
+  },
+  color: {
+    btn: document.querySelector('.js-color'),
+    collapse: document.querySelector('.js-color-collapse'),
+    icon: document.getElementById('colorDropdownIcon'),
+  },
+  size: {
+    btn: document.querySelector('.js-size'),
+    collapse: document.querySelector('.js-size-collapse'),
+    icon: document.getElementById('sizeDropdownIcon'),
+  },
+  style: {
+    btn: document.querySelector('.js-style'),
+    collapse: document.querySelector('.js-style-collapse'),
+    icon: document.getElementById('styleDropdownIcon'),
+  },
+};
+
+// Mobile filter toggle
 filterBtn.addEventListener('click', () => {
   if (window.innerWidth < 768) {
     filterCollapse.classList.toggle('max-h-0');
     filterCollapse.classList.toggle('max-h-220');
     filterHeading.classList.toggle('hidden');
+
     filterIcon.classList.toggle('hidden');
     closeIcon.classList.toggle('hidden');
+
+    filterAside.classList.toggle('h-0');
+    filterAside.classList.toggle('h-[calc(100vh-8.625rem)]');
     filterAside.classList.toggle('bg-white');
+
     filterBtn.classList.toggle('w-fit');
     filterBtn.classList.toggle('w-full');
+
     filterOverlay.classList.toggle('hidden');
     filterOverlay.classList.toggle('z-0');
     filterOverlay.classList.toggle('z-10');
   }
 });
 
-function setupToggle(button, collapse, icon) {
-  button.addEventListener('click', () => {
+// Section toggle
+function setupToggle({ btn, collapse, icon }) {
+  btn.addEventListener('click', () => {
     collapse.classList.toggle('max-h-0');
     collapse.classList.toggle('max-h-96');
     icon.classList.toggle('rotate-180');
   });
 }
 
-setupToggle(priceBtn, priceCollapse, priceDropdown);
-setupToggle(colorBtn, colorCollapse, colorDropdown);
-setupToggle(sizeBtn, sizeCollapse, sizeDropdown);
-setupToggle(styleBtn, styleCollapse, styleDropdown);
+sections.color.btn.addEventListener('click', () => {
+  sections.color.collapse.classList.toggle('py-2');
+});
+
+// Initialize all sections
+Object.values(sections).forEach(setupToggle);
 
 // all products
 let categoryHTML = '';

@@ -36,6 +36,7 @@
               >
                 <img src="/src/assets/images/search-icon.svg" alt="" />
                 <input
+                  id="search"
                   type="search"
                   required
                   placeholder="Search"
@@ -71,8 +72,9 @@
           <div class="nav-info relative flex items-center gap-4">
             <a href="#"><img src="/src/assets/images/cart-icon.svg" alt="" class="w-8" /></a>
             <span
+              id="cartCount"
               class="absolute -top-1.5 left-4 rounded-full bg-black px-1.5 py-0.5 text-xs text-white"
-              >3</span
+              >0</span
             >
             <a href="#"><img src="/src/assets/images/profile-icon.svg" alt="" class="w-8" /></a>
           </div>
@@ -94,7 +96,7 @@
         ></div>
         <aside
           id="filterAside"
-          class="fixed top-34.5 left-0 z-10 h-[calc(100vh-8.625rem)] w-full overflow-y-auto rounded-2xl p-6 md:static md:z-0 md:h-auto md:rounded-none md:p-0"
+          class="fixed top-34.5 left-0 z-10 h-0 w-full overflow-y-auto rounded-2xl p-6 md:static md:z-0 md:h-auto md:rounded-none md:p-0"
         >
           <button
             class="js-filter mb-6 ml-auto flex w-fit items-center justify-between md:mb-8 md:w-full"
@@ -104,34 +106,43 @@
             <img src="/src/assets/images/close-icon.svg" alt="" class="hidden" id="closeIcon" />
           </button>
           <div
-            class="js-collapse grid max-h-0 gap-6 overflow-hidden transition-all duration-400 ease-in-out md:overflow-visible"
+            class="js-collapse grid max-h-0 gap-4 overflow-hidden transition-all duration-200 ease-in-out md:overflow-visible"
           >
-            <div class="grid gap-2 text-lg">
+            <form class="grid gap-2 text-lg">
+              <div class="flex w-full items-center justify-between">
+                <label for="all" class="sec-heading">All</label>
+                <input
+                  type="checkbox"
+                  checked
+                  class="checkbox checkbox-sm checkbox-neutral"
+                  id="allItems"
+                />
+              </div>
               <button class="flex w-full items-center justify-between">
-                <p class="sec-heading">All</p>
-                <img src="/src/assets/images/right-btn.svg" alt="" />
+                <label for="jackets" class="sec-heading">Jackets</label>
+                <input type="checkbox" class="checkbox checkbox-sm checkbox-neutral" id="jackets" />
               </button>
               <button class="flex w-full items-center justify-between">
-                <p class="sec-heading">Jackets</p>
-                <img src="/src/assets/images/right-btn.svg" alt="" />
+                <label for="knitted" class="sec-heading">Knitted</label>
+                <input type="checkbox" class="checkbox checkbox-sm checkbox-neutral" id="knitted" />
               </button>
               <button class="flex w-full items-center justify-between">
-                <p class="sec-heading">Knitted</p>
-                <img src="/src/assets/images/right-btn.svg" alt="" />
+                <label for="pants" class="sec-heading">Pants</label>
+                <input type="checkbox" class="checkbox checkbox-sm checkbox-neutral" id="pants" />
               </button>
               <button class="flex w-full items-center justify-between">
-                <p class="sec-heading">Pants</p>
-                <img src="/src/assets/images/right-btn.svg" alt="" />
+                <label for="shorts" class="sec-heading">Shorts</label>
+                <input type="checkbox" class="checkbox checkbox-sm checkbox-neutral" id="shorts" />
               </button>
               <button class="flex w-full items-center justify-between">
-                <p class="sec-heading">Shorts</p>
-                <img src="/src/assets/images/right-btn.svg" alt="" />
+                <label for="outerwear" class="sec-heading">All</label>
+                <input
+                  type="checkbox"
+                  class="checkbox checkbox-sm checkbox-neutral"
+                  id="outerwear"
+                />
               </button>
-              <button class="flex w-full items-center justify-between">
-                <p class="sec-heading">Outerwear</p>
-                <img src="/src/assets/images/right-btn.svg" alt="" />
-              </button>
-            </div>
+            </form>
             <div class="grid gap-2">
               <button class="js-price flex w-full items-center justify-between">
                 <h2 class="heading-2">Price</h2>
@@ -172,26 +183,50 @@
                 />
               </button>
               <div
-                class="js-color-collapse flex max-h-96 gap-2 overflow-hidden transition-all duration-300 ease-in-out"
+                class="js-color-collapse flex max-h-96 gap-2 overflow-hidden px-1 py-2 transition-all duration-300 ease-in-out"
               >
-                <button
-                  class="h-10 w-10 rounded-full bg-black ring-1 ring-black/20 ring-inset"
-                ></button>
-                <button
-                  class="h-10 w-10 rounded-full bg-white ring-1 ring-black/60 ring-inset"
-                ></button>
-                <button
-                  class="h-10 w-10 rounded-full bg-[#EECFBD] ring-1 ring-black/20 ring-inset"
-                ></button>
-                <button
-                  class="h-10 w-10 rounded-full bg-blue-500 ring-1 ring-black/20 ring-inset"
-                ></button>
-                <button
-                  class="h-10 w-10 rounded-full bg-red-800 ring-1 ring-black/20 ring-inset"
-                ></button>
-                <button
-                  class="h-10 w-10 rounded-full bg-gray-500 ring-1 ring-black/20 ring-inset"
-                ></button>
+                <label class="relative cursor-pointer">
+                  <input type="radio" name="color" value="purple" class="peer hidden" />
+                  <span
+                    class="block h-8 w-8 rounded-full bg-violet-400 peer-checked:ring-2 peer-checked:ring-black/80 peer-checked:ring-offset-2"
+                  ></span>
+                </label>
+                <label class="relative cursor-pointer">
+                  <input type="radio" name="color" value="red" class="peer hidden" />
+                  <span
+                    class="block h-8 w-8 rounded-full bg-red-600 peer-checked:ring-2 peer-checked:ring-black/80 peer-checked:ring-offset-2"
+                  ></span>
+                </label>
+                <label class="relative cursor-pointer">
+                  <input type="radio" name="color" value="black" class="peer hidden" />
+                  <span
+                    class="block h-8 w-8 rounded-full bg-black peer-checked:ring-2 peer-checked:ring-black/80 peer-checked:ring-offset-2"
+                  ></span>
+                </label>
+                <label class="relative cursor-pointer">
+                  <input type="radio" name="color" value="grey" class="peer hidden" />
+                  <span
+                    class="block h-8 w-8 rounded-full bg-stone-400 peer-checked:ring-2 peer-checked:ring-black/80 peer-checked:ring-offset-2"
+                  ></span>
+                </label>
+                <label class="relative cursor-pointer">
+                  <input type="radio" name="color" value="beige" class="peer hidden" />
+                  <span
+                    class="block h-8 w-8 rounded-full bg-zinc-400 peer-checked:ring-2 peer-checked:ring-black/80 peer-checked:ring-offset-2"
+                  ></span>
+                </label>
+                <label class="relative cursor-pointer">
+                  <input type="radio" name="color" value="green" class="peer hidden" />
+                  <span
+                    class="block h-8 w-8 rounded-full bg-emerald-800 peer-checked:ring-2 peer-checked:ring-black/80 peer-checked:ring-offset-2"
+                  ></span>
+                </label>
+                <label class="relative cursor-pointer">
+                  <input type="radio" name="color" value="blue" class="peer hidden" />
+                  <span
+                    class="block h-8 w-8 rounded-full bg-blue-400 peer-checked:ring-2 peer-checked:ring-black/80 peer-checked:ring-offset-2"
+                  ></span>
+                </label>
               </div>
             </div>
             <div class="grid gap-2">
@@ -207,18 +242,46 @@
               <div
                 class="js-size-collapse flex max-h-96 flex-wrap gap-2 overflow-hidden transition-all duration-300 ease-in-out"
               >
-                <button class="rounded-full px-6 py-2 hover:bg-black hover:text-white">
-                  Small
-                </button>
-                <button class="rounded-full px-6 py-2 hover:bg-black hover:text-white">
-                  Medium
-                </button>
-                <button class="rounded-full px-6 py-2 hover:bg-black hover:text-white">
-                  Large
-                </button>
-                <button class="rounded-full px-6 py-2 hover:bg-black hover:text-white">
-                  XX-Large
-                </button>
+                <label>
+                  <input type="radio" name="size" value="small" class="peer sr-only" />
+                  <span
+                    class="inline-block cursor-pointer rounded-full px-4 py-2 text-sm text-black transition-all duration-200 peer-checked:bg-black peer-checked:text-white hover:bg-black hover:text-white"
+                  >
+                    Small
+                  </span>
+                </label>
+                <label>
+                  <input type="radio" name="size" value="medium" class="peer sr-only" />
+                  <span
+                    class="inline-block cursor-pointer rounded-full px-4 py-2 text-sm text-black transition-all duration-200 peer-checked:bg-black peer-checked:text-white hover:bg-black hover:text-white"
+                  >
+                    Medium
+                  </span>
+                </label>
+                <label>
+                  <input type="radio" name="size" value="large" class="peer sr-only" />
+                  <span
+                    class="inline-block cursor-pointer rounded-full px-4 py-2 text-sm text-black transition-all duration-200 peer-checked:bg-black peer-checked:text-white hover:bg-black hover:text-white"
+                  >
+                    Large
+                  </span>
+                </label>
+                <label>
+                  <input type="radio" name="size" value="x-large" class="peer sr-only" />
+                  <span
+                    class="inline-block cursor-pointer rounded-full px-4 py-2 text-sm text-black transition-all duration-200 peer-checked:bg-black peer-checked:text-white hover:bg-black hover:text-white"
+                  >
+                    X-Large
+                  </span>
+                </label>
+                <label>
+                  <input type="radio" name="size" value="xx-large" class="peer sr-only" />
+                  <span
+                    class="inline-block cursor-pointer rounded-full px-4 py-2 text-sm text-black transition-all duration-200 peer-checked:bg-black peer-checked:text-white hover:bg-black hover:text-white"
+                  >
+                    XX-Large
+                  </span>
+                </label>
               </div>
             </div>
             <div class="grid gap-2">
@@ -234,25 +297,48 @@
               <div
                 class="js-style-collapse flex max-h-96 flex-wrap gap-2 overflow-hidden text-lg transition-all duration-300 ease-in-out"
               >
-                <button class="flex w-full items-center justify-between">
-                  <p class="sec-heading">Casual</p>
-                  <img src="/src/assets/images/right-btn.svg" alt="" />
-                </button>
-                <button class="flex w-full items-center justify-between">
-                  <p class="sec-heading">Formal</p>
-                  <img src="/src/assets/images/right-btn.svg" alt="" />
-                </button>
-                <button class="flex w-full items-center justify-between">
-                  <p class="sec-heading">Modern</p>
-                  <img src="/src/assets/images/right-btn.svg" alt="" />
-                </button>
-                <button class="flex w-full items-center justify-between">
-                  <p class="sec-heading">Streetwear</p>
-                  <img src="/src/assets/images/right-btn.svg" alt="" />
-                </button>
+                <div class="flex w-full items-center justify-between">
+                  <label for="casual" class="sec-heading">Casual</label>
+                  <input
+                    type="checkbox"
+                    class="checkbox checkbox-sm checkbox-neutral"
+                    id="casual"
+                  />
+                </div>
+                <div class="flex w-full items-center justify-between">
+                  <label for="formal" class="sec-heading">Formal</label>
+                  <input
+                    type="checkbox"
+                    class="checkbox checkbox-sm checkbox-neutral"
+                    id="formal"
+                  />
+                </div>
+                <div class="flex w-full items-center justify-between">
+                  <label for="modern" class="sec-heading">Modern</label>
+                  <input
+                    type="checkbox"
+                    class="checkbox checkbox-sm checkbox-neutral"
+                    id="modern"
+                  />
+                </div>
+                <div class="flex w-full items-center justify-between">
+                  <label for="streetwear" class="sec-heading">Streetwear</label>
+                  <input
+                    type="checkbox"
+                    class="checkbox checkbox-sm checkbox-neutral"
+                    id="streetwear"
+                  />
+                </div>
               </div>
             </div>
-            <button class="btn-primary">Apply Filter</button>
+            <div class="grid gap-4">
+              <button class="btn-primary">Apply Filter</button>
+              <button
+                class="mx-auto w-fit border-b-2 border-transparent p-1 text-black/60 hover:border-b-stone-700"
+              >
+                Clear Filter
+              </button>
+            </div>
           </div>
         </aside>
         <main>

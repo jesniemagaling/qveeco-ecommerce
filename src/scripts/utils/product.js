@@ -7,6 +7,7 @@ export const products = [
     category: 'Streetwear',
     type: 'jacket',
     size: ['Medium', 'Large', 'X-large', 'XX-large'],
+    color: 'black',
     priceCents: 11000,
   },
   {
@@ -17,6 +18,7 @@ export const products = [
     category: 'Casual',
     type: 'shirts',
     size: ['Small', 'Medium', 'Large', 'X-large'],
+    color: 'beige',
     priceCents: 4200,
   },
   {
@@ -27,6 +29,7 @@ export const products = [
     category: 'Modern',
     type: 'knitted',
     size: ['Small', 'Medium', 'Large', 'X-large'],
+    color: 'green',
     priceCents: 7000,
   },
   {
@@ -37,6 +40,7 @@ export const products = [
     category: 'casual',
     type: 'pants',
     size: ['Small', 'Medium', 'Large', 'X-large', 'XX-large'],
+    color: 'blue',
     priceCents: 8200,
   },
   {
@@ -47,6 +51,7 @@ export const products = [
     category: 'Streetwear',
     type: 'shorts',
     size: ['Small', 'Medium', 'Large', 'X-large', 'XX-large'],
+    color: 'grey',
     priceCents: 6500,
   },
   {
@@ -57,6 +62,7 @@ export const products = [
     category: 'Modern',
     type: 'shirts',
     size: ['Small', 'Medium', 'Large', 'X-large'],
+    color: 'black',
     priceCents: 4200,
   },
   {
@@ -67,6 +73,7 @@ export const products = [
     category: 'Casual',
     type: 'outerwear',
     size: ['Medium', 'Large', 'X-large', 'XX-large'],
+    color: 'blue',
     priceCents: 13000,
   },
   {
@@ -77,6 +84,7 @@ export const products = [
     category: 'Streetwear',
     type: 'jacket',
     size: ['Medium', 'Large', 'X-large', 'XX-large'],
+    color: 'blue',
     priceCents: 12500,
   },
   {
@@ -87,6 +95,7 @@ export const products = [
     category: 'Streetwear',
     type: 'shirts',
     size: ['Small', 'Medium', 'Large', 'X-large'],
+    color: 'red',
     priceCents: 9000,
   },
   {
@@ -97,6 +106,7 @@ export const products = [
     category: 'Casual',
     type: 'knitted',
     size: ['Small', 'Medium', 'Large', 'X-large'],
+    color: 'grey',
     priceCents: 11000,
   },
   {
@@ -107,6 +117,7 @@ export const products = [
     category: 'Streetwear',
     type: 'pants',
     size: ['Small', 'Medium', 'Large', 'X-large', 'XX-large'],
+    color: 'grey',
     priceCents: 7000,
   },
   {
@@ -117,6 +128,7 @@ export const products = [
     category: 'Casual',
     type: 'shorts',
     size: ['Small', 'Medium', 'Large', 'X-large'],
+    color: 'blue',
     priceCents: 4800,
   },
   {
@@ -127,6 +139,7 @@ export const products = [
     category: 'Casual',
     type: 'shirts',
     size: ['Small', 'Medium', 'Large', 'X-large'],
+    color: 'beige',
     priceCents: 4600,
   },
   {
@@ -137,6 +150,7 @@ export const products = [
     category: 'Streetwear',
     type: 'outerwear',
     size: ['Small', 'Medium', 'Large', 'X-large', 'XX-large'],
+    color: 'grey',
     priceCents: 4600,
   },
   {
@@ -147,6 +161,7 @@ export const products = [
     category: 'Streetwear',
     type: 'jacket',
     size: ['Medium', 'Large', 'X-large', 'XX-large'],
+    color: 'black',
     priceCents: 18500,
   },
   {
@@ -157,6 +172,7 @@ export const products = [
     category: 'Casual',
     type: 'knitted',
     size: ['Small', 'Medium', 'Large', 'X-large'],
+    color: 'green',
     priceCents: 6000,
   },
   {
@@ -167,6 +183,7 @@ export const products = [
     category: 'Modern',
     type: 'pants',
     size: ['Small', 'Medium', 'Large', 'X-large'],
+    color: 'grey',
     priceCents: 9000,
   },
   {
@@ -177,6 +194,7 @@ export const products = [
     category: 'Casual',
     type: 'shorts',
     size: ['Small', 'Medium', 'Large', 'X-large'],
+    color: 'beige',
     priceCents: 4500,
   },
   {
@@ -187,7 +205,19 @@ export const products = [
     category: 'Modern',
     type: 'knitted',
     size: ['Small', 'Medium', 'Large', 'X-large'],
+    color: 'beige',
     priceCents: 6800,
+  },
+  {
+    id: 'PO-BOX-PUR-037',
+    image: '/src/assets/images/purple-polo.png',
+    name: 'Oversized Polo Shirt – Purple',
+    rating: 4,
+    category: 'Streetwear',
+    type: 'shirts',
+    size: ['Small', 'Medium', 'Large'],
+    color: 'purple',
+    priceCents: 4800,
   },
   {
     id: 'KN-COOG-MIX-017',
@@ -197,6 +227,7 @@ export const products = [
     category: 'Streetwear',
     type: 'knitted',
     size: ['Small', 'Medium', 'Large', 'X-large'],
+    color: 'black',
     priceCents: 1100,
   },
   {
@@ -207,7 +238,41 @@ export const products = [
     category: 'Formal',
     type: 'pants',
     size: ['Small', 'Medium', 'Large', 'X-large'],
+    color: 'beige',
     priceCents: 6500,
+  },
+  {
+    id: 'KN-VEST-RED-014',
+    image: '/src/assets/images/red-knit-vest.png',
+    name: 'Textured Knit Vest – Red',
+    rating: 4,
+    category: 'Casual',
+    type: 'knitted',
+    size: ['Small', 'Medium', 'Large'],
+    color: 'red',
+    priceCents: 5800,
+  },
+  {
+    id: 'SW-HVY-BGE-040',
+    image: '/src/assets/images/beige-sweatshirt.png',
+    name: 'Heavyweight Sweatshirt – Beige',
+    rating: 5,
+    category: 'Modern',
+    type: 'outerwear',
+    size: ['Medium', 'Large', 'X-large'],
+    color: 'beige',
+    priceCents: 6000,
+  },
+  {
+    id: 'TS-CLS-PUR-006',
+    image: '/src/assets/images/purple-shirt.png',
+    name: 'Drop Shoulder Shirt – Purple',
+    rating: 4,
+    category: 'Modern',
+    type: 'shirts',
+    size: ['Small', 'Medium', 'Large'],
+    color: 'purple',
+    priceCents: 4500,
   },
 ];
 
@@ -220,6 +285,7 @@ export const newArrival = [
     category: 'Streetwear',
     type: 'jacket',
     size: ['Medium', 'Large', 'X-large', 'XX-large'],
+    color: 'blue',
     priceCents: 12500,
   },
   {
@@ -230,6 +296,7 @@ export const newArrival = [
     category: 'Modern',
     type: 'shirts',
     size: ['Small', 'Medium', 'Large', 'X-large'],
+    color: 'black',
     priceCents: 4200,
   },
   {
@@ -240,6 +307,7 @@ export const newArrival = [
     category: 'Casual',
     type: 'shorts',
     size: ['Small', 'Medium', 'Large', 'X-large'],
+    color: 'blue',
     priceCents: 4800,
   },
   {
@@ -250,6 +318,7 @@ export const newArrival = [
     category: 'Streetwear',
     type: 'knitted',
     size: ['Small', 'Medium', 'Large', 'X-large'],
+    color: 'black',
     priceCents: 11000,
   },
 ];
@@ -263,6 +332,7 @@ export const topSelling = [
     category: 'Streetwear',
     type: 'shirts',
     size: ['Small', 'Medium', 'Large', 'X-large'],
+    color: 'red',
     priceCents: 9000,
   },
   {
@@ -271,8 +341,9 @@ export const topSelling = [
     name: 'Vintage Sweatshirt – Blue',
     rating: 5,
     category: 'Casual',
-    size: ['Medium', 'Large', 'X-large', 'XX-large'],
     type: 'outerwear',
+    size: ['Medium', 'Large', 'X-large', 'XX-large'],
+    color: 'blue',
     priceCents: 13000,
   },
   {
@@ -283,6 +354,7 @@ export const topSelling = [
     category: 'Modern',
     type: 'knitted',
     size: ['Small', 'Medium', 'Large', 'X-large'],
+    color: 'beige',
     priceCents: 6800,
   },
   {
@@ -293,6 +365,7 @@ export const topSelling = [
     category: 'Casual',
     type: 'knitted',
     size: ['Small', 'Medium', 'Large', 'X-large'],
+    color: 'grey',
     priceCents: 11000,
   },
 ];
