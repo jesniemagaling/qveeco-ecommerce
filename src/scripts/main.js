@@ -1,23 +1,12 @@
 import '../style.css';
 import { newArrival, topSelling } from './utils/product';
 import { ratings } from './rating';
+import { initNavbarToggle } from './utils/nav';
+import { formatCurrency } from './utils/money';
 
-const menuTab = document.querySelector('.menu-tab');
-const closeTab = document.querySelector('.close-tab');
-const navTab = document.querySelector('.nav-links');
-
-menuTab.addEventListener('click', () => {
-  menuTab.classList.add('hidden');
-  closeTab.classList.remove('hidden');
-
-  navTab.classList.remove('hidden');
-});
-
-closeTab.addEventListener('click', () => {
-  closeTab.classList.add('hidden');
-  menuTab.classList.remove('hidden');
-
-  navTab.classList.add('hidden');
+// navbar initialization
+document.addEventListener('DOMContentLoaded', () => {
+  initNavbarToggle();
 });
 
 // new arrival page
@@ -36,7 +25,7 @@ newArrival.forEach((product) => {
           ${product.rating}.0/<span class="text-normal text-black/60">5</span>
         </p>
       </div>
-      <strong class="heading-2">$${product.priceCents / 100}</strong>
+      <strong class="heading-2">$${formatCurrency(product.priceCents)}</strong>
     </article>
   `;
 });
@@ -59,7 +48,7 @@ topSelling.forEach((product) => {
           ${product.rating}.0/<span class="text-normal text-black/60">5</span>
         </p>
       </div>
-      <strong class="heading-2">$${product.priceCents / 100}</strong>
+      <strong class="heading-2">$${formatCurrency(product.priceCents)}</strong>
     </article>
   `;
 });

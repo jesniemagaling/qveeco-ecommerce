@@ -1,4 +1,11 @@
 import { products } from './utils/product';
+import { initNavbarToggle } from './utils/nav';
+import { formatCurrency } from './utils/money';
+
+// navbar initialization
+document.addEventListener('DOMContentLoaded', () => {
+  initNavbarToggle();
+});
 
 // Select DOM elements
 const filterBtn = document.querySelector('.js-filter');
@@ -46,6 +53,7 @@ filterBtn.addEventListener('click', () => {
     filterAside.classList.toggle('h-0');
     filterAside.classList.toggle('h-[calc(100vh-8.625rem)]');
     filterAside.classList.toggle('bg-white');
+    filterAside.classList.toggle('overflow-y-auto');
 
     filterBtn.classList.toggle('w-fit');
     filterBtn.classList.toggle('w-full');
@@ -71,26 +79,131 @@ sections.color.btn.addEventListener('click', () => {
 
 // Initialize all sections
 Object.values(sections).forEach(setupToggle);
+// DOM References
+const productsWrapperEl = document.getElementById('productsWrapper');
+const searchInput = document.getElementById('search');
+const priceRangeInput = document.getElementById('priceRange');
+const priceMaxOutput = document.getElementById('priceMax');
+const colorCheckContainer = document.getElementById('colorCheckContainer');
+const sizeContainer = document.getElementById('sizeContainer');
+const typeCheckContainer = document.getElementById('typeCheckContainer');
+const styleCheckContainer = document.getElementById('styleCheckContainer');
+const clearFilterBtn = document.getElementById('clearFilter');
+const productsCountEl = document.getElementById('productsCount');
 
-// all products
-let categoryHTML = '';
+// Render all products initially (sorted by price descending)
+filterProducts();
 
-products.forEach((product) => {
-  categoryHTML += `
+// Helpers
+function getCheckedIds(selector) {
+  return Array.from(document.querySelectorAll(selector))
+    .filter((input) => input.checked)
+    .map((input) => input.id);
+}
+
+function getCheckedValue(container, name) {
+  return container?.querySelector(`input[name="${name}"]:checked`)?.value || '';
+}
+
+function updateProductCount(visible, total) {
+  productsCountEl.textContent =
+    visible === 0 ? 'No products found' : `Showing ${visible} of ${total} products`;
+}
+
+// Create product element
+function createProductElement(product) {
+  const productEl = document.createElement('div');
+  productEl.className = 'product';
+
+  productEl.innerHTML = `
     <article class="cursor-pointer">
       <figure>
         <img src="${product.image}" class="w-full max-w-[460px]" alt="" />
       </figure>
       <h3 class="heading-2 xl:text-xl">${product.name}</h3>
       <div class="flex items-center gap-3.5 py-1">
-        <img src="/src/assets/images/${product.rating}-star.svg" class="" alt="" />
+        <img src="/src/assets/images/${product.rating}-star.svg" alt="" />
         <p class="ff-primary text-normal pt-1 text-black">
           ${product.rating}.0/<span class="text-normal text-black/60">5</span>
         </p>
       </div>
-      <strong class="heading-2 xl:text-xl">$${product.priceCents / 100}</strong>
+      <strong class="heading-2 xl:text-xl">$${formatCurrency(product.priceCents)}</strong>
     </article>
   `;
+
+  return productEl;
+}
+
+// Filter and sort products
+function filterProducts() {
+  const searchTerm = searchInput?.value.trim().toLowerCase() || '';
+  const selectedPrice = parseInt(priceRangeInput?.value, 10) || Infinity;
+  const selectedColor = getCheckedValue(colorCheckContainer, 'color');
+  const selectedSize = getCheckedValue(sizeContainer, 'size');
+  const checkedTypes = getCheckedIds('.type-check');
+  const checkedStyles = getCheckedIds('.style-check');
+
+  let matchedProducts = [];
+
+  products.forEach((product) => {
+    const matches = {
+      search: product.name.toLowerCase().includes(searchTerm),
+      price: product.priceCents <= selectedPrice,
+      type: checkedTypes.length === 0 || checkedTypes.includes(product.type),
+      style: checkedStyles.length === 0 || checkedStyles.includes(product.category),
+      color: !selectedColor || product.color.toLowerCase() === selectedColor.toLowerCase(),
+      size:
+        !selectedSize ||
+        product.size.map((s) => s.toLowerCase()).includes(selectedSize.toLowerCase()),
+    };
+
+    const isVisible = Object.values(matches).every(Boolean);
+    if (isVisible) matchedProducts.push(product);
+  });
+
+  // ✅ Sort from highest to lowest price
+  matchedProducts.sort((a, b) => b.priceCents - a.priceCents);
+
+  // ✅ Re-render visible, sorted products
+  productsWrapperEl.innerHTML = '';
+  matchedProducts.forEach((product) => {
+    const el = createProductElement(product);
+    productsWrapperEl.appendChild(el);
+  });
+
+  updateProductCount(matchedProducts.length, products.length);
+}
+
+// Event Listeners
+searchInput?.addEventListener('input', filterProducts);
+
+priceRangeInput?.addEventListener('input', () => {
+  const priceValue = priceRangeInput.value;
+  if (priceMaxOutput) {
+    priceMaxOutput.textContent = formatCurrency(priceValue);
+  }
+  filterProducts();
 });
 
-document.querySelector('.js-category').innerHTML = categoryHTML;
+typeCheckContainer?.addEventListener('change', filterProducts);
+styleCheckContainer?.addEventListener('change', filterProducts);
+colorCheckContainer?.addEventListener('change', filterProducts);
+sizeContainer?.addEventListener('change', filterProducts);
+
+clearFilterBtn?.addEventListener('click', () => {
+  searchInput.value = '';
+  priceRangeInput.value = priceRangeInput.max;
+  priceMaxOutput.textContent = formatCurrency(priceRangeInput.max);
+
+  document
+    .querySelectorAll('.type-check, .style-check')
+    .forEach((checkbox) => (checkbox.checked = false));
+  document
+    .querySelectorAll('#colorCheckContainer input[name="color"]')
+    .forEach((radio) => (radio.checked = false));
+  document
+    .querySelectorAll('#sizeContainer input[name="size"]')
+    .forEach((radio) => (radio.checked = false));
+
+  filterProducts();
+});

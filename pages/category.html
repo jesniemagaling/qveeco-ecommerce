@@ -89,14 +89,14 @@
     </header>
 
     <section>
-      <div class="relative my-40 grid px-4 md:static md:grid-cols-[280px_1fr] lg:px-14">
+      <div class="relative my-40 grid px-4 md:static md:flex md:min-h-screen lg:px-14">
         <div
           id="filterOverlay"
           class="fixed inset-0 z-0 hidden bg-black/50 backdrop-blur-sm transition-opacity duration-600 md:hidden"
         ></div>
         <aside
           id="filterAside"
-          class="fixed top-34.5 left-0 z-10 h-0 w-full overflow-y-auto rounded-2xl p-6 md:static md:z-0 md:h-auto md:rounded-none md:p-0"
+          class="fixed top-34.5 left-0 z-10 h-0 w-full rounded-2xl p-6 md:static md:z-0 md:h-auto md:w-2xs md:shrink-0 md:rounded-none md:p-0"
         >
           <button
             class="js-filter mb-6 ml-auto flex w-fit items-center justify-between md:mb-8 md:w-full"
@@ -108,40 +108,55 @@
           <div
             class="js-collapse grid max-h-0 gap-4 overflow-hidden transition-all duration-200 ease-in-out md:overflow-visible"
           >
-            <form class="grid gap-2 text-lg">
+            <form class="grid gap-2 text-lg" id="typeCheckContainer">
               <div class="flex w-full items-center justify-between">
-                <label for="all" class="sec-heading">All</label>
+                <label for="jacket" class="sec-heading">Jackets</label>
                 <input
                   type="checkbox"
-                  checked
-                  class="checkbox checkbox-sm checkbox-neutral"
-                  id="allItems"
+                  class="type-check checkbox checkbox-sm checkbox-neutral"
+                  id="jacket"
                 />
               </div>
-              <button class="flex w-full items-center justify-between">
-                <label for="jackets" class="sec-heading">Jackets</label>
-                <input type="checkbox" class="checkbox checkbox-sm checkbox-neutral" id="jackets" />
-              </button>
-              <button class="flex w-full items-center justify-between">
+              <div class="flex w-full items-center justify-between">
                 <label for="knitted" class="sec-heading">Knitted</label>
-                <input type="checkbox" class="checkbox checkbox-sm checkbox-neutral" id="knitted" />
-              </button>
-              <button class="flex w-full items-center justify-between">
-                <label for="pants" class="sec-heading">Pants</label>
-                <input type="checkbox" class="checkbox checkbox-sm checkbox-neutral" id="pants" />
-              </button>
-              <button class="flex w-full items-center justify-between">
-                <label for="shorts" class="sec-heading">Shorts</label>
-                <input type="checkbox" class="checkbox checkbox-sm checkbox-neutral" id="shorts" />
-              </button>
-              <button class="flex w-full items-center justify-between">
-                <label for="outerwear" class="sec-heading">All</label>
                 <input
                   type="checkbox"
-                  class="checkbox checkbox-sm checkbox-neutral"
+                  class="type-check checkbox checkbox-sm checkbox-neutral"
+                  id="knitted"
+                />
+              </div>
+              <div class="flex w-full items-center justify-between">
+                <label for="shirts" class="sec-heading">Shirts</label>
+                <input
+                  type="checkbox"
+                  class="type-check checkbox checkbox-sm checkbox-neutral"
+                  id="shirts"
+                />
+              </div>
+              <div class="flex w-full items-center justify-between">
+                <label for="pants" class="sec-heading">Pants</label>
+                <input
+                  type="checkbox"
+                  class="type-check checkbox checkbox-sm checkbox-neutral"
+                  id="pants"
+                />
+              </div>
+              <div class="flex w-full items-center justify-between">
+                <label for="shorts" class="sec-heading">Shorts</label>
+                <input
+                  type="checkbox"
+                  class="type-check checkbox checkbox-sm checkbox-neutral"
+                  id="shorts"
+                />
+              </div>
+              <div class="flex w-full items-center justify-between">
+                <label for="outerwear" class="sec-heading">Outerwear</label>
+                <input
+                  type="checkbox"
+                  class="type-check checkbox checkbox-sm checkbox-neutral"
                   id="outerwear"
                 />
-              </button>
+              </div>
             </form>
             <div class="grid gap-2">
               <button class="js-price flex w-full items-center justify-between">
@@ -157,18 +172,19 @@
                 class="js-price-collapse flex max-h-96 flex-col gap-2 overflow-hidden transition-all duration-300 ease-in-out"
               >
                 <input
+                  id="priceRange"
                   type="range"
-                  min="0"
-                  max="100"
-                  value="40"
+                  min="4200"
+                  max="18500"
+                  value="18500"
                   class="range text-black-100 w-full [--range-bg:black] [--range-fill:0] [--range-thumb:white]"
                 />
                 <label
                   for="price-range"
                   class="flex justify-between text-sm font-medium text-black"
                 >
-                  <span>$50</span>
-                  <span>$200</span>
+                  <span>$<span id="priceMin">42.00</span></span>
+                  <span>$<span id="priceMax">185.00</span></span>
                 </label>
               </div>
             </div>
@@ -184,6 +200,7 @@
               </button>
               <div
                 class="js-color-collapse flex max-h-96 gap-2 overflow-hidden px-1 py-2 transition-all duration-300 ease-in-out"
+                id="colorCheckContainer"
               >
                 <label class="relative cursor-pointer">
                   <input type="radio" name="color" value="purple" class="peer hidden" />
@@ -204,21 +221,21 @@
                   ></span>
                 </label>
                 <label class="relative cursor-pointer">
-                  <input type="radio" name="color" value="grey" class="peer hidden" />
-                  <span
-                    class="block h-8 w-8 rounded-full bg-stone-400 peer-checked:ring-2 peer-checked:ring-black/80 peer-checked:ring-offset-2"
-                  ></span>
-                </label>
-                <label class="relative cursor-pointer">
                   <input type="radio" name="color" value="beige" class="peer hidden" />
                   <span
-                    class="block h-8 w-8 rounded-full bg-zinc-400 peer-checked:ring-2 peer-checked:ring-black/80 peer-checked:ring-offset-2"
+                    class="block h-8 w-8 rounded-full bg-stone-400 peer-checked:ring-2 peer-checked:ring-black/80 peer-checked:ring-offset-2"
                   ></span>
                 </label>
                 <label class="relative cursor-pointer">
                   <input type="radio" name="color" value="green" class="peer hidden" />
                   <span
                     class="block h-8 w-8 rounded-full bg-emerald-800 peer-checked:ring-2 peer-checked:ring-black/80 peer-checked:ring-offset-2"
+                  ></span>
+                </label>
+                <label class="relative cursor-pointer">
+                  <input type="radio" name="color" value="grey" class="peer hidden" />
+                  <span
+                    class="block h-8 w-8 rounded-full bg-zinc-400 peer-checked:ring-2 peer-checked:ring-black/80 peer-checked:ring-offset-2"
                   ></span>
                 </label>
                 <label class="relative cursor-pointer">
@@ -241,7 +258,16 @@
               </button>
               <div
                 class="js-size-collapse flex max-h-96 flex-wrap gap-2 overflow-hidden transition-all duration-300 ease-in-out"
+                id="sizeContainer"
               >
+                <label>
+                  <input type="radio" name="size" value="x-small" class="peer sr-only" />
+                  <span
+                    class="inline-block cursor-pointer rounded-full px-4 py-2 text-sm text-black transition-all duration-200 peer-checked:bg-black peer-checked:text-white hover:bg-black hover:text-white"
+                  >
+                    X-Small
+                  </span>
+                </label>
                 <label>
                   <input type="radio" name="size" value="small" class="peer sr-only" />
                   <span
@@ -274,14 +300,6 @@
                     X-Large
                   </span>
                 </label>
-                <label>
-                  <input type="radio" name="size" value="xx-large" class="peer sr-only" />
-                  <span
-                    class="inline-block cursor-pointer rounded-full px-4 py-2 text-sm text-black transition-all duration-200 peer-checked:bg-black peer-checked:text-white hover:bg-black hover:text-white"
-                  >
-                    XX-Large
-                  </span>
-                </label>
               </div>
             </div>
             <div class="grid gap-2">
@@ -296,12 +314,13 @@
               </button>
               <div
                 class="js-style-collapse flex max-h-96 flex-wrap gap-2 overflow-hidden text-lg transition-all duration-300 ease-in-out"
+                id="styleCheckContainer"
               >
                 <div class="flex w-full items-center justify-between">
                   <label for="casual" class="sec-heading">Casual</label>
                   <input
                     type="checkbox"
-                    class="checkbox checkbox-sm checkbox-neutral"
+                    class="checkbox checkbox-sm checkbox-neutral style-check"
                     id="casual"
                   />
                 </div>
@@ -309,7 +328,7 @@
                   <label for="formal" class="sec-heading">Formal</label>
                   <input
                     type="checkbox"
-                    class="checkbox checkbox-sm checkbox-neutral"
+                    class="checkbox checkbox-sm checkbox-neutral style-check"
                     id="formal"
                   />
                 </div>
@@ -317,7 +336,7 @@
                   <label for="modern" class="sec-heading">Modern</label>
                   <input
                     type="checkbox"
-                    class="checkbox checkbox-sm checkbox-neutral"
+                    class="checkbox checkbox-sm checkbox-neutral style-check"
                     id="modern"
                   />
                 </div>
@@ -325,33 +344,28 @@
                   <label for="streetwear" class="sec-heading">Streetwear</label>
                   <input
                     type="checkbox"
-                    class="checkbox checkbox-sm checkbox-neutral"
+                    class="checkbox checkbox-sm checkbox-neutral style-check"
                     id="streetwear"
                   />
                 </div>
               </div>
             </div>
-            <div class="grid gap-4">
-              <button class="btn-primary">Apply Filter</button>
-              <button
-                class="mx-auto w-fit border-b-2 border-transparent p-1 text-black/60 hover:border-b-stone-700"
-              >
-                Clear Filter
-              </button>
-            </div>
+            <button class="btn-primary" id="clearFilter">Clear Filter</button>
           </div>
         </aside>
-        <main>
+        <main class="flex-1">
           <section>
             <div class="md:pl-8">
               <div class="flex max-w-2xs items-center justify-between md:max-w-full">
                 <h1 class="ff-primary text-left text-2xl font-bold md:text-4xl">All Products</h1>
-                <p class="ff-primary my-auto text-sm text-black/60 md:text-base">
-                  Showing 10 of 100 products
-                </p>
+                <p
+                  class="ff-primary my-auto text-sm text-black/60 md:text-base"
+                  id="productsCount"
+                ></p>
               </div>
               <div
-                class="js-category mt-4 grid grid-cols-1 place-items-center gap-6 px-4 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3"
+                class="js-category md: mt-4 grid grid-cols-1 place-items-center gap-6 px-4 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3"
+                id="productsWrapper"
               ></div>
             </div>
           </section>
@@ -368,7 +382,7 @@
         </h1>
         <form action="subscribe" class="mr-auto md:mr-0 md:ml-auto xl:max-w-[420px]">
           <label class="input h-[44px] w-full rounded-full bg-white lg:h-[48px] xl:h-[52px]">
-            <img src="src/assets/images/email-icon.svg" alt="" />
+            <img src="/src/assets/images/email-icon.svg" alt="" />
             <input class="text-sm" type="email" required placeholder="Enter your email address" />
           </label>
           <button class="btn-secondary mt-3 py-2 lg:py-2.5 xl:py-3">Subscribe to Newsletter</button>
@@ -427,11 +441,11 @@
       <div class="mx-4 flex flex-col justify-center gap-2 text-lg sm:flex-row sm:justify-between">
         <p class="sec-heading text-center">QVEE.CO &copy; 2025, All rights reserved</p>
         <div class="payment-options -mt-1 flex flex-wrap justify-center gap-2">
-          <img src="src/assets/images/visa-icon.svg" alt="" class="h-auto max-w-[58px]" />
-          <img src="src/assets/images/mastercard-icon.svg" alt="" class="h-auto max-w-[58px]" />
-          <img src="src/assets/images/paypal-icon.svg" alt="" class="h-auto max-w-[58px]" />
-          <img src="src/assets/images/apple-pay-icon.svg" alt="" class="h-auto max-w-[58px]" />
-          <img src="src/assets/images/google-pay-icon.svg" alt="" class="h-auto max-w-[58px]" />
+          <img src="/src/assets/images/visa-icon.svg" alt="" class="h-auto max-w-[58px]" />
+          <img src="/src/assets/images/mastercard-icon.svg" alt="" class="h-auto max-w-[58px]" />
+          <img src="/src/assets/images/paypal-icon.svg" alt="" class="h-auto max-w-[58px]" />
+          <img src="/src/assets/images/apple-pay-icon.svg" alt="" class="h-auto max-w-[58px]" />
+          <img src="/src/assets/images/google-pay-icon.svg" alt="" class="h-auto max-w-[58px]" />
         </div>
       </div>
     </footer>
