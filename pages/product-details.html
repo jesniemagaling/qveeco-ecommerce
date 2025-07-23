@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/src/style.css" rel="stylesheet" />
     <link href="/src/style.css" rel="stylesheet" />
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <title>qvee</title>
   </head>
   <body>
@@ -26,7 +24,7 @@
               alt=""
             />
           </div>
-          <a class="company-name cursor-pointer" href="#">QVEE.CO</a>
+          <a class="company-name" href="#">QVEE.CO</a>
           <div
             class="nav-links absolute top-full left-0 z-20 hidden w-full bg-white px-2 py-6 lg:static lg:flex lg:max-w-full lg:items-center lg:justify-center lg:gap-6 lg:p-0"
           >
@@ -36,6 +34,7 @@
               >
                 <img src="/src/assets/images/search-icon.svg" alt="" />
                 <input
+                  id="search"
                   type="search"
                   required
                   placeholder="Search"
@@ -71,16 +70,23 @@
           <div class="nav-info relative flex items-center gap-4">
             <a href="#"><img src="/src/assets/images/cart-icon.svg" alt="" class="w-8" /></a>
             <span
+              id="cartCount"
               class="absolute -top-1.5 left-4 rounded-full bg-black px-1.5 py-0.5 text-xs text-white"
-              >3</span
+              >0</span
             >
             <a href="#"><img src="/src/assets/images/profile-icon.svg" alt="" class="w-8" /></a>
           </div>
         </nav>
+        <div class="breadcrumbs relative mt-6 text-lg">
+          <ul class="ff-primary text-black">
+            <li><a href="homepage.html" class="text-black/60">Home</a></li>
+            <li>Products</li>
+          </ul>
+        </div>
       </div>
     </header>
 
-    <footer class="container-section">
+    <footer class="lg:px-8">
       <div
         class="email-newsletter m-4 flex flex-col items-center justify-between gap-6 rounded-3xl bg-black p-8 sm:flex-row"
       >
@@ -89,7 +95,7 @@
         </h1>
         <form action="subscribe" class="mr-auto md:mr-0 md:ml-auto xl:max-w-[420px]">
           <label class="input h-[44px] w-full rounded-full bg-white lg:h-[48px] xl:h-[52px]">
-            <img src="src/assets/images/email-icon.svg" alt="" />
+            <img src="/src/assets/images/email-icon.svg" alt="" />
             <input class="text-sm" type="email" required placeholder="Enter your email address" />
           </label>
           <button class="btn-secondary mt-3 py-2 lg:py-2.5 xl:py-3">Subscribe to Newsletter</button>
@@ -148,16 +154,15 @@
       <div class="mx-4 flex flex-col justify-center gap-2 text-lg sm:flex-row sm:justify-between">
         <p class="sec-heading text-center">QVEE.CO &copy; 2025, All rights reserved</p>
         <div class="payment-options -mt-1 flex flex-wrap justify-center gap-2">
-          <img src="src/assets/images/visa-icon.svg" alt="" class="h-auto max-w-[58px]" />
-          <img src="src/assets/images/mastercard-icon.svg" alt="" class="h-auto max-w-[58px]" />
-          <img src="src/assets/images/paypal-icon.svg" alt="" class="h-auto max-w-[58px]" />
-          <img src="src/assets/images/apple-pay-icon.svg" alt="" class="h-auto max-w-[58px]" />
-          <img src="src/assets/images/google-pay-icon.svg" alt="" class="h-auto max-w-[58px]" />
+          <img src="/src/assets/images/visa-icon.svg" alt="" class="h-auto max-w-[58px]" />
+          <img src="/src/assets/images/mastercard-icon.svg" alt="" class="h-auto max-w-[58px]" />
+          <img src="/src/assets/images/paypal-icon.svg" alt="" class="h-auto max-w-[58px]" />
+          <img src="/src/assets/images/apple-pay-icon.svg" alt="" class="h-auto max-w-[58px]" />
+          <img src="/src/assets/images/google-pay-icon.svg" alt="" class="h-auto max-w-[58px]" />
         </div>
       </div>
     </footer>
 
-    <script type="module" src="/src/scripts/product.js"></script>
-    <script type="module" src="/src/scripts/swiper.js"></script>
+    <script type="module" src="/src/scripts/category.js"></script>
   </body>
 </html>

@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [tailwindcss()],
 
   server: {
-    open: '/pages/category.html', // Automatically open this page in the browser
+    open: '/pages/product-details.html', // Automatically open this page in the browser
   },
 
   build: {
