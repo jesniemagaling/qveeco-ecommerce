@@ -54,6 +54,10 @@
     @apply tracking-tight;
   }
 
+  .ff-secondary {
+    font-family: var(--font-inter);
+  }
+
   .sec-heading {
     font-family: var(--font-spartan);
     @apply tracking-tighter text-black/60;
@@ -74,6 +78,11 @@
     @apply text-4xl font-black tracking-tighter text-black sm:text-3xl md:text-4xl lg:text-5xl;
   }
 
+  .product-heading {
+    font-family: var(--font-spartan);
+    @apply text-3xl font-black tracking-tighter text-black md:text-4xl xl:text-5xl;
+  }
+
   .heading-2 {
     font-family: var(--font-spartan);
     @apply text-xl font-bold text-black md:text-2xl;
@@ -90,14 +99,14 @@
   }
 
   .btn-primary {
-    @apply w-full cursor-pointer rounded-full bg-black px-2 py-[14.5px] text-center text-sm text-[16px] font-medium text-white transition-colors duration-200 sm:px-4 sm:py-[14px] sm:text-base;
+    @apply w-full cursor-pointer rounded-full border-0 bg-black px-2 py-[12.5px] text-center text-sm text-[16px] font-medium text-white transition-colors duration-200 sm:px-4 sm:py-[14px] sm:text-base;
   }
   .btn-primary:hover {
     @apply bg-neutral-800;
   }
 
   .btn-secondary {
-    @apply w-full cursor-pointer rounded-full border border-neutral-300 bg-white px-4 py-[16.5px] text-center text-sm text-[16px] font-medium text-black transition-colors duration-200 sm:text-base;
+    @apply w-full cursor-pointer rounded-full border border-0 border-neutral-300 bg-white px-4 py-[16.5px] text-center text-sm text-[16px] font-medium text-black transition-colors duration-200 sm:text-base;
   }
   .btn-secondary:hover {
     @apply bg-neutral-100;

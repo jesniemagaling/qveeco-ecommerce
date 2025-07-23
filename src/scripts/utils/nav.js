@@ -4,7 +4,7 @@ export function initNavbarToggle() {
   const closeTab = document.querySelector('.close-tab');
   const navTab = document.querySelector('.nav-links');
 
-  if (!menuTab || !closeTab || !navTab) return; // optional: safety check
+  if (!menuTab || !closeTab || !navTab) return; // safety check
 
   menuTab.addEventListener('click', () => {
     menuTab.classList.add('hidden');
