@@ -81,7 +81,9 @@ function createProductDetailHTML(product) {
 
           <!-- Add to Cart Button -->
           <button class="btn-primary max-w-xl xl:max-w-sm" id="addToCartBtn" 
-          data-product-id="${product.id}">
+          data-product-id="${product.id}"
+          data-product-name="${product.name}"
+          data-product-price="${formatCurrency(product.priceCents)}">
           Add to Cart
           </button>
         </div>
@@ -288,47 +290,66 @@ function createProductDetailHTML(product) {
       </div>
       </div>
         <div class="hidden" id="productRatings">
-        <div class="flex items-center justify-between">
-          <h2 class="text-xl font-bold md:text-2xl">All Reviews</h2>
-          <div class="flex items-center">
-            <div class="dropdown dropdown-end cursor-pointer px-4">
-              <div
-                tabindex="0"
-                role="button"
-                class="a-links flex items-center gap-3 text-sm md:text-lg"
-              >
-                Latest
-                <span
-                  ><img
-                    src="/src/assets/images/dropdown-icon.svg"
-                    alt=""
-                    class="-mt-0.5 w-12 md:-mt-0 md:w-14"
-                /></span>
+          <div class="flex items-center justify-between">
+            <h2 class="text-xl font-bold md:text-2xl">All Reviews</h2>
+            <div class="flex items-center">
+              <div class="dropdown dropdown-end cursor-pointer px-4">
+                <div
+                  tabindex="0"
+                  role="button"
+                  class="a-links flex items-center gap-3 text-sm md:text-lg"
+                >
+                  Latest
+                  <span
+                    ><img
+                      src="/src/assets/images/dropdown-icon.svg"
+                      alt=""
+                      class="-mt-0.5 w-12 md:-mt-0 md:w-14"
+                  /></span>
+                </div>
+                <ul
+                  tabindex="0"
+                  class="dropdown-content menu bg-base-200 rounded-box z-1 mt-4 w-52 p-2 text-white shadow-sm"
+                >
+                  <li><a>Item 1</a></li>
+                  <li><a>Item 2</a></li>
+                </ul>
               </div>
-              <ul
-                tabindex="0"
-                class="dropdown-content menu bg-base-200 rounded-box z-1 mt-4 w-52 p-2 text-white shadow-sm"
-              >
-                <li><a>Item 1</a></li>
-                <li><a>Item 2</a></li>
-              </ul>
+              <button class="btn-primary px-0 text-xs md:text-base">Write a Review</button>
             </div>
-            <button class="btn-primary px-0 text-xs md:text-base">Write a Review</button>
           </div>
-        </div>
         <div class="grid gap-x-12 gap-y-16 p-10 md:grid-cols-2" id="productRatingContainer"></div>
+        
+        <div class="text-center">
+          <button
+            id="ratingLoadMoreBtn"
+            class="mt-8 w-fit border-b-2 border-b-transparent p-2 text-sm hover:border-b-black md:text-base"
+          >
+            Load More Reviews
+          </button>
+        </div>
       </div>
     </div>
   `;
 }
 
 // Render the reviews
+let currentProduct = null;
+let visibleReviewsCount = 2;
 function renderProductReviews(product) {
   const reviewsContainer = document.getElementById('productRatingContainer');
+  const loadMoreBtn = document.getElementById('ratingLoadMoreBtn');
+
   reviewsContainer.innerHTML = '';
-  // console.log('[DEBUG] Reviews:', product.reviews);
-  product.reviews.forEach((review) => {
+
+  const reviews = product.reviews || [];
+
+  reviews.forEach((review, index) => {
     const article = document.createElement('article');
+    article.classList.add('review-item');
+    if (index >= visibleReviewsCount) {
+      article.classList.add('hidden');
+    }
 
     article.innerHTML = `
       <img src="/src/assets/images/${review.rating}-star.svg" alt="${review.rating} stars" />
@@ -342,7 +363,16 @@ function renderProductReviews(product) {
 
     reviewsContainer.appendChild(article);
   });
+
+  // Show or hide "Load More" button
+  if (reviews.length > visibleReviewsCount) {
+    loadMoreBtn.classList.remove('hidden');
+  } else {
+    loadMoreBtn.classList.add('hidden');
+  }
 }
+
+document.addEventListener('DOMContentLoaded', () => {});
 
 // Render product
 function renderProductDetails() {
@@ -354,8 +384,10 @@ function renderProductDetails() {
 
   container.innerHTML = createProductDetailHTML(product);
 
+  currentProduct = product;
   renderProductReviews(product);
 }
+
 // Add to cart
 document.addEventListener('DOMContentLoaded', () => {
   const addToCartBtn = document.getElementById('addToCartBtn');
@@ -365,6 +397,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const productId = addToCartBtn.dataset.productId;
     const quantityToAdd = getItemCount();
     const selectedSize = document.querySelector('input[name="size"]:checked');
+    const productName = addToCartBtn.dataset.productName;
+    const productPrice = addToCartBtn.dataset.productPrice;
 
     if (!selectedSize) {
       alert('Please select a size before adding to cart.');
@@ -382,8 +416,10 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       cart.push({
         productId,
+        productName,
         size: preferSize,
         quantity: quantityToAdd,
+        productPrice,
       });
     }
 
@@ -426,6 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ratingsBtn = document.getElementById('productRatingsBtn');
   const faqBtn = document.getElementById('productFAQBtn');
   const faqLoadMoreBtn = document.getElementById('faqLoadMoreBtn');
+  const ratingLoadMoreBtn = document.getElementById('ratingLoadMoreBtn');
   const faqLoadMoreContent = document.getElementById('faqMoreContent');
 
   const productDetails = document.getElementById('productDetails');
@@ -461,5 +498,13 @@ document.addEventListener('DOMContentLoaded', () => {
   faqLoadMoreBtn.addEventListener('click', () => {
     faqLoadMoreContent.classList.remove('hidden');
     faqLoadMoreBtn.classList.add('hidden');
+  });
+
+  if (!ratingLoadMoreBtn) return;
+  ratingLoadMoreBtn.addEventListener('click', () => {
+    // Show all remaining reviews
+    visibleReviewsCount = currentProduct.reviews.length;
+    renderProductReviews(currentProduct); // re-render
+    ratingLoadMoreBtn.classList.add('hidden');
   });
 });
