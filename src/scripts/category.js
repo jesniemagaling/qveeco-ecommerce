@@ -2,10 +2,12 @@ import { products } from './utils/product';
 import { initNavbarToggle } from './utils/nav';
 import { formatCurrency } from './utils/money';
 import { breadcrumbList } from './utils/breadcrumb';
+import { getItemCount } from './product-details';
 
 // navbar initialization
 document.addEventListener('DOMContentLoaded', () => {
   initNavbarToggle();
+  getItemCount();
 });
 
 document.addEventListener('DOMContentLoaded', () => {

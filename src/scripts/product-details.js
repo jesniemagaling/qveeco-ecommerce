@@ -4,6 +4,7 @@ import { formatCurrency } from './utils/money';
 import { breadcrumbList } from './utils/breadcrumb';
 import { capitalizeFirstLetter } from './utils/formatter';
 import { doc } from 'prettier';
+import { cart } from './cart';
 
 // navbar initialization
 document.addEventListener('DOMContentLoaded', () => {
@@ -56,12 +57,12 @@ function createProductDetailHTML(product) {
 
         <div class="mt-6 grid gap-3 text-sm text-black/60">
           <h2>Choose Size</h2>
-          <div class="flex flex-wrap gap-2">
+          <div class="flex flex-wrap gap-2" id="sizeContainer">
             ${product.size
               .map(
                 (s) => `
               <label>
-                <input type="radio" name="size" value="${s.toLowerCase()}" class="peer sr-only" />
+                <input type="radio" name="size" required value="${s.toLowerCase()}" class="peer sr-only" />
                 <span class="inline-block cursor-pointer rounded-full px-4 py-2 text-sm text-black/60 transition-all duration-200 peer-checked:bg-black peer-checked:text-white hover:bg-black hover:text-white">${s}</span>
               </label>
             `
@@ -79,7 +80,10 @@ function createProductDetailHTML(product) {
           </div>
 
           <!-- Add to Cart Button -->
-          <button class="btn-primary max-w-xl xl:max-w-sm">Add to Cart</button>
+          <button class="btn-primary max-w-xl xl:max-w-sm" id="addToCartBtn" 
+          data-product-id="${product.id}">
+          Add to Cart
+          </button>
         </div>
       </article>
     </div>
@@ -351,6 +355,52 @@ function renderProductDetails() {
   container.innerHTML = createProductDetailHTML(product);
 
   renderProductReviews(product);
+}
+// Add to cart
+document.addEventListener('DOMContentLoaded', () => {
+  const addToCartBtn = document.getElementById('addToCartBtn');
+  const itemCount = document.getElementById('itemCount');
+
+  addToCartBtn.addEventListener('click', () => {
+    const productId = addToCartBtn.dataset.productId;
+    const quantityToAdd = getItemCount();
+    const selectedSize = document.querySelector('input[name="size"]:checked');
+
+    if (!selectedSize) {
+      alert('Please select a size before adding to cart.');
+      return;
+    }
+
+    const preferSize = selectedSize.value;
+
+    const matchingItem = cart.find(
+      (item) => item.productId === productId && item.size === preferSize
+    );
+
+    if (matchingItem) {
+      matchingItem.quantity += quantityToAdd;
+    } else {
+      cart.push({
+        productId,
+        size: preferSize,
+        quantity: quantityToAdd,
+      });
+    }
+
+    updateCartDisplay();
+    itemCount.textContent = '1'; // reset count after adding
+    selectedSize.checked = false; // optionally reset the selected size
+    console.log(cart);
+  });
+});
+export function getItemCount() {
+  const itemCount = document.getElementById('itemCount');
+  return parseInt(itemCount?.textContent || '0');
+}
+
+function updateCartDisplay() {
+  const cartQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+  document.getElementById('cartCount').textContent = cartQuantity;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
