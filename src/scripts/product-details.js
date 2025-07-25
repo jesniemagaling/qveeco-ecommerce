@@ -1,10 +1,10 @@
+import { getCart, getCartQuantity, addToCart } from './cart';
 import { products } from './utils/product';
 import { initNavbarToggle } from './utils/nav';
 import { formatCurrency } from './utils/money';
 import { breadcrumbList } from './utils/breadcrumb';
 import { capitalizeFirstLetter } from './utils/formatter';
 import { doc } from 'prettier';
-import { cart } from './cart';
 
 // Generate product detail HTML
 function createProductDetailHTML(product) {
@@ -20,7 +20,7 @@ function createProductDetailHTML(product) {
 
         <!-- Main Image -->
         <div class="order-1 lg:order-2">
-          <img src="${product.image}" alt="Main Image" class="w-full max-w-lg rounded object-cover" />
+          <img src="${product.image}" alt="Main Image" class="w-full max-w-lg rounded-2xl object-cover" />
         </div>
       </div>
 
@@ -314,6 +314,7 @@ function createProductDetailHTML(product) {
 // Global Variables
 let currentProduct = null;
 let visibleReviewsCount = 2;
+const cart = getCart();
 
 // Initialization
 document.addEventListener('DOMContentLoaded', () => {
@@ -335,6 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderProductDetails(product);
   initCartHandlers();
   initTabs();
+  updateCartDisplay();
 });
 
 // URL Utility
@@ -396,8 +398,6 @@ function initCartHandlers() {
 
   addToCartBtn.addEventListener('click', () => {
     const productId = addToCartBtn.dataset.productId;
-    const productName = addToCartBtn.dataset.productName;
-    const productPrice = addToCartBtn.dataset.productPrice;
     const quantityToAdd = quantity;
     const selectedSize = document.querySelector('input[name="size"]:checked');
 
@@ -407,28 +407,18 @@ function initCartHandlers() {
     }
 
     const preferSize = selectedSize.value;
-    const existingItem = cart.find(
-      (item) => item.productId === productId && item.size === preferSize
-    );
 
-    if (existingItem) {
-      existingItem.quantity += quantityToAdd;
-    } else {
-      cart.push({
-        productId,
-        productName,
-        productPrice,
-        size: preferSize,
-        quantity: quantityToAdd,
-      });
-      console.log(cart);
-    }
-
+    // Use the imported reusable function
+    addToCart({
+      productId,
+      size: preferSize,
+      quantity: quantityToAdd,
+    });
+    showToast();
     updateCartDisplay();
     quantity = 1;
     itemCount.textContent = '1';
     selectedSize.checked = false;
-    console.log(cart);
   });
 
   const minusBtn = document.getElementById('minusBtn');
@@ -447,13 +437,8 @@ function initCartHandlers() {
   });
 }
 
-export function getItemCount() {
-  const itemCount = document.getElementById('itemCount');
-  return parseInt(itemCount?.textContent || '0');
-}
-
-function updateCartDisplay() {
-  const cartQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+export function updateCartDisplay() {
+  const cartQuantity = getCartQuantity();
   document.getElementById('cartCount').textContent = cartQuantity;
 }
 
@@ -497,3 +482,20 @@ function initTabs() {
     faqLoadMoreBtn.classList.add('hidden');
   });
 }
+
+function showToast() {
+  const toast = document.getElementById('toast-success');
+  if (!toast) return;
+
+  // Show the toast
+  toast.classList.remove('hidden');
+
+  // Auto-hide after 3 seconds (optional)
+  setTimeout(() => {
+    toast.classList.add('hidden');
+  }, 3000);
+}
+
+document.querySelector('[data-dismiss-target="#toast-success"]')?.addEventListener('click', () => {
+  document.getElementById('toast-success')?.classList.add('hidden');
+});

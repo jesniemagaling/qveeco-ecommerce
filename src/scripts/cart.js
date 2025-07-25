@@ -1,39 +1,48 @@
-import { initNavbarToggle } from './utils/nav';
-import { breadcrumbList } from './utils/breadcrumb';
-import { capitalizeFirstLetter } from './utils/formatter';
+let cart = JSON.parse(localStorage.getItem('cart'));
 
-document.addEventListener('DOMContentLoaded', () => {
-  initNavbarToggle();
-
-  breadcrumbList('.breadcrumbs ul', [
-    { label: 'Home', href: 'homepage.html' },
-    { label: 'Cart', href: 'category.html' },
-  ]);
-});
-
-export let cart = JSON.parse(localStorage.getItem('cart'));
-
-if (!cart) {
+if (!Array.isArray(cart)) {
   cart = [
     {
       productId: '',
-      productName: 'Retro Mesh Football Jersey - Red',
-      productPrice: '90',
       size: 'Large',
       quantity: 1,
     },
     {
       productId: '',
       size: 'Medium',
-      productName: 'Classic Leather Jacket – Black',
-      productPrice: '185',
       quantity: 3,
     },
   ];
+
+  // Save the default cart to localStorage immediately
+  localStorage.setItem('cart', JSON.stringify(cart));
 }
+
+export function getCart() {
+  return cart;
+}
+
+export function addToCart(item) {
+  const existing = cart.find((i) => i.productId === item.productId && i.size === item.size);
+  if (existing) {
+    existing.quantity += item.quantity;
+  } else {
+    cart.push(item);
+  }
+  saveToStorage();
+}
+
+console.log(cart);
 
 export function saveToStorage() {
   localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-console.log(cart);
+export function removeFromCart(productId) {
+  cart = cart.filter((item) => item.productId !== productId);
+  saveToStorage();
+}
+
+export function getCartQuantity() {
+  return cart.reduce((sum, item) => sum + item.quantity, 0);
+}
