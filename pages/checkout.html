@@ -88,7 +88,7 @@
     <section class="my-40 min-h-screen px-4 lg:px-14">
       <h1 class="product-heading">YOUR CART</h1>
       <div class="mt-6 flex h-full flex-col gap-16 lg:flex-row">
-        <main class="mb-auto w-full flex-1 space-y-4 lg:min-w-[524px]" id="checkoutContainer">
+        <main class="mb-auto w-full flex-1 space-y-4 lg:min-w-[524px]" id="orderSummaryContainer">
           <article class="flex w-full items-center">
             <img
               src="/src/assets/images/football-jersey.png"
@@ -125,19 +125,19 @@
             </div>
           </article>
         </main>
-        <aside class="w-full space-y-2 lg:w-[460px]">
+        <aside class="w-full space-y-2 lg:w-[460px]" id="paymentSummaryContainer">
           <h2 class="ff-primary text-2xl font-bold md:text-3xl">Order Summary</h2>
           <div class="heading-2 flex items-center justify-between">
             <p class="font-normal text-black/60">Subtotal</p>
-            <span>$565</span>
+            <span id="subTotal">$565</span>
           </div>
           <div class="heading-2 flex items-center justify-between">
             <p class="font-normal text-black/60">Discount (-13%)</p>
-            <span class="text-[#FF3333]">$113</span>
+            <span class="text-[#FF3333]" id="discount">$113</span>
           </div>
           <div class="heading-2 flex items-center justify-between">
-            <p class="font-normal text-black/60">Delivery Fee</p>
-            <span>$13</span>
+            <p class="font-normal text-black/60">Tax (5%)</p>
+            <span id="taxPrice">$5</span>
           </div>
           <div class="heading-2 my-6 flex items-center justify-between">
             <p class="font-normal text-black">Total</p>
