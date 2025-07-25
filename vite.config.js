@@ -6,13 +6,13 @@ export default defineConfig({
   plugins: [tailwindcss()],
 
   server: {
-    open: '/pages/product-details.html', // Automatically open this page in the browser
+    open: '/pages/cart.html', // Automatically open this page in the browser
   },
 
   build: {
     rollupOptions: {
       input: {
-        homepage: resolve(__dirname, 'pages/homepage.html'),
+        homepage: resolve(__dirname, 'pages/qveeco.html'),
         product: resolve(__dirname, 'pages/category.html'),
         productDetails: resolve(__dirname, 'pages/product-details.html'),
         cart: resolve(__dirname, 'pages/cart.html'),
