@@ -3,8 +3,12 @@ import { breadcrumbList } from '../utils/breadcrumb';
 import { renderCartItems } from './cartItem';
 import { renderShippingForm } from './shipping';
 import { renderPaymentSummary } from './orderSummary';
+import { getCartQuantity } from '../utils/cartUtils';
 
 document.addEventListener('DOMContentLoaded', () => {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cartQuantity = getCartQuantity(cart);
+  document.getElementById('cartCount').textContent = cartQuantity;
   initNavbarToggle();
   breadcrumbList('.breadcrumbs ul', [
     { label: 'Home', href: 'qveeco.html' },

@@ -1,19 +1,33 @@
-import { products } from '../utils/productModule';
+import { products } from '../utils/productUtils';
 import { initNavbarToggle } from '../utils/nav';
 import { formatCurrency } from '../utils/money';
 import { breadcrumbList } from '../utils/breadcrumb';
+import { getCartQuantity } from '../utils/cartUtils';
 
-// navbar initialization
 document.addEventListener('DOMContentLoaded', () => {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cartQuantity = getCartQuantity(cart);
+  document.getElementById('cartCount').textContent = cartQuantity;
   initNavbarToggle();
-});
-
-document.addEventListener('DOMContentLoaded', () => {
   breadcrumbList('.breadcrumbs ul', [
     { label: 'Home', href: 'homepage.html' },
     { label: 'Products' },
   ]);
 });
+
+function getURLParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+// Pre-check style filter if URL has a style param
+const preselectedStyle = getURLParam('style');
+if (preselectedStyle) {
+  const styleCheckbox = document.getElementById(preselectedStyle.toLowerCase());
+  if (styleCheckbox) {
+    styleCheckbox.checked = true;
+  }
+}
 
 // Select DOM elements
 const filterBtn = document.querySelector('.js-filter');
@@ -184,6 +198,13 @@ function filterProducts() {
 
 // Event Listeners
 searchInput?.addEventListener('input', filterProducts);
+
+// homepage search tab
+const searchParam = getURLParam('search');
+if (searchParam && searchInput) {
+  searchInput.value = decodeURIComponent(searchParam);
+  filterProducts();
+}
 
 priceRangeInput?.addEventListener('input', () => {
   const priceValue = priceRangeInput.value;

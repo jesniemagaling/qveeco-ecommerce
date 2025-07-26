@@ -1,5 +1,5 @@
-import { getCartQuantity, addToCart } from '../utils/cartModule';
-import { products } from '../utils/productModule';
+import { getCartQuantity, addToCart } from '../utils/cartUtils';
+import { products } from '../utils/productUtils';
 import { initNavbarToggle } from '../utils/nav';
 import { formatCurrency } from '../utils/money';
 import { breadcrumbList } from '../utils/breadcrumb';
@@ -338,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // URL Utility
-function getProductIdFromURL() {
+export function getProductIdFromURL() {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get('id');
 }

@@ -1,7 +1,7 @@
-import { getCart } from '../utils/cartModule';
-import { products } from '../utils/productModule';
+import { getCart } from '../utils/cartUtils';
+import { products } from '../utils/productUtils';
 import { formatCurrency } from '../utils/money';
-import { groupCartItems } from '../utils/cartModule';
+import { groupCartItems } from '../utils/cartUtils';
 
 const cart = getCart();
 
@@ -29,7 +29,7 @@ export function renderCartItems() {
           <p class="ff-primary line-clamp-1 text-base font-medium" title="${matchingProduct.name}">
             ${matchingProduct.name}
           </p>
-          <div class="ff-primary mt-1 flex items-center gap-2">
+          <div class="ff-primary mt-1 flex items-center gap-4">
             <span class="text-base text-black/60">Qty ${cartItem.quantity}</span>
             <span class="text-md font-semibold">$${formatCurrency(matchingProduct.priceCents)}</span>
           </div>

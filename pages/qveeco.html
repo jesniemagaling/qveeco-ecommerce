@@ -30,7 +30,7 @@
           <div
             class="nav-links absolute top-full left-0 z-20 hidden w-full bg-white px-2 py-6 lg:static lg:flex lg:max-w-full lg:items-center lg:justify-center lg:gap-6 lg:p-0"
           >
-            <div class="search-tab pb-4 lg:order-3 lg:p-0">
+            <form class="search-tab pb-4 lg:order-3 lg:p-0" id="navSearchForm">
               <label
                 class="input focus-within:outline-base-100 w-full bg-white text-black focus-within:outline-2 lg:max-w-xs"
               >
@@ -40,19 +40,20 @@
                   required
                   placeholder="Search"
                   class="ff-primary text-lg outline-none"
+                  id="search"
                 />
               </label>
-            </div>
+            </form>
 
             <ul class="grid gap-5 px-4 lg:order-2 lg:flex lg:items-center lg:gap-6 lg:px-0">
               <li>
-                <a href="#" class="a-links">On Sale</a>
+                <a href="#topSelling" class="a-links">Top Selling</a>
               </li>
               <li>
-                <a href="#" class="a-links">New Arrivals</a>
+                <a href="#newArrivals" class="a-links">New Arrivals</a>
               </li>
               <li>
-                <a href="#" class="a-links">Brands</a>
+                <a href="#reviews" class="a-links">Reviews</a>
               </li>
             </ul>
             <div class="dropdown dropdown-bottom cursor-pointer px-4 pt-4 lg:order-1 lg:p-0">
@@ -63,13 +64,17 @@
                 tabindex="0"
                 class="dropdown-content menu bg-base-200 rounded-box z-1 mt-2 w-52 p-2 text-white shadow-sm"
               >
-                <li><a>Item 1</a></li>
-                <li><a>Item 2</a></li>
+                <li><a href="category.html?style=casual">Casual</a></li>
+                <li><a href="category.html?style=formal">Formal</a></li>
+                <li><a href="category.html?style=modern">Modern</a></li>
+                <li><a href="category.html?style=streetwear">Streetwear</a></li>
               </ul>
             </div>
           </div>
           <div class="nav-info relative flex items-center gap-4">
-            <a href="#"><img src="/src/assets/images/cart-icon.svg" alt="" class="w-8" /></a>
+            <a href="cart.html"
+              ><img src="/src/assets/images/cart-icon.svg" alt="" class="w-8"
+            /></a>
             <span
               class="absolute -top-1.5 left-4 rounded-full bg-black px-1.5 py-0.5 text-xs text-white"
               id="cartCount"
@@ -89,7 +94,9 @@
             Browse through our diverse range of meticulously crafted garments, designed to bring out
             your individuality and cater to your sense of style.
           </p>
-          <button class="btn-primary mt-6 sm:max-w-2xs">Shop Now</button>
+          <a href="category.html"
+            ><button class="btn-primary mt-6 sm:max-w-2xs">Shop Now</button></a
+          >
 
           <div
             class="ff-primary text-neutral mx-auto mt-10 mb-2 grid w-2xs grid-cols-2 gap-4 sm:mx-0 sm:w-full sm:grid-cols-3 sm:text-lg"
@@ -142,7 +149,7 @@
     </section>
 
     <section>
-      <div class="py-18 lg:px-8">
+      <div class="py-18 lg:px-8" id="newArrivals">
         <h1 class="heading-1 text-center">NEW ARRIVALS</h1>
         <div
           class="js-new-arrival mt-4 grid grid-cols-1 place-items-center gap-6 px-4 md:grid-cols-2 xl:grid-cols-4"
@@ -162,13 +169,21 @@
             <div
               class="ff-primary relative mx-auto my-4 flex h-[190px] max-w-[520px] justify-center sm:h-auto sm:max-w-full md:my-0 md:w-2/5"
             >
-              <p class="absolute top-4 left-8 text-2xl font-bold md:text-4xl">Casual</p>
+              <a
+                href="category.html?style=casual"
+                class="absolute top-4 left-8 text-2xl font-bold md:text-4xl"
+                >Casual</a
+              >
               <img src="/src/assets/images/style-banner-bg-1.svg" alt="" class="ml-auto" />
             </div>
             <div
               class="ff-primary relative mx-auto flex h-[190px] max-w-[520px] justify-center sm:h-auto sm:max-w-full md:w-3/5"
             >
-              <p class="absolute top-4 left-8 text-2xl font-bold md:text-4xl">Formal</p>
+              <a
+                href="category.html?style=formal"
+                class="absolute top-4 left-8 text-2xl font-bold md:text-4xl"
+                >Formal</a
+              >
               <img src="/src/assets/images/style-banner-bg-2.svg" alt="" class="ml-auto" />
             </div>
           </article>
@@ -176,13 +191,21 @@
             <div
               class="ff-primary relative mx-auto mb-4 flex h-[190px] max-w-[520px] justify-center sm:mb-0 sm:h-[218px] sm:max-w-full md:w-3/5 lg:h-[289px]"
             >
-              <p class="absolute top-4 left-8 text-2xl font-bold md:text-4xl">Modern</p>
+              <a
+                href="category.html?style=modern"
+                class="absolute top-4 left-8 text-2xl font-bold md:text-4xl"
+                >Modern</a
+              >
               <img src="/src/assets/images/style-banner-bg-3.svg" alt="" class="ml-auto" />
             </div>
             <div
               class="ff-primary relative mx-auto flex h-[190px] max-w-[520px] justify-center sm:h-[218px] sm:max-w-full md:w-2/5 lg:h-[289px]"
             >
-              <p class="absolute top-4 left-8 text-2xl font-bold md:text-4xl">Streetwear</p>
+              <a
+                href="category.html?style=streetwear"
+                class="absolute top-4 left-8 text-2xl font-bold md:text-4xl"
+                >Streetwear</a
+              >
               <img src="/src/assets/images/style-banner-bg-4.svg" alt="" class="ml-auto" />
             </div>
           </article>
@@ -191,7 +214,7 @@
     </section>
 
     <section>
-      <div class="py-18 lg:px-8">
+      <div class="py-18 lg:px-8" id="topSelling">
         <h1 class="heading-1 text-center">TOP SELLING</h1>
         <div
           class="js-top-selling mt-4 grid grid-cols-1 place-items-center gap-6 px-4 md:grid-cols-2 xl:grid-cols-4"
@@ -199,7 +222,7 @@
       </div>
     </section>
 
-    <section class="px-4 py-16 lg:px-8">
+    <section class="px-4 py-16 lg:px-8" id="reviews">
       <div class="mb-12 flex items-center justify-between gap-6">
         <h1 class="heading-1 text-left">OUR HAPPY CUSTOMERS</h1>
         <div class="rating-swiper-controls flex gap-2">

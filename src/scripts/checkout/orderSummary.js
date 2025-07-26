@@ -1,18 +1,21 @@
-import { getCart, groupCartItems } from '../utils/cartModule';
-import { products } from '../utils/productModule';
+import { getCart, groupCartItems } from '../utils/cartUtils';
+import { products } from '../utils/productUtils';
 import { formatCurrency } from '../utils/money';
 
 const cart = getCart();
+let totalProduct = 0;
 
 export function renderPaymentSummary() {
   let productPriceCents = 0;
   const discountRate = 0.13;
   const taxRate = 0.05;
+  const deliveryFee = 900;
   const groupedItems = groupCartItems(cart);
 
   Object.values(groupedItems).forEach((cartItem) => {
     const productId = cartItem.productId;
     const matchingProduct = products.find((product) => product.id === productId);
+    totalProduct += cartItem.quantity;
 
     if (matchingProduct) {
       const itemTotal = matchingProduct.priceCents * cartItem.quantity;
@@ -23,14 +26,14 @@ export function renderPaymentSummary() {
   const discountAmount = productPriceCents * discountRate;
   const discountedPrice = productPriceCents - discountAmount;
   const taxAmount = discountedPrice * taxRate;
-  const productTotal = discountedPrice + taxAmount;
+  const productTotal = discountedPrice + taxAmount + deliveryFee;
 
   const paymentSummaryHTML = `
     <h2 class="ff-primary text-2xl font-bold md:text-3xl">Order Summary</h2>
     <div class="mb-6">
       <!-- Header -->
       <button class="mb-4 flex w-full items-center justify-between" id="cartDropdown">
-        <h2 class="heading-2 font-normal text-black/60">2 Items in Cart</h2>
+        <h2 class="heading-2 font-normal text-black/60">${totalProduct} Items in Cart</h2>
         <img
           src="/src/assets/images/dropdown-icon.svg"
           alt=""
@@ -56,7 +59,7 @@ export function renderPaymentSummary() {
     </div>
     <div class="heading-2 flex items-center justify-between">
       <p class="font-normal text-black/60">Delivery Fee</p>
-      <span id="deliveryFee">$5</span>
+      <span id="deliveryFee">$${formatCurrency(deliveryFee)}</span>
     </div>
     <div class="heading-2 my-6 flex items-center justify-between">
       <p class="font-normal text-black">Total</p>
@@ -70,13 +73,13 @@ export function renderPaymentSummary() {
         <input
           type="text"
           placeholder="Add promo code"
-          class="w-full rounded-full border-gray-300 bg-gray-100 py-3 pr-4 pl-12 text-black/60 focus:border-transparent focus:ring-2 focus:ring-black"
+          class="w-full rounded-full border-gray-300 py-3 pr-4 pl-12 text-black/60 focus:ring-2 focus:ring-black focus:outline-none"
         />
       </div>
       <button class="btn-primary max-w-26 py-4">Apply</button>
     </div>
-    <button class="btn-primary mt-4 flex items-center justify-center gap-2 py-4">
-      Go to Checkout <img src="/src/assets/images/arrow-right.svg" alt="" />
+    <button class="btn-primary mt-4 py-4">
+      Place Order
     </button>
   `;
 

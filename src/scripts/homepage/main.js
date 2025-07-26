@@ -1,10 +1,19 @@
-import { newArrival, topSelling } from '../utils/productModule';
+import { newArrival, products, topSelling } from '../utils/productUtils';
 import { ratings } from '../utils/rating';
 import { initNavbarToggle } from '../utils/nav';
 import { formatCurrency } from '../utils/money';
+import { getCartQuantity } from '../utils/cartUtils';
+import { getProductIdFromURL } from '../category/product-details';
 
 // navbar initialization
 document.addEventListener('DOMContentLoaded', () => {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cartQuantity = getCartQuantity(cart);
+  document.getElementById('cartCount').textContent = cartQuantity;
+
+  const productId = getProductIdFromURL();
+  const product = products.find((p) => p.id === productId);
+  if (!product) return;
   initNavbarToggle();
 });
 
@@ -13,7 +22,7 @@ let newArrivalHTML = '';
 
 newArrival.forEach((product) => {
   newArrivalHTML += `
-    <article class="cursor-pointer">
+    <article class="cursor-pointer js-product-card" data-product-id="${product.id}">
       <figure>
         <img src="${product.image}" class="w-full max-w-[460px]" alt="" />
       </figure>
@@ -36,7 +45,7 @@ let topSellingHTML = '';
 
 topSelling.forEach((product) => {
   topSellingHTML += `
-    <article class="cursor-pointer">
+    <article class="cursor-pointer js-product-card" data-product-id="${product.id}">
       <figure>
         <img src="${product.image}" class="w-full max-w-[460px]" alt="" />
       </figure>
@@ -53,6 +62,27 @@ topSelling.forEach((product) => {
 });
 
 document.querySelector('.js-top-selling').innerHTML = topSellingHTML;
+
+// Delegate clicks to each product card
+document.querySelectorAll('.js-product-card').forEach((card) => {
+  card.addEventListener('click', () => {
+    const productId = card.dataset.productId;
+    if (productId) {
+      window.location.href = `product-details.html?id=${productId}`;
+    }
+  });
+});
+
+// search tab
+document.getElementById('navSearchForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const input = document.getElementById('search');
+  const searchTerm = encodeURIComponent(input.value.trim().toLowerCase() || '');
+
+  if (searchTerm) {
+    window.location.href = `category.html?search=${searchTerm}`;
+  }
+});
 
 // Create customer rating
 const swiperWrapper = document.querySelector('.swiper-wrapper');

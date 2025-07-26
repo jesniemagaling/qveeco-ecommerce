@@ -17,4 +17,15 @@ export function initNavbarToggle() {
     menuTab.classList.remove('hidden');
     navTab.classList.add('hidden');
   });
+
+  // search tab
+  document.getElementById('navSearchForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const input = document.getElementById('search');
+    const searchTerm = encodeURIComponent(input.value.trim().toLowerCase() || '');
+
+    if (searchTerm) {
+      window.location.href = `category.html?search=${searchTerm}`;
+    }
+  });
 }

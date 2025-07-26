@@ -30,6 +30,7 @@
     background-color: var(--color-white);
     color: black;
     overflow-x: hidden;
+    scroll-padding-top: 100px;
   }
   html:focus-within {
     scroll-behavior: smooth;

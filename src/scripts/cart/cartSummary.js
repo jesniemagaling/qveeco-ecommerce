@@ -1,5 +1,5 @@
-import { getCart, saveToStorage } from '../utils/cartModule';
-import { products } from '../utils/productModule';
+import { getCart, saveToStorage } from '../utils/cartUtils';
+import { products } from '../utils/productUtils';
 import { renderPaymentSummary } from './paymentSummary';
 import { formatCurrency } from '../utils/money';
 import { capitalizeFirstLetter } from '../utils/formatter';
