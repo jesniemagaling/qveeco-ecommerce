@@ -1,4 +1,4 @@
-import { getCart, getCartQuantity, addToCart } from './cart';
+import { getCart, getCartQuantity, addToCart } from './utils/cartModule';
 import { products } from './utils/product';
 import { initNavbarToggle } from './utils/nav';
 import { formatCurrency } from './utils/money';

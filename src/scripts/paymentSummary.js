@@ -1,4 +1,4 @@
-import { getCart } from './cart';
+import { getCart } from './utils/cartModule';
 import { products } from './utils/product';
 import { formatCurrency } from './utils/money';
 
@@ -8,7 +8,6 @@ export function renderPaymentSummary() {
   const discountRate = 0.13;
   const taxRate = 0.05;
 
-  // Step 1: Calculate total product price in cents
   cart.forEach((cartItem) => {
     const productId = cartItem.productId;
     const matchingProduct = products.find((product) => product.id === productId);
@@ -17,12 +16,12 @@ export function renderPaymentSummary() {
     }
   });
 
-  // Step 2: Calculate discount and tax based on total price
   const discountAmount = productPriceCents * discountRate;
   const discountedPrice = productPriceCents - discountAmount;
   const taxAmount = discountedPrice * taxRate;
   const productTotal = discountedPrice + taxAmount;
 
+  /*
   // Step 3: Output
   console.log('Subtotal: ', formatCurrency(productPriceCents));
   console.log('Discount Amount (cents):', formatCurrency(discountAmount));
@@ -31,10 +30,11 @@ export function renderPaymentSummary() {
 
   // Optional: Convert to dollars
   console.log('Final Total ($):', formatCurrency(productTotal));
+  */
 
   const paymentSummaryHTML = `
     <aside class="w-full space-y-2 lg:w-[460px]">
-      <h2 class="ff-primary text-2xl font-bold md:text-3xl">Order Summary</h2>
+      <h2 class="ff-primary text-2xl font-bold md:text-3xl">Payment Summary</h2>
       <div class="heading-2 flex items-center justify-between">
         <p class="font-normal text-black/60">Subtotal</p>
         <span id="subTotal">$${formatCurrency(productPriceCents)}</span>
@@ -64,7 +64,7 @@ export function renderPaymentSummary() {
         </div>
         <button class="btn-primary max-w-26 py-4">Apply</button>
       </div>
-      <button class="btn-primary mt-4 flex items-center justify-center gap-2 py-4">
+      <button class="btn-primary mt-4 flex items-center justify-center gap-2 py-4" id="checkoutBtn">
         Go to Checkout <img src="/src/assets/images/arrow-right.svg" alt="" />
       </button>
     </aside>

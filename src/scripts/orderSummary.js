@@ -1,5 +1,6 @@
-import { getCart, saveToStorage } from './cart';
+import { getCart, saveToStorage } from './utils/cartModule';
 import { products } from './utils/product';
+import { renderPaymentSummary } from './paymentSummary';
 import { formatCurrency } from './utils/money';
 import { capitalizeFirstLetter } from './utils/formatter';
 
@@ -71,6 +72,7 @@ document.getElementById('orderSummaryContainer').addEventListener('click', (e) =
       item.quantity -= 1;
       saveToStorage();
       renderItemCart();
+      renderPaymentSummary();
       console.log(item.quantity);
     }
   }
@@ -83,6 +85,7 @@ document.getElementById('orderSummaryContainer').addEventListener('click', (e) =
       item.quantity += 1;
       saveToStorage();
       renderItemCart();
+      renderPaymentSummary();
       console.log(item.quantity);
     }
   }
@@ -94,6 +97,7 @@ document.getElementById('orderSummaryContainer').addEventListener('click', (e) =
       cart.splice(index, 1);
       saveToStorage();
       renderItemCart();
+      renderPaymentSummary();
       showToast();
     }
     console.log(productId);
