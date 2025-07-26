@@ -85,48 +85,210 @@
       </div>
     </header>
 
-    <section class="my-40 min-h-screen px-4 lg:px-14" id="cartContainer">
-      <h1 class="product-heading">YOUR CART</h1>
-      <div class="mt-6 flex h-full flex-col gap-16 lg:flex-row">
-        <main class="mb-auto w-full flex-1 space-y-4 lg:min-w-[524px]" id="orderSummaryContainer">
-          <article class="flex w-full items-center">
-            <img
-              src="/src/assets/images/football-jersey.png"
-              alt=""
-              class="w-full max-w-40 md:max-w-60"
+    <section class="my-40 min-h-screen px-4 lg:px-14" id="shippingContainer">
+      <h1 class="product-heading">SHIPPING DETAILS</h1>
+      <div class="mt-10 flex h-full flex-col gap-4 lg:flex-row">
+        <form class="mb-auto w-full flex-1 space-y-6 lg:min-w-[460px] lg:px-6">
+          <!-- Email -->
+          <div>
+            <label for="email" class="mb-3 block font-medium"
+              >Email address <span class="text-red-500">*</span></label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full rounded-full border border-black/30 px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none"
             />
-            <div class="h-full w-full space-y-1 md:space-y-4">
-              <div class="flex items-start justify-between gap-4">
-                <div>
-                  <h2 class="heading-2 line-clamp-1" title="Retro Mesh Football Jersey - Red">
-                    Retro Mesh Football Jersey - Red
-                  </h2>
-                  <p class="ff-primary text-normal text-sm text-black md:text-base lg:text-lg">
-                    Size:&nbsp;<span class="text-normal text-black/60">Large</span>
+          </div>
+
+          <!-- Full Name -->
+          <div>
+            <label for="fullname" class="mb-3 block font-medium"
+              >Full Name <span class="text-red-500">*</span></label
+            >
+            <input
+              type="text"
+              id="fullname"
+              name="fullname"
+              required
+              class="w-full rounded-full border border-black/30 px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none"
+            />
+          </div>
+
+          <!-- Street Address -->
+          <div>
+            <label for="street" class="mb-3 block font-medium"
+              >Street address <span class="text-red-500">*</span></label
+            >
+            <input
+              type="text"
+              id="street"
+              name="street"
+              required
+              placeholder="House number and street name"
+              class="w-full rounded-full border border-black/30 px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none"
+            />
+          </div>
+
+          <!-- Barangay -->
+          <div class="relative">
+            <label for="barangay" class="mb-3 block font-medium"
+              >Barangay <span class="text-red-500">*</span></label
+            >
+            <select
+              id="barangay"
+              name="barangay"
+              required
+              class="w-full appearance-none rounded-full border border-black/30 px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none"
+            >
+              <option value="">Please select your local area</option>
+              <!-- Add options here -->
+            </select>
+            <div class="pointer-events-none absolute right-4 bottom-5 flex items-center">
+              <img src="/src/assets/images/dropdown-icon.svg" alt="" />
+            </div>
+          </div>
+
+          <!-- Town/City -->
+          <div class="relative">
+            <label for="town" class="mb-3 block font-medium"
+              >Town/City <span class="text-red-500">*</span></label
+            >
+            <select
+              id="town"
+              name="town"
+              required
+              class="w-full appearance-none rounded-full border border-black/30 px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none"
+            >
+              <option value="">Please, select a town or city</option>
+              <!-- Add options here -->
+            </select>
+            <div class="pointer-events-none absolute right-4 bottom-5 flex items-center">
+              <img src="/src/assets/images/dropdown-icon.svg" alt="" />
+            </div>
+          </div>
+
+          <!-- State Province -->
+          <div class="relative">
+            <label for="province" class="mb-3 block font-medium"
+              >State Province <span class="text-red-500">*</span></label
+            >
+            <select
+              id="province"
+              name="province"
+              required
+              class="w-full appearance-none rounded-full border border-black/30 px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none"
+            >
+              <option value="">Please, select a region, state or province</option>
+              <!-- Add options here -->
+            </select>
+            <div class="pointer-events-none absolute right-4 bottom-5 flex items-center">
+              <img src="/src/assets/images/dropdown-icon.svg" alt="" />
+            </div>
+          </div>
+
+          <!-- Postal Code -->
+          <div>
+            <label for="postal" class="mb-3 block font-medium"
+              >Postal Code <span class="text-red-500">*</span></label
+            >
+            <input
+              type="text"
+              id="postal"
+              name="postal"
+              required
+              class="w-full rounded-full border border-black/30 px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none"
+            />
+          </div>
+
+          <!-- Country -->
+          <div class="relative">
+            <label for="country" class="mb-3 block font-medium"
+              >Country <span class="text-red-500">*</span></label
+            >
+            <select
+              id="country"
+              name="country"
+              required
+              class="w-full appearance-none rounded-full border border-black/30 px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none"
+            >
+              <option value="">Please, select a country</option>
+              <!-- Add options here -->
+            </select>
+            <div class="pointer-events-none absolute right-4 bottom-5 flex items-center">
+              <img src="/src/assets/images/dropdown-icon.svg" alt="" />
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div>
+            <label for="phone" class="mb-1 block font-medium"
+              >Phone <span class="text-red-500">*</span></label
+            >
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              required
+              class="w-full rounded-full border border-black/30 px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none"
+            />
+          </div>
+        </form>
+        <aside class="mt-8 w-full space-y-2 lg:mt-0 lg:w-[620px]" id="paymentSummaryContainer">
+          <h2 class="ff-primary text-2xl font-bold md:text-3xl">Order Summary</h2>
+          <div class="mb-6">
+            <!-- Header -->
+            <button class="mb-4 flex w-full items-center justify-between" id="cartDropdown">
+              <h2 class="heading-2 font-normal text-black/60">2 Items in Cart</h2>
+              <img
+                src="/src/assets/images/dropdown-icon.svg"
+                alt=""
+                class="rotate-180 transform"
+                id="dropdownIcon"
+              />
+            </button>
+
+            <!-- Cart Item -->
+            <div class="hidden space-y-2" id="cartCollapse">
+              <!-- Item 1 -->
+              <div class="flex items-start gap-4">
+                <img
+                  src="/src/assets/images/football-jersey.png"
+                  alt="Product"
+                  class="h-16 w-16 object-cover"
+                />
+                <div class="flex-1">
+                  <p class="ff-primary line-clamp-1 text-base font-medium">
+                    Retro Football Jersey - Red
                   </p>
-                  <p class="ff-primary text-normal text-sm text-black md:text-base lg:text-lg">
-                    Quantity:&nbsp;<span class="text-normal text-black/60">2</span>
-                  </p>
+                  <div class="ff-primary mt-1 flex items-center gap-2">
+                    <span class="text-base text-black/60">Qty 1</span>
+                    <span class="text-md font-semibold">$135</span>
+                  </div>
                 </div>
-                <button class="ml-auto flex-shrink-0">
-                  <img src="/src/assets/images/delete-icon.svg" alt="" class="size-5" />
-                </button>
               </div>
-              <div class="flex items-center justify-between">
-                <strong class="ff-primary text-xl md:text-2xl">$90</strong>
-                <div class="flex items-center rounded-full bg-gray-100 px-2 py-1">
-                  <button class="px-2 text-xl font-medium text-black" id="minusBtn">−</button>
-                  <span class="mx-2 inline-block w-6 text-center text-sm font-medium" id="itemCount"
-                    >1</span
-                  >
-                  <button class="px-2 text-xl font-medium text-black" id="addBtn">+</button>
+
+              <!-- Item 2 -->
+              <div class="flex items-center justify-center gap-4">
+                <img
+                  src="/src/assets/images/blue-sweatshirt.png"
+                  alt="Product"
+                  class="h-16 w-16 object-cover"
+                />
+                <div class="flex-1">
+                  <p class="ff-primary text-md line-clamp-1 font-medium">
+                    Vintage Sweatshirt - Blue
+                  </p>
+                  <div class="ff-primary mt-1 flex items-center gap-2">
+                    <span class="text-base text-black/60">Qty 1</span>
+                    <span class="text-md font-semibold">$135</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </article>
-        </main>
-        <aside class="w-full space-y-2 lg:w-[460px]" id="paymentSummaryContainer">
-          <h2 class="ff-primary text-2xl font-bold md:text-3xl">Payment Summary</h2>
+          </div>
           <div class="heading-2 flex items-center justify-between">
             <p class="font-normal text-black/60">Subtotal</p>
             <span id="subTotal">$565</span>
@@ -138,6 +300,10 @@
           <div class="heading-2 flex items-center justify-between">
             <p class="font-normal text-black/60">Tax (5%)</p>
             <span id="taxPrice">$5</span>
+          </div>
+          <div class="heading-2 flex items-center justify-between">
+            <p class="font-normal text-black/60">Delivery Fee</p>
+            <span id="deliveryFee">$5</span>
           </div>
           <div class="heading-2 my-6 flex items-center justify-between">
             <p class="font-normal text-black">Total</p>
@@ -156,10 +322,7 @@
             </div>
             <button class="btn-primary max-w-26 py-4">Apply</button>
           </div>
-          <button
-            class="btn-primary mt-4 flex items-center justify-center gap-2 py-4"
-            id="checkoutBtn"
-          >
+          <button class="btn-primary mt-4 flex items-center justify-center gap-2 py-4">
             Go to Checkout <img src="/src/assets/images/arrow-right.svg" alt="" />
           </button>
         </aside>
@@ -242,55 +405,7 @@
         </div>
       </div>
     </footer>
-
-    <!-- Toast -->
-    <div
-      id="toast-remove"
-      class="fixed right-10 bottom-10 z-50 mb-4 flex hidden w-full max-w-xs items-center rounded-lg bg-white p-4 text-black/60 shadow-sm"
-      role="alert"
-    >
-      <div
-        class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-red-100 text-red-500"
-      >
-        <svg
-          class="h-5 w-5"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-        >
-          <path
-            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 11.793a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293Z"
-          />
-        </svg>
-        <span class="sr-only">Error icon</span>
-      </div>
-      <div class="ms-3 text-sm font-normal">Item has been deleted.</div>
-      <button
-        type="button"
-        class="-mx-1.5 -my-1.5 ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300"
-        data-dismiss-target="#toast-remove"
-        aria-label="Close"
-      >
-        <span class="sr-only">Close</span>
-        <svg
-          class="h-3 w-3"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 14 14"
-        >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-          />
-        </svg>
-      </button>
-    </div>
-
-    <script type="module" src="/src/scripts/checkout.js"></script>
   </body>
+
+  <script type="module" src="/src/scripts/checkout.js"></script>
 </html>

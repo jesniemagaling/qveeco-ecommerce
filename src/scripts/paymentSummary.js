@@ -3,16 +3,28 @@ import { products } from './utils/product';
 import { formatCurrency } from './utils/money';
 
 const cart = getCart();
+
 export function renderPaymentSummary() {
   let productPriceCents = 0;
   const discountRate = 0.13;
   const taxRate = 0.05;
 
+  let itemListHTML = '';
+
   cart.forEach((cartItem) => {
     const productId = cartItem.productId;
     const matchingProduct = products.find((product) => product.id === productId);
+
     if (matchingProduct) {
-      productPriceCents += matchingProduct.priceCents * cartItem.quantity;
+      const itemTotal = matchingProduct.priceCents * cartItem.quantity;
+      productPriceCents += itemTotal;
+
+      itemListHTML += `
+        <div class="heading-2 flex items-center gap-4 justify-between">
+          <p class="font-normal text-black/60 line-clamp-1" title="${matchingProduct.name}">${matchingProduct.name} x${cartItem.quantity}</p>
+          <span>$${formatCurrency(itemTotal)}</span>
+        </div>
+      `;
     }
   });
 
@@ -21,32 +33,10 @@ export function renderPaymentSummary() {
   const taxAmount = discountedPrice * taxRate;
   const productTotal = discountedPrice + taxAmount;
 
-  /*
-  // Step 3: Output
-  console.log('Subtotal: ', formatCurrency(productPriceCents));
-  console.log('Discount Amount (cents):', formatCurrency(discountAmount));
-  console.log('Tax Amount (cents):', formatCurrency(taxAmount));
-  console.log('Final Total (cents):', formatCurrency(productTotal));
-
-  // Optional: Convert to dollars
-  console.log('Final Total ($):', formatCurrency(productTotal));
-  */
-
   const paymentSummaryHTML = `
-    <aside class="w-full space-y-2 lg:w-[460px]">
-      <h2 class="ff-primary text-2xl font-bold md:text-3xl">Payment Summary</h2>
-      <div class="heading-2 flex items-center justify-between">
-        <p class="font-normal text-black/60">Subtotal</p>
-        <span id="subTotal">$${formatCurrency(productPriceCents)}</span>
-      </div>
-      <div class="heading-2 flex items-center justify-between">
-        <p class="font-normal text-black/60">Discount (-13%)</p>
-        <span class="text-[#FF3333]" id="discount">$${formatCurrency(discountAmount)}</span>
-      </div>
-      <div class="heading-2 flex items-center justify-between">
-        <p class="font-normal text-black/60">Tax (5%)</p>
-        <span id="taxPrice">$${formatCurrency(taxAmount)}</span>
-      </div>
+    <aside class="w-full space-y-2">
+      <h2 class="ff-primary mb-4 text-2xl font-bold md:text-3xl">Payment Summary</h2>
+      ${itemListHTML}
       <div class="heading-2 my-6 flex items-center justify-between">
         <p class="font-normal text-black">Total</p>
         <span>$${formatCurrency(productTotal)}</span>

@@ -7,17 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbarToggle();
   breadcrumbList('.breadcrumbs ul', [
     { label: 'Home', href: 'qveeco.html' },
+    { label: 'Products', href: 'category.html' },
     { label: 'Cart', href: 'category.html' },
   ]);
+  renderItemCart();
+  renderPaymentSummary();
 });
-
-const cartDropdown = document.getElementById('cartDropdown');
-const cartCollapse = document.getElementById('cartCollapse');
-const dropdownIcon = document.getElementById('dropdownIcon');
-
-cartDropdown.addEventListener('click', () => {
-  cartCollapse.classList.toggle('hidden'); // Show/hide cart items
-  dropdownIcon.classList.toggle('rotate-180'); // Rotate the icon
-});
-
-console.log('object');
