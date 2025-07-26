@@ -1,14 +1,22 @@
-import { getCart } from './utils/cartModule';
-import { products } from './utils/product';
-import { formatCurrency } from './utils/money';
+import { getCart } from '../utils/cartModule';
+import { products } from '../utils/productModule';
+import { formatCurrency } from '../utils/money';
+import { groupCartItems } from '../utils/cartModule';
 
 const cart = getCart();
+
 export function renderCartItems() {
   let cartItemsHTML = '';
 
-  cart.forEach((cartItem) => {
+  // Step 1: Group items by productId
+  const groupedItems = groupCartItems(cart);
+
+  // Step 2: Render the merged summary
+  Object.values(groupedItems).forEach((cartItem) => {
     const productId = cartItem.productId;
     const matchingProduct = products.find((product) => product.id === productId);
+
+    if (!matchingProduct) return;
 
     cartItemsHTML += `
       <article class="flex items-start gap-4">
@@ -18,7 +26,7 @@ export function renderCartItems() {
           class="h-16 w-16 object-cover"
         />
         <div class="flex-1">
-          <p class="ff-primary line-clamp-1 text-base font-medium">
+          <p class="ff-primary line-clamp-1 text-base font-medium" title="${matchingProduct.name}">
             ${matchingProduct.name}
           </p>
           <div class="ff-primary mt-1 flex items-center gap-2">

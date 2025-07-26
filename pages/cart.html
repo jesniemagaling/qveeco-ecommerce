@@ -88,81 +88,11 @@
     <section class="mt-40 min-h-screen px-4 md:my-40 lg:px-14" id="cartContainer">
       <h1 class="product-heading">YOUR CART</h1>
       <div class="mt-6 flex h-full flex-col gap-16 lg:flex-row">
-        <main class="mb-auto w-full flex-1 space-y-4 lg:min-w-[524px]" id="orderSummaryContainer">
-          <article class="flex w-full items-center">
-            <img
-              src="/src/assets/images/football-jersey.png"
-              alt=""
-              class="w-full max-w-40 md:max-w-60"
-            />
-            <div class="h-full w-full space-y-1 md:space-y-4">
-              <div class="flex items-start justify-between gap-4">
-                <div>
-                  <h2 class="heading-2 line-clamp-1" title="Retro Mesh Football Jersey - Red">
-                    Retro Mesh Football Jersey - Red
-                  </h2>
-                  <p class="ff-primary text-normal text-sm text-black md:text-base lg:text-lg">
-                    Size:&nbsp;<span class="text-normal text-black/60">Large</span>
-                  </p>
-                  <p class="ff-primary text-normal text-sm text-black md:text-base lg:text-lg">
-                    Quantity:&nbsp;<span class="text-normal text-black/60">2</span>
-                  </p>
-                </div>
-                <button class="ml-auto flex-shrink-0">
-                  <img src="/src/assets/images/delete-icon.svg" alt="" class="size-5" />
-                </button>
-              </div>
-              <div class="flex items-center justify-between">
-                <strong class="ff-primary text-xl md:text-2xl">$90</strong>
-                <div class="flex items-center rounded-full bg-gray-100 px-2 py-1">
-                  <button class="px-2 text-xl font-medium text-black" id="minusBtn">−</button>
-                  <span class="mx-2 inline-block w-6 text-center text-sm font-medium" id="itemCount"
-                    >1</span
-                  >
-                  <button class="px-2 text-xl font-medium text-black" id="addBtn">+</button>
-                </div>
-              </div>
-            </div>
-          </article>
-        </main>
-        <aside class="w-full space-y-2 lg:w-[460px]" id="paymentSummaryContainer">
-          <h2 class="ff-primary text-2xl font-bold md:text-3xl">Payment Summary</h2>
-          <div class="heading-2 flex items-center justify-between">
-            <p class="font-normal text-black/60">Subtotal</p>
-            <span id="subTotal">$565</span>
-          </div>
-          <div class="heading-2 flex items-center justify-between">
-            <p class="font-normal text-black/60">Discount (-13%)</p>
-            <span class="text-[#FF3333]" id="discount">$113</span>
-          </div>
-          <div class="heading-2 flex items-center justify-between">
-            <p class="font-normal text-black/60">Tax (5%)</p>
-            <span id="taxPrice">$5</span>
-          </div>
-          <div class="heading-2 my-6 flex items-center justify-between">
-            <p class="font-normal text-black">Total</p>
-            <span>$513</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <div class="relative flex-grow">
-              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                <img src="/src/assets/images/discount-icon.svg" alt="" />
-              </div>
-              <input
-                type="text"
-                placeholder="Add promo code"
-                class="w-full rounded-full border-gray-300 bg-gray-100 py-3 pr-4 pl-12 text-black/60 focus:border-transparent focus:ring-2 focus:ring-black"
-              />
-            </div>
-            <button class="btn-primary max-w-26 py-4">Apply</button>
-          </div>
-          <button
-            class="btn-primary mt-4 flex items-center justify-center gap-2 py-4"
-            id="checkoutBtn"
-          >
-            Go to Checkout <img src="/src/assets/images/arrow-right.svg" alt="" />
-          </button>
-        </aside>
+        <main
+          class="mb-auto w-full flex-1 space-y-4 lg:min-w-[524px]"
+          id="orderSummaryContainer"
+        ></main>
+        <aside class="w-full space-y-2 lg:w-[460px]" id="paymentSummaryContainer"></aside>
       </div>
     </section>
 
@@ -265,7 +195,7 @@
         </svg>
         <span class="sr-only">Error icon</span>
       </div>
-      <div class="ms-3 text-sm font-normal">Item has been deleted.</div>
+      <div class="ms-3 text-sm font-normal">Item has been removed.</div>
       <button
         type="button"
         class="-mx-1.5 -my-1.5 ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300"
@@ -291,6 +221,6 @@
       </button>
     </div>
 
-    <script type="module" src="/src/scripts/cart.js"></script>
+    <script type="module" src="/src/scripts/cart/cart.js"></script>
   </body>
 </html>

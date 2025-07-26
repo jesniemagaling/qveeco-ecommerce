@@ -60,3 +60,17 @@ function updateCartDisplay() {
     cartCountEl.classList.remove('hidden');
   }
 }
+
+export function groupCartItems(cart) {
+  const groupedItems = {};
+
+  cart.forEach((item) => {
+    if (groupedItems[item.productId]) {
+      groupedItems[item.productId].quantity += item.quantity;
+    } else {
+      groupedItems[item.productId] = { ...item };
+    }
+  });
+
+  return groupedItems;
+}

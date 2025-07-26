@@ -1,10 +1,9 @@
-import { getCart, getCartQuantity, addToCart } from './utils/cartModule';
-import { products } from './utils/product';
-import { initNavbarToggle } from './utils/nav';
-import { formatCurrency } from './utils/money';
-import { breadcrumbList } from './utils/breadcrumb';
-import { capitalizeFirstLetter } from './utils/formatter';
-import { doc } from 'prettier';
+import { getCartQuantity, addToCart } from '../utils/cartModule';
+import { products } from '../utils/productModule';
+import { initNavbarToggle } from '../utils/nav';
+import { formatCurrency } from '../utils/money';
+import { breadcrumbList } from '../utils/breadcrumb';
+import { capitalizeFirstLetter } from '../utils/formatter';
 
 // Generate product detail HTML
 function createProductDetailHTML(product) {
@@ -314,7 +313,6 @@ function createProductDetailHTML(product) {
 // Global Variables
 let currentProduct = null;
 let visibleReviewsCount = 2;
-const cart = getCart();
 
 // Initialization
 document.addEventListener('DOMContentLoaded', () => {

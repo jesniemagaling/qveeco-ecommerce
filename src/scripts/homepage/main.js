@@ -1,8 +1,7 @@
-import '../style.css';
-import { newArrival, topSelling } from './utils/product';
-import { ratings } from './rating';
-import { initNavbarToggle } from './utils/nav';
-import { formatCurrency } from './utils/money';
+import { newArrival, topSelling } from '../utils/productModule';
+import { ratings } from '../utils/rating';
+import { initNavbarToggle } from '../utils/nav';
+import { formatCurrency } from '../utils/money';
 
 // navbar initialization
 document.addEventListener('DOMContentLoaded', () => {

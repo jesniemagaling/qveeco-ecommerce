@@ -1,8 +1,8 @@
-import { getCart, saveToStorage } from './utils/cartModule';
-import { products } from './utils/product';
+import { getCart, saveToStorage } from '../utils/cartModule';
+import { products } from '../utils/productModule';
 import { renderPaymentSummary } from './paymentSummary';
-import { formatCurrency } from './utils/money';
-import { capitalizeFirstLetter } from './utils/formatter';
+import { formatCurrency } from '../utils/money';
+import { capitalizeFirstLetter } from '../utils/formatter';
 
 const cart = getCart();
 

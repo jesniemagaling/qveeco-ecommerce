@@ -1,7 +1,7 @@
-import { initNavbarToggle } from './utils/nav';
-import { breadcrumbList } from './utils/breadcrumb';
-import { renderItemCart } from './orderSummary';
-import { renderPaymentSummary } from './paymentSummary';
+import { initNavbarToggle } from '../utils/nav';
+import { breadcrumbList } from '../utils/breadcrumb';
+import { renderItemCart } from './cartSummary';
+import { renderPaymentSummary } from '../cart/paymentSummary';
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbarToggle();

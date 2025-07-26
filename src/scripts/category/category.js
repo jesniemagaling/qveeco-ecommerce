@@ -1,7 +1,7 @@
-import { products } from './utils/product';
-import { initNavbarToggle } from './utils/nav';
-import { formatCurrency } from './utils/money';
-import { breadcrumbList } from './utils/breadcrumb';
+import { products } from '../utils/productModule';
+import { initNavbarToggle } from '../utils/nav';
+import { formatCurrency } from '../utils/money';
+import { breadcrumbList } from '../utils/breadcrumb';
 
 // navbar initialization
 document.addEventListener('DOMContentLoaded', () => {
@@ -90,7 +90,9 @@ Object.values(sections).forEach(setupToggle);
 
 // DOM References
 const productsWrapperEl = document.getElementById('productsWrapper');
+const productsCountEl = document.getElementById('productsCount');
 const searchInput = document.getElementById('search');
+
 const priceRangeInput = document.getElementById('priceRange');
 const priceMaxOutput = document.getElementById('priceMax');
 const colorCheckContainer = document.getElementById('colorCheckContainer');
@@ -98,7 +100,6 @@ const sizeContainer = document.getElementById('sizeContainer');
 const typeCheckContainer = document.getElementById('typeCheckContainer');
 const styleCheckContainer = document.getElementById('styleCheckContainer');
 const clearFilterBtn = document.getElementById('clearFilter');
-const productsCountEl = document.getElementById('productsCount');
 
 // Render all products initially (sorted by price descending)
 filterProducts();
