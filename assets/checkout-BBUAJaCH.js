@@ -1,4 +1,4 @@
-import{c as y,d as h,p as x,f as u,g as w,i as C,b as S}from"./breadcrumb-DEYYAhfd.js";const $=h();function E(){let i="";const d=y($);Object.values(d).forEach(s=>{const l=s.productId,c=x.find(n=>n.id===l);c&&(i+=`
+import{c as y,d as h,p as x,f as p,g as w,i as C,b as S}from"./breadcrumb-DEYYAhfd.js";const $=h();function E(){let i="";const d=y($);Object.values(d).forEach(s=>{const l=s.productId,c=x.find(n=>n.id===l);c&&(i+=`
       <article class="flex items-start gap-4">
         <img
           src="${c.image}"
@@ -11,11 +11,11 @@ import{c as y,d as h,p as x,f as u,g as w,i as C,b as S}from"./breadcrumb-DEYYAh
           </p>
           <div class="ff-primary mt-1 flex items-center gap-4">
             <span class="text-base text-black/60">Qty ${s.quantity}</span>
-            <span class="text-md font-semibold">$${u(c.priceCents)}</span>
+            <span class="text-md font-semibold">$${p(c.priceCents)}</span>
           </div>
         </div>
       </article>
-    `)});const r=document.getElementById("cartCollapse");r.innerHTML=i}const p="/qveeco-ecommerce/assets/images";function I(){let i="";i+=`
+    `)});const r=document.getElementById("cartCollapse");r.innerHTML=i}const u="/qveeco-ecommerce/assets/images";function I(){let i="";i+=`
     <!-- Email -->
     <div>
       <label for="email" class="mb-3 block font-medium"
@@ -60,7 +60,7 @@ import{c as y,d as h,p as x,f as u,g as w,i as C,b as S}from"./breadcrumb-DEYYAh
         <!-- Add options here -->
       </select>
       <div class="pointer-events-none absolute right-4 bottom-5 flex items-center">
-        <img src="${p}/dropdown-icon.svg" alt="" />
+        <img src="${u}/dropdown-icon.svg" alt="" />
       </div>
     </div>
 
@@ -79,7 +79,7 @@ import{c as y,d as h,p as x,f as u,g as w,i as C,b as S}from"./breadcrumb-DEYYAh
         <!-- Add options here -->
       </select>
       <div class="pointer-events-none absolute right-4 bottom-5 flex items-center">
-        <img src="${p}/dropdown-icon.svg" alt="" />
+        <img src="${u}/dropdown-icon.svg" alt="" />
       </div>
     </div>
 
@@ -98,7 +98,7 @@ import{c as y,d as h,p as x,f as u,g as w,i as C,b as S}from"./breadcrumb-DEYYAh
         <!-- Add options here -->
       </select>
       <div class="pointer-events-none absolute right-4 bottom-5 flex items-center">
-        <img src="${p}/dropdown-icon.svg" alt="" />
+        <img src="${u}/dropdown-icon.svg" alt="" />
       </div>
     </div>
 
@@ -117,7 +117,7 @@ import{c as y,d as h,p as x,f as u,g as w,i as C,b as S}from"./breadcrumb-DEYYAh
         <!-- Add options here -->
       </select>
       <div class="pointer-events-none absolute right-4 bottom-5 flex items-center">
-        <img src="${p}/dropdown-icon.svg" alt="" />
+        <img src="${u}/dropdown-icon.svg" alt="" />
       </div>
     </div>
 
@@ -136,7 +136,7 @@ import{c as y,d as h,p as x,f as u,g as w,i as C,b as S}from"./breadcrumb-DEYYAh
         <!-- Add options here -->
       </select>
       <div class="pointer-events-none absolute right-4 bottom-5 flex items-center">
-        <img src="${p}/dropdown-icon.svg" alt="" />
+        <img src="${u}/dropdown-icon.svg" alt="" />
       </div>
     </div>
 
@@ -187,23 +187,23 @@ import{c as y,d as h,p as x,f as u,g as w,i as C,b as S}from"./breadcrumb-DEYYAh
     </div>
     <div class="heading-2 flex items-center justify-between">
       <p class="font-normal text-black/60">Subtotal</p>
-      <span id="subTotal">$${u(i)}</span>
+      <span id="subTotal">$${p(i)}</span>
     </div>
     <div class="heading-2 flex items-center justify-between">
       <p class="font-normal text-black/60">Discount (-13%)</p>
-      <span class="text-[#FF3333]" id="discount">$${u(c)}</span>
+      <span class="text-[#FF3333]" id="discount">$${p(c)}</span>
     </div>
     <div class="heading-2 flex items-center justify-between">
       <p class="font-normal text-black/60">Tax (5%)</p>
-      <span id="taxPrice">$${u(o)}</span>
+      <span id="taxPrice">$${p(o)}</span>
     </div>
     <div class="heading-2 flex items-center justify-between">
       <p class="font-normal text-black/60">Delivery Fee</p>
-      <span id="deliveryFee">$${u(s)}</span>
+      <span id="deliveryFee">$${p(s)}</span>
     </div>
     <div class="heading-2 my-6 flex items-center justify-between">
       <p class="font-normal text-black">Total</p>
-      <span>$${u(e)}</span>
+      <span>$${p(e)}</span>
     </div>
     <div class="flex items-center gap-2">
       <div class="relative flex-grow">
@@ -218,7 +218,7 @@ import{c as y,d as h,p as x,f as u,g as w,i as C,b as S}from"./breadcrumb-DEYYAh
       </div>
       <button class="btn-primary max-w-26 py-4">Apply</button>
     </div>
-    <button class="btn-primary mt-4 py-4">
+    <button class="btn-primary mt-4 py-4" id="placeOrder">
       Place Order
     </button>
   `,a=document.getElementById("paymentSummaryContainer");a.innerHTML=t}document.addEventListener("DOMContentLoaded",()=>{JSON.parse(localStorage.getItem("cart"));const i=w(),d=i===0?9:i;document.getElementById("cartCount").textContent=d,C(),S(".breadcrumbs ul",[{label:"Home",href:"qveeco.html"},{label:"Cart",href:"category.html"},{label:"Checkout",href:"checkout.html"}]),I(),q(),E();const r=document.getElementById("cartDropdown"),s=document.getElementById("cartCollapse"),l=document.getElementById("dropdownIcon");r.addEventListener("click",()=>{s.classList.toggle("hidden"),l.classList.toggle("rotate-180")})});
