@@ -1,4 +1,4 @@
-import{i as u,p,b,a as g,g as f,f as l}from"./breadcrumb-CYujIPXD.js";import{c as y}from"./formatter-byuH9jKl.js";function x(e){return`
+import{i as u,p,b,a as g,g as f,f as l}from"./breadcrumb-DrP7ZHYU.js";import{c as y}from"./formatter-byuH9jKl.js";function x(e){return`
     <div class="grid w-full place-items-center lg:flex lg:justify-center">
       <div class="flex flex-col items-start gap-4 lg:mb-auto lg:flex-row">
         <!-- Thumbnails -->

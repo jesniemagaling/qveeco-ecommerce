@@ -1,4 +1,4 @@
-import{c as x,p,f as u,d as f,s as m,g,i as y,b}from"./breadcrumb-CYujIPXD.js";import{c as v}from"./formatter-byuH9jKl.js";const h=f();function r(){let t=0,c="";const e=x(h);Object.values(e).forEach(s=>{const n=s.productId,a=p.find(o=>o.id===n);if(a){const o=a.priceCents*s.quantity;t+=o,c+=`
+import{c as x,p,f as u,d as f,s as m,g,i as y,b}from"./breadcrumb-DrP7ZHYU.js";import{c as v}from"./formatter-byuH9jKl.js";const h=f();function r(){let t=0,c="";const e=x(h);Object.values(e).forEach(s=>{const n=s.productId,a=p.find(o=>o.id===n);if(a){const o=a.priceCents*s.quantity;t+=o,c+=`
       <div class="text-lg md:text-xl ff-primary font-bold flex items-center gap-4 justify-between">
         <p class="font-normal text-black/60 line-clamp-1" title="${a.name}">
           ${a.name} x${s.quantity}
