@@ -1,4 +1,4 @@
-import{i as p,p as b,b as g,a as f,g as y,f as m}from"./breadcrumb-DEYYAhfd.js";import{c as x}from"./formatter-byuH9jKl.js";const c="/qveeco-ecommerce/assets/images";function v(e){return`
+import{i as p,p as b,b as g,a as f,g as y,f as m}from"./breadcrumb-B5fJoev5.js";import{c as x}from"./formatter-byuH9jKl.js";const c="/qveeco-ecommerce/assets/images";function v(e){return`
     <div class="grid w-full place-items-center lg:flex lg:justify-center">
       <div class="flex flex-col items-start gap-4 lg:mb-auto lg:flex-row">
         <!-- Thumbnails -->

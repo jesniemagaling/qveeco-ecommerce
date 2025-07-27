@@ -1,4 +1,4 @@
-import{c as x,p as f,f as u,d as g,s as m,g as y,i as b,b as v}from"./breadcrumb-DEYYAhfd.js";import{c as h}from"./formatter-byuH9jKl.js";const p="/qveeco-ecommerce/assets/images",$=g();function r(){let t=0,n="";const s=x($);Object.values(s).forEach(e=>{const o=e.productId,a=f.find(c=>c.id===o);if(a){const c=a.priceCents*e.quantity;t+=c,n+=`
+import{c as x,p as f,f as u,d as g,s as m,g as y,i as b,b as v}from"./breadcrumb-B5fJoev5.js";import{c as h}from"./formatter-byuH9jKl.js";const p="/qveeco-ecommerce/assets/images",$=g();function r(){let t=0,n="";const s=x($);Object.values(s).forEach(e=>{const o=e.productId,a=f.find(c=>c.id===o);if(a){const c=a.priceCents*e.quantity;t+=c,n+=`
       <div class="text-lg md:text-xl ff-primary font-bold flex items-center gap-4 justify-between">
         <p class="font-normal text-black/60 line-clamp-1" title="${a.name}">
           ${a.name} x${e.quantity}
