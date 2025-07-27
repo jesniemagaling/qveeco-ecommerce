@@ -21,7 +21,7 @@ import{i as p,p as b,b as g,a as f,g as y,f as m}from"./breadcrumb-DEYYAhfd.js";
           <p class="ff-primary text-normal pt-1 text-black">${e.rating}.0/<span class="text-normal text-black/60">5</span></p>
         </div>
         <strong class="heading-2">$${m(e.priceCents)}</strong>
-        <p class="mt-6 sec-heading lg:text-lg xl:text-xl">${e.description}</p>
+        <p class="mt-6 sec-heading text-md lg:text-lg xl:text-xl">${e.description}</p>
 
         <div class="mt-6 grid gap-3 text-sm text-black/60">
           <h2>Choose Size</h2>
