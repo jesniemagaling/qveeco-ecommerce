@@ -1,8 +1,8 @@
-import{i as p,p as b,b as g,a as f,g as y,f as m}from"./breadcrumb-DZYQa_H8.js";import{c as x}from"./formatter-byuH9jKl.js";const c="/qveeco-ecommerce/assets/images";function v(e){return`
+import{i as p,p as b,b as g,a as f,g as y,f as m}from"./breadcrumb-D7fAl4-S.js";import{c as x}from"./formatter-byuH9jKl.js";const c="/qveeco-ecommerce/assets/images";function v(e){return`
     <div class="grid w-full place-items-center lg:flex lg:justify-center">
       <div class="flex flex-col items-start gap-4 lg:mb-auto lg:flex-row">
         <!-- Thumbnails -->
-        <div class="order-2 flex h-full justify-between gap-2 lg:order-1 lg:flex-col">
+        <div class="order-2 flex max-w-full h-full justify-between gap-2 lg:order-1 lg:flex-col">
           <img src="${e.image}" alt="Thumb 1" class="max-h-xl w-full max-w-[10rem] cursor-pointer rounded-2xl border border-gray-300 object-cover hover:border-black" />
           <img src="${e.image}" alt="Thumb 2" class="max-h-xl w-full max-w-[10rem] cursor-pointer rounded-2xl border border-gray-300 object-cover hover:border-black" />
           <img src="${e.image}" alt="Thumb 3" class="max-h-xl w-full max-w-[10rem] cursor-pointer rounded-2xl border border-gray-300 object-cover hover:border-black" />
