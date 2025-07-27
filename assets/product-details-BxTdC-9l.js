@@ -1,4 +1,4 @@
-import{i as p,p as b,b as g,a as f,g as y,f as m}from"./breadcrumb-DrP7ZHYU.js";import{c as x}from"./formatter-byuH9jKl.js";const c="/qveeco-ecommerce/assets/images";function v(e){return`
+import{i as u,p,b,a as g,g as f,f as l}from"./breadcrumb-DrP7ZHYU.js";import{c as y}from"./formatter-byuH9jKl.js";function x(e){return`
     <div class="grid w-full place-items-center lg:flex lg:justify-center">
       <div class="flex flex-col items-start gap-4 lg:mb-auto lg:flex-row">
         <!-- Thumbnails -->
@@ -17,10 +17,10 @@ import{i as p,p as b,b as g,a as f,g as y,f as m}from"./breadcrumb-DrP7ZHYU.js";
       <article class="grid gap-1 py-2">
         <h3 class="product-heading">${e.name.toUpperCase()}</h3>
         <div class="flex items-center gap-3.5 py-1">
-          <img src="${c}/${e.rating}-star.svg" alt="" />
+          <img src="/assets/images/${e.rating}-star.svg" alt="" />
           <p class="ff-primary text-normal pt-1 text-black">${e.rating}.0/<span class="text-normal text-black/60">5</span></p>
         </div>
-        <strong class="heading-2">$${m(e.priceCents)}</strong>
+        <strong class="heading-2">$${l(e.priceCents)}</strong>
         <p class="mt-6 sec-heading lg:text-lg xl:text-xl">${e.description}</p>
 
         <div class="mt-6 grid gap-3 text-sm text-black/60">
@@ -47,7 +47,7 @@ import{i as p,p as b,b as g,a as f,g as y,f as m}from"./breadcrumb-DrP7ZHYU.js";
           <button class="btn-primary max-w-xl xl:max-w-sm" id="addToCartBtn" 
           data-product-id="${e.id}"
           data-product-name="${e.name}"
-          data-product-price="${m(e.priceCents)}">
+          data-product-price="${l(e.priceCents)}">
           Add to Cart
           </button>
         </div>
@@ -266,7 +266,7 @@ import{i as p,p as b,b as g,a as f,g as y,f as m}from"./breadcrumb-DrP7ZHYU.js";
                   Latest
                   <span
                     ><img
-                      src="${c}/dropdown-icon.svg"
+                      src="/assets/images/dropdown-icon.svg"
                       alt=""
                       class="-mt-0.5 w-12 md:-mt-0 md:w-14"
                   /></span>
@@ -294,12 +294,12 @@ import{i as p,p as b,b as g,a as f,g as y,f as m}from"./breadcrumb-DrP7ZHYU.js";
         </div>
       </div>
     </div>
-  `}let d=2;document.addEventListener("DOMContentLoaded",()=>{p();const e=w(),t=b.find(o=>o.id===e);t&&(d=2,g(".breadcrumbs ul",[{label:"Home",href:"qveeco.html"},{label:"Products",href:"category.html"},{label:x(t.type||"Product")}]),C(t),k(),S(),u())});function w(){return new URLSearchParams(window.location.search).get("id")}function C(e){const t=document.getElementById("productContainer");t&&(t.innerHTML=v(e),h(e))}function h(e){const t=document.getElementById("productRatingContainer"),o=document.getElementById("ratingLoadMoreBtn");if(!t||!o)return;t.innerHTML="";const n=e.reviews||[];n.forEach((a,s)=>{const r=document.createElement("article");r.classList.add("review-item"),s>=d&&r.classList.add("hidden"),r.innerHTML=`
-      <img src="${c}/${a.rating}-star.svg" alt="${a.rating} stars" />
+  `}let d=2;document.addEventListener("DOMContentLoaded",()=>{u();const e=v(),t=p.find(o=>o.id===e);t&&(d=2,b(".breadcrumbs ul",[{label:"Home",href:"qveeco.html"},{label:"Products",href:"category.html"},{label:y(t.type||"Product")}]),w(t),C(),k(),h())});function v(){return new URLSearchParams(window.location.search).get("id")}function w(e){const t=document.getElementById("productContainer");t&&(t.innerHTML=x(e),m(e))}function m(e){const t=document.getElementById("productRatingContainer"),o=document.getElementById("ratingLoadMoreBtn");if(!t||!o)return;t.innerHTML="";const n=e.reviews||[];n.forEach((a,r)=>{const s=document.createElement("article");s.classList.add("review-item"),r>=d&&s.classList.add("hidden"),s.innerHTML=`
+      <img src="/assets/images/${a.rating}-star.svg" alt="${a.rating} stars" />
       <h3 class="ff-primary my-2 flex gap-1 text-2xl font-bold">
         ${a.name}
-        <img src="${c}/check-icon.svg" alt="verified" class="-mt-1" />
+        <img src="/assets/images/check-icon.svg" alt="verified" class="-mt-1" />
       </h3>
       <p class="text-black/60">"${a.testimonial}"</p>
       <p class="mt-6 text-black/60">Posted on ${a.date}</p>
-    `,t.appendChild(r)}),o.classList.toggle("hidden",n.length<=d),o.onclick=()=>{d=n.length,h(e)}}function k(){const e=document.getElementById("addToCartBtn"),t=document.getElementById("itemCount");if(!e||!t)return;let o=1;e.addEventListener("click",()=>{const s=e.dataset.productId,r=o,i=document.querySelector('input[name="size"]:checked');if(!i){alert("Please select a size before adding to cart.");return}const l=i.value;f({productId:s,size:l,quantity:r}),B(),u(),o=1,t.textContent="1",i.checked=!1});const n=document.getElementById("minusBtn"),a=document.getElementById("addBtn");n?.addEventListener("click",()=>{o>1&&(o--,t.textContent=o)}),a?.addEventListener("click",()=>{o++,t.textContent=o})}function u(){const e=y();document.getElementById("cartCount").textContent=e}function S(){const e=[{btn:"productDetailsBtn",section:"productDetails"},{btn:"productRatingsBtn",section:"productRatings"},{btn:"productFAQBtn",section:"productFAQ"}];e.forEach(({btn:n,section:a})=>{const s=document.getElementById(n),r=document.getElementById(a);s&&r&&s.addEventListener("click",()=>{e.forEach(({btn:i,section:l})=>{document.getElementById(i).classList.remove("border-b-black","text-black","font-medium"),document.getElementById(i).classList.add("border-b-transparent","text-black/60"),document.getElementById(l).classList.add("hidden")}),s.classList.add("border-b-black","text-black","font-medium"),s.classList.remove("border-b-transparent","text-black/60"),r.classList.remove("hidden")})}),document.getElementById("productDetailsBtn")?.click();const t=document.getElementById("faqLoadMoreBtn"),o=document.getElementById("faqMoreContent");t?.addEventListener("click",()=>{o?.classList.remove("hidden"),t.classList.add("hidden")})}function B(){const e=document.getElementById("toast-success");e&&(e.classList.remove("hidden"),setTimeout(()=>{e.classList.add("hidden")},3e3))}document.querySelector('[data-dismiss-target="#toast-success"]')?.addEventListener("click",()=>{document.getElementById("toast-success")?.classList.add("hidden")});export{w as g};
+    `,t.appendChild(s)}),o.classList.toggle("hidden",n.length<=d),o.onclick=()=>{d=n.length,m(e)}}function C(){const e=document.getElementById("addToCartBtn"),t=document.getElementById("itemCount");if(!e||!t)return;let o=1;e.addEventListener("click",()=>{const r=e.dataset.productId,s=o,i=document.querySelector('input[name="size"]:checked');if(!i){alert("Please select a size before adding to cart.");return}const c=i.value;g({productId:r,size:c,quantity:s}),S(),h(),o=1,t.textContent="1",i.checked=!1});const n=document.getElementById("minusBtn"),a=document.getElementById("addBtn");n?.addEventListener("click",()=>{o>1&&(o--,t.textContent=o)}),a?.addEventListener("click",()=>{o++,t.textContent=o})}function h(){const e=f();document.getElementById("cartCount").textContent=e}function k(){const e=[{btn:"productDetailsBtn",section:"productDetails"},{btn:"productRatingsBtn",section:"productRatings"},{btn:"productFAQBtn",section:"productFAQ"}];e.forEach(({btn:n,section:a})=>{const r=document.getElementById(n),s=document.getElementById(a);r&&s&&r.addEventListener("click",()=>{e.forEach(({btn:i,section:c})=>{document.getElementById(i).classList.remove("border-b-black","text-black","font-medium"),document.getElementById(i).classList.add("border-b-transparent","text-black/60"),document.getElementById(c).classList.add("hidden")}),r.classList.add("border-b-black","text-black","font-medium"),r.classList.remove("border-b-transparent","text-black/60"),s.classList.remove("hidden")})}),document.getElementById("productDetailsBtn")?.click();const t=document.getElementById("faqLoadMoreBtn"),o=document.getElementById("faqMoreContent");t?.addEventListener("click",()=>{o?.classList.remove("hidden"),t.classList.add("hidden")})}function S(){const e=document.getElementById("toast-success");e&&(e.classList.remove("hidden"),setTimeout(()=>{e.classList.add("hidden")},3e3))}document.querySelector('[data-dismiss-target="#toast-success"]')?.addEventListener("click",()=>{document.getElementById("toast-success")?.classList.add("hidden")});export{v as g};

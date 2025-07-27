@@ -1,4 +1,4 @@
-import{c as g,p,f as u,d as f,s as m,g as x,i as y,b}from"./breadcrumb-DrP7ZHYU.js";import{c as v}from"./formatter-byuH9jKl.js";const h=f();function r(){let t=0,c="";const e=g(h);Object.values(e).forEach(s=>{const n=s.productId,a=p.find(o=>o.id===n);if(a){const o=a.priceCents*s.quantity;t+=o,c+=`
+import{c as x,p,f as u,d as f,s as m,g,i as y,b}from"./breadcrumb-DrP7ZHYU.js";import{c as v}from"./formatter-byuH9jKl.js";const h=f();function r(){let t=0,c="";const e=x(h);Object.values(e).forEach(s=>{const n=s.productId,a=p.find(o=>o.id===n);if(a){const o=a.priceCents*s.quantity;t+=o,c+=`
       <div class="text-lg md:text-xl ff-primary font-bold flex items-center gap-4 justify-between">
         <p class="font-normal text-black/60 line-clamp-1" title="${a.name}">
           ${a.name} x${s.quantity}
@@ -29,7 +29,7 @@ import{c as g,p,f as u,d as f,s as m,g as x,i as y,b}from"./breadcrumb-DrP7ZHYU.
       Go to Checkout <img src="/assets/images/arrow-right.svg" alt="" />
     </button></a>
     
-  `;document.getElementById("paymentSummaryContainer").innerHTML=d}const $="/qveeco-ecommerce/assets/images",i=f();function l(){let t="";i.forEach(e=>{const d=e.productId,s=p.find(n=>n.id===d);t+=`
+  `;document.getElementById("paymentSummaryContainer").innerHTML=d}const i=f();function l(){let t="";i.forEach(e=>{const d=e.productId,s=p.find(n=>n.id===d);t+=`
       <article class="flex w-full gap-2 items-center">
         <img
           src="${s.image}"
@@ -50,7 +50,7 @@ import{c as g,p,f as u,d as f,s as m,g as x,i as y,b}from"./breadcrumb-DrP7ZHYU.
               </p>
             </div>
             <button class="delete-btn ml-auto flex-shrink-0" data-product-id="${e.productId}">
-              <img src="${$}/delete-icon.svg" alt="" class="size-5" />
+              <img src="/assets/images/delete-icon.svg" alt="" class="size-5" />
             </button>
           </div>
           <div class="flex items-center justify-between">
@@ -68,4 +68,4 @@ import{c as g,p,f as u,d as f,s as m,g as x,i as y,b}from"./breadcrumb-DrP7ZHYU.
           </div>
         </div>
       </article>
-    `});const c=document.getElementById("orderSummaryContainer");c.innerHTML=t}document.getElementById("orderSummaryContainer").addEventListener("click",t=>{const c=t.target.closest(".minus-btn"),e=t.target.closest(".add-btn"),d=t.target.closest(".delete-btn");if(c){const s=c.dataset.productId,n=c.dataset.productSize,a=i.find(o=>o.productId===s&&o.size===n);a&&a.quantity>1&&(a.quantity-=1,m(),l(),r(),console.log(a.quantity))}if(e){const s=e.dataset.productId,n=e.dataset.productSize,a=i.find(o=>o.productId===s&&o.size===n);a&&(a.quantity+=1,m(),l(),r(),console.log(a.quantity))}if(d){const s=d.dataset.productId,n=i.findIndex(a=>a.productId===s);n!==-1&&(i.splice(n,1),m(),l(),r(),k()),console.log(s)}});function k(){const t=document.getElementById("toast-remove");t&&(t.classList.remove("hidden"),setTimeout(()=>{t.classList.add("hidden")},3e3))}document.querySelector('[data-dismiss-target="#toast-remove"]')?.addEventListener("click",()=>{document.getElementById("toast-remove")?.classList.add("hidden")});document.addEventListener("DOMContentLoaded",()=>{JSON.parse(localStorage.getItem("cart"));const t=x();document.getElementById("cartCount").textContent=t,y(),b(".breadcrumbs ul",[{label:"Home",href:"qveeco.html"},{label:"Products",href:"category.html"},{label:"Cart",href:"cart.html"}]),l(),r()});
+    `});const c=document.getElementById("orderSummaryContainer");c.innerHTML=t}document.getElementById("orderSummaryContainer").addEventListener("click",t=>{const c=t.target.closest(".minus-btn"),e=t.target.closest(".add-btn"),d=t.target.closest(".delete-btn");if(c){const s=c.dataset.productId,n=c.dataset.productSize,a=i.find(o=>o.productId===s&&o.size===n);a&&a.quantity>1&&(a.quantity-=1,m(),l(),r(),console.log(a.quantity))}if(e){const s=e.dataset.productId,n=e.dataset.productSize,a=i.find(o=>o.productId===s&&o.size===n);a&&(a.quantity+=1,m(),l(),r(),console.log(a.quantity))}if(d){const s=d.dataset.productId,n=i.findIndex(a=>a.productId===s);n!==-1&&(i.splice(n,1),m(),l(),r(),$()),console.log(s)}});function $(){const t=document.getElementById("toast-remove");t&&(t.classList.remove("hidden"),setTimeout(()=>{t.classList.add("hidden")},3e3))}document.querySelector('[data-dismiss-target="#toast-remove"]')?.addEventListener("click",()=>{document.getElementById("toast-remove")?.classList.add("hidden")});document.addEventListener("DOMContentLoaded",()=>{JSON.parse(localStorage.getItem("cart"));const t=g();document.getElementById("cartCount").textContent=t,y(),b(".breadcrumbs ul",[{label:"Home",href:"qveeco.html"},{label:"Products",href:"category.html"},{label:"Cart",href:"cart.html"}]),l(),r()});
