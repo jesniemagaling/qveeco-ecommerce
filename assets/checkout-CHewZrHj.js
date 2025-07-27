@@ -1,4 +1,4 @@
-import{c as g,d as v,p as y,f as u,g as x,i as k,b as w}from"./breadcrumb-B8B7WBGj.js";const C=v();function S(){let c="";const d=g(C);Object.values(d).forEach(s=>{const i=s.productId,l=y.find(n=>n.id===i);l&&(c+=`
+import{c as g,d as v,p as y,f as u,g as x,i as k,b as w}from"./breadcrumb-CYujIPXD.js";const C=v();function S(){let c="";const d=g(C);Object.values(d).forEach(s=>{const i=s.productId,l=y.find(n=>n.id===i);l&&(c+=`
       <article class="flex items-start gap-4">
         <img
           src="${l.image}"
