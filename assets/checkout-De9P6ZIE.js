@@ -1,4 +1,4 @@
-import{c as v,d as y,p as h,f as u,g as k,i as w,b as C}from"./breadcrumb-DrP7ZHYU.js";const S=y();function E(){let c="";const d=v(S);Object.values(d).forEach(s=>{const i=s.productId,l=h.find(n=>n.id===i);l&&(c+=`
+import{c as y,d as h,p as x,f as u,g as w,i as C,b as S}from"./breadcrumb-DrP7ZHYU.js";const $=h();function E(){let c="";const d=y($);Object.values(d).forEach(s=>{const i=s.productId,l=x.find(n=>n.id===i);l&&(c+=`
       <article class="flex items-start gap-4">
         <img
           src="${l.image}"
@@ -15,7 +15,7 @@ import{c as v,d as y,p as h,f as u,g as k,i as w,b as C}from"./breadcrumb-DrP7ZH
           </div>
         </div>
       </article>
-    `)});const r=document.getElementById("cartCollapse");r.innerHTML=c}const p="/qveeco-ecommerce/assets/images";function $(){let c="";c+=`
+    `)});const r=document.getElementById("cartCollapse");r.innerHTML=c}const p="/qveeco-ecommerce/assets/images";function I(){let c="";c+=`
     <!-- Email -->
     <div>
       <label for="email" class="mb-3 block font-medium"
@@ -168,14 +168,14 @@ import{c as v,d as y,p as h,f as u,g as k,i as w,b as C}from"./breadcrumb-DrP7ZH
         class="w-full rounded-full border border-black/20 px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none"
       />
     </div>
-  `;const d=document.getElementById("shippingForm");d.innerHTML=c;const r=document.getElementById("region"),s=document.getElementById("province"),i=document.getElementById("city"),l=document.getElementById("barangay");function n(o,e,t=!0){o.innerHTML=`<option value="" disabled selected hidden>${e}</option>`,o.disabled=t}fetch("https://psgc.gitlab.io/api/regions/").then(o=>o.json()).then(o=>{n(r,"Select your region",!1),n(s,"Select your state or province"),n(i,"Select your town or city"),n(l,"Select your local area"),o.forEach(e=>{const t=document.createElement("option");t.value=e.code,t.textContent=e.name,r.appendChild(t)})}),r.addEventListener("change",()=>{const o=r.value;n(i,"Select your town or city"),n(l,"Select your local area"),o==="130000000"?(n(s,"No province in NCR",!0),n(i,"Select your town or city",!1),fetch(`https://psgc.gitlab.io/api/regions/${o}/cities-municipalities/`).then(e=>e.json()).then(e=>{e.forEach(t=>{const a=document.createElement("option");a.value=t.code,a.textContent=t.name,i.appendChild(a)})})):(n(s,"Select your state or province",!1),fetch(`https://psgc.gitlab.io/api/regions/${o}/provinces/`).then(e=>e.json()).then(e=>{e.forEach(t=>{const a=document.createElement("option");a.value=t.code,a.textContent=t.name,s.appendChild(a)})}))}),s.addEventListener("change",()=>{const o=s.value;n(i,"Select your town or city",!1),n(l,"Select your local area"),fetch(`https://psgc.gitlab.io/api/provinces/${o}/cities-municipalities/`).then(e=>e.json()).then(e=>{e.forEach(t=>{const a=document.createElement("option");a.value=t.code,a.textContent=t.name,i.appendChild(a)})})}),i.addEventListener("change",()=>{const o=i.value;n(l,"Select your local area",!1),fetch(`https://psgc.gitlab.io/api/cities-municipalities/${o}/barangays/`).then(e=>e.json()).then(e=>{e.forEach(t=>{const a=document.createElement("option");a.value=t.code,a.textContent=t.name,l.appendChild(a)})})})}const I=y();let g=0;function L(){let c=0;const d=.13,r=.05,s=900,i=v(I);Object.values(i).forEach(m=>{const x=m.productId,f=h.find(b=>b.id===x);if(g+=m.quantity,f){const b=f.priceCents*m.quantity;c+=b}});const l=c*d,n=c-l,o=n*r,e=n+o+s,t=`
+  `;const d=document.getElementById("shippingForm");d.innerHTML=c;const r=document.getElementById("region"),s=document.getElementById("province"),i=document.getElementById("city"),l=document.getElementById("barangay");function n(o,e,t=!0){o.innerHTML=`<option value="" disabled selected hidden>${e}</option>`,o.disabled=t}fetch("https://psgc.gitlab.io/api/regions/").then(o=>o.json()).then(o=>{n(r,"Select your region",!1),n(s,"Select your state or province"),n(i,"Select your town or city"),n(l,"Select your local area"),o.forEach(e=>{const t=document.createElement("option");t.value=e.code,t.textContent=e.name,r.appendChild(t)})}),r.addEventListener("change",()=>{const o=r.value;n(i,"Select your town or city"),n(l,"Select your local area"),o==="130000000"?(n(s,"No province in NCR",!0),n(i,"Select your town or city",!1),fetch(`https://psgc.gitlab.io/api/regions/${o}/cities-municipalities/`).then(e=>e.json()).then(e=>{e.forEach(t=>{const a=document.createElement("option");a.value=t.code,a.textContent=t.name,i.appendChild(a)})})):(n(s,"Select your state or province",!1),fetch(`https://psgc.gitlab.io/api/regions/${o}/provinces/`).then(e=>e.json()).then(e=>{e.forEach(t=>{const a=document.createElement("option");a.value=t.code,a.textContent=t.name,s.appendChild(a)})}))}),s.addEventListener("change",()=>{const o=s.value;n(i,"Select your town or city",!1),n(l,"Select your local area"),fetch(`https://psgc.gitlab.io/api/provinces/${o}/cities-municipalities/`).then(e=>e.json()).then(e=>{e.forEach(t=>{const a=document.createElement("option");a.value=t.code,a.textContent=t.name,i.appendChild(a)})})}),i.addEventListener("change",()=>{const o=i.value;n(l,"Select your local area",!1),fetch(`https://psgc.gitlab.io/api/cities-municipalities/${o}/barangays/`).then(e=>e.json()).then(e=>{e.forEach(t=>{const a=document.createElement("option");a.value=t.code,a.textContent=t.name,l.appendChild(a)})})})}const g="/qveeco-ecommerce/assets/images",L=h();let v=0;function q(){let c=0;const d=.13,r=.05,s=900,i=y(L);Object.values(i).forEach(m=>{const k=m.productId,f=x.find(b=>b.id===k);if(v+=m.quantity,f){const b=f.priceCents*m.quantity;c+=b}});const l=c*d,n=c-l,o=n*r,e=n+o+s,t=`
     <h2 class="ff-primary text-2xl font-bold md:text-3xl">Order Summary</h2>
     <div class="mb-6">
       <!-- Header -->
       <button class="mb-4 flex w-full items-center justify-between" id="cartDropdown">
-        <h2 class="heading-2 font-normal text-black/60">${g} Items in Cart</h2>
+        <h2 class="heading-2 font-normal text-black/60">${v} Items in Cart</h2>
         <img
-          src="/assets/images/dropdown-icon.svg"
+          src="${g}/dropdown-icon.svg"
           alt=""
           class="transform transition-transform duration-100"
           id="dropdownIcon"
@@ -208,7 +208,7 @@ import{c as v,d as y,p as h,f as u,g as k,i as w,b as C}from"./breadcrumb-DrP7ZH
     <div class="flex items-center gap-2">
       <div class="relative flex-grow">
         <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-          <img src="/assets/images/discount-icon.svg" alt="" />
+          <img src="${g}/discount-icon.svg" alt="" />
         </div>
         <input
           type="text"
@@ -221,4 +221,4 @@ import{c as v,d as y,p as h,f as u,g as k,i as w,b as C}from"./breadcrumb-DrP7ZH
     <button class="btn-primary mt-4 py-4">
       Place Order
     </button>
-  `,a=document.getElementById("paymentSummaryContainer");a.innerHTML=t}document.addEventListener("DOMContentLoaded",()=>{JSON.parse(localStorage.getItem("cart"));const c=k();document.getElementById("cartCount").textContent=c,w(),C(".breadcrumbs ul",[{label:"Home",href:"qveeco.html"},{label:"Cart",href:"category.html"},{label:"Checkout",href:"checkout.html"}]),$(),L(),E();const d=document.getElementById("cartDropdown"),r=document.getElementById("cartCollapse"),s=document.getElementById("dropdownIcon");d.addEventListener("click",()=>{r.classList.toggle("hidden"),s.classList.toggle("rotate-180")})});
+  `,a=document.getElementById("paymentSummaryContainer");a.innerHTML=t}document.addEventListener("DOMContentLoaded",()=>{JSON.parse(localStorage.getItem("cart"));const c=w();document.getElementById("cartCount").textContent=c,C(),S(".breadcrumbs ul",[{label:"Home",href:"qveeco.html"},{label:"Cart",href:"category.html"},{label:"Checkout",href:"checkout.html"}]),I(),q(),E();const d=document.getElementById("cartDropdown"),r=document.getElementById("cartCollapse"),s=document.getElementById("dropdownIcon");d.addEventListener("click",()=>{r.classList.toggle("hidden"),s.classList.toggle("rotate-180")})});
