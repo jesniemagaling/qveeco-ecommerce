@@ -35,7 +35,7 @@ export function renderPaymentSummary() {
       <button class="mb-4 flex w-full items-center justify-between" id="cartDropdown">
         <h2 class="heading-2 font-normal text-black/60">${totalProduct} Items in Cart</h2>
         <img
-          src="/src/assets/images/dropdown-icon.svg"
+          src="/assets/images/dropdown-icon.svg"
           alt=""
           class="transform transition-transform duration-100"
           id="dropdownIcon"
@@ -68,7 +68,7 @@ export function renderPaymentSummary() {
     <div class="flex items-center gap-2">
       <div class="relative flex-grow">
         <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-          <img src="/src/assets/images/discount-icon.svg" alt="" />
+          <img src="/assets/images/discount-icon.svg" alt="" />
         </div>
         <input
           type="text"

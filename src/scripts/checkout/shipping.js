@@ -39,14 +39,14 @@ export function renderShippingForm() {
         id="country"
         name="country"
         required
-        class="w-full cursor-pointer appearance-none rounded-full border border-black/20 px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none"
+        class="w-full cursor-pointer text-black/60 appearance-none rounded-full border border-black/20 px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none"
       >
         <option value="" disabled selected hidden>Select your country</option>
         <option value="philippines">Philippines</option>
         <!-- Add options here -->
       </select>
       <div class="pointer-events-none absolute right-4 bottom-5 flex items-center">
-        <img src="/src/assets/images/dropdown-icon.svg" alt="" />
+        <img src="/assets/images/dropdown-icon.svg" alt="" />
       </div>
     </div>
 
@@ -59,13 +59,13 @@ export function renderShippingForm() {
         id="region"
         name="region"
         required
-        class="w-full cursor-pointer appearance-none rounded-full border border-black/20 px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none"
+        class="w-full cursor-pointer text-black/60 appearance-none rounded-full border border-black/20 px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none"
       >
         <option value="" disabled selected hidden>Select your region</option>
         <!-- Add options here -->
       </select>
       <div class="pointer-events-none absolute right-4 bottom-5 flex items-center">
-        <img src="/src/assets/images/dropdown-icon.svg" alt="" />
+        <img src="/assets/images/dropdown-icon.svg" alt="" />
       </div>
     </div>
 
@@ -78,13 +78,13 @@ export function renderShippingForm() {
         id="province"
         name="province"
         required
-        class="w-full cursor-pointer appearance-none rounded-full border border-black/20 px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none"
+        class="w-full cursor-pointer text-black/60 appearance-none rounded-full border border-black/20 px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none"
       >
         <option value="" disabled selected hidden>Select your state or province</option>
         <!-- Add options here -->
       </select>
       <div class="pointer-events-none absolute right-4 bottom-5 flex items-center">
-        <img src="/src/assets/images/dropdown-icon.svg" alt="" />
+        <img src="/assets/images/dropdown-icon.svg" alt="" />
       </div>
     </div>
 
@@ -97,13 +97,13 @@ export function renderShippingForm() {
         id="city"
         name="city"
         required
-        class="w-full cursor-pointer appearance-none rounded-full border border-black/20 px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none"
+        class="w-full cursor-pointer text-black/60 appearance-none rounded-full border border-black/20 px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none"
       >
         <option value="" disabled selected hidden>Select your town or city</option>
         <!-- Add options here -->
       </select>
       <div class="pointer-events-none absolute right-4 bottom-5 flex items-center">
-        <img src="/src/assets/images/dropdown-icon.svg" alt="" />
+        <img src="/assets/images/dropdown-icon.svg" alt="" />
       </div>
     </div>
 
@@ -116,13 +116,13 @@ export function renderShippingForm() {
         id="barangay"
         name="barangay"
         required
-        class="w-full cursor-pointer appearance-none rounded-full border border-black/20 px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none"
+        class="w-full cursor-pointer text-black/60 appearance-none rounded-full border border-black/20 px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none"
       >
         <option value="" disabled selected hidden>Select your local area</option>
         <!-- Add options here -->
       </select>
       <div class="pointer-events-none absolute right-4 bottom-5 flex items-center">
-        <img src="/src/assets/images/dropdown-icon.svg" alt="" />
+        <img src="/assets/images/dropdown-icon.svg" alt="" />
       </div>
     </div>
 

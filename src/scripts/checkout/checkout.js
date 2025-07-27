@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   breadcrumbList('.breadcrumbs ul', [
     { label: 'Home', href: 'qveeco.html' },
     { label: 'Cart', href: 'category.html' },
-    { label: 'Checkout', href: 'category.html' },
+    { label: 'Checkout', href: 'checkout.html' },
   ]);
   renderShippingForm();
   renderPaymentSummary();

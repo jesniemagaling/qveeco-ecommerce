@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('cartCount').textContent = cartQuantity;
   initNavbarToggle();
   breadcrumbList('.breadcrumbs ul', [
-    { label: 'Home', href: 'homepage.html' },
+    { label: 'Home', href: 'qveeco.html' },
     { label: 'Products' },
   ]);
 });
@@ -144,7 +144,7 @@ function createProductElement(product) {
       <img src="${product.image}" class="w-full max-w-[460px]" alt="" />
       <h3 class="heading-2 xl:text-xl">${product.name}</h3>
       <div class="flex items-center gap-3.5 py-1">
-        <img src="/src/assets/images/${product.rating}-star.svg" alt="" />
+        <img src="/assets/images/${product.rating}-star.svg" alt="" />
         <p class="ff-primary text-normal pt-1 text-black">
           ${product.rating}.0/<span class="text-normal text-black/60">5</span>
         </p>

@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [tailwindcss()],
 
   server: {
-    open: '/pages/checkout.html', // Automatically open this page in the browser
+    open: '/pages/qveeco.html', // Automatically open this page in the browser
   },
 
   build: {

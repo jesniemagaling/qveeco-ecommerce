@@ -34,7 +34,7 @@ export function renderItemCart() {
               </p>
             </div>
             <button class="delete-btn ml-auto flex-shrink-0" data-product-id="${cartItem.productId}">
-              <img src="/src/assets/images/delete-icon.svg" alt="" class="size-5" />
+              <img src="/assets/images/delete-icon.svg" alt="" class="size-5" />
             </button>
           </div>
           <div class="flex items-center justify-between">

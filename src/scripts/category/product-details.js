@@ -26,7 +26,7 @@ function createProductDetailHTML(product) {
       <article class="grid gap-1 py-2">
         <h3 class="product-heading">${product.name.toUpperCase()}</h3>
         <div class="flex items-center gap-3.5 py-1">
-          <img src="/src/assets/images/${product.rating}-star.svg" alt="" />
+          <img src="/assets/images/${product.rating}-star.svg" alt="" />
           <p class="ff-primary text-normal pt-1 text-black">${product.rating}.0/<span class="text-normal text-black/60">5</span></p>
         </div>
         <strong class="heading-2">$${formatCurrency(product.priceCents)}</strong>
@@ -279,7 +279,7 @@ function createProductDetailHTML(product) {
                   Latest
                   <span
                     ><img
-                      src="/src/assets/images/dropdown-icon.svg"
+                      src="/assets/images/dropdown-icon.svg"
                       alt=""
                       class="-mt-0.5 w-12 md:-mt-0 md:w-14"
                   /></span>
@@ -326,7 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
   visibleReviewsCount = 2;
 
   breadcrumbList('.breadcrumbs ul', [
-    { label: 'Home', href: 'homepage.html' },
+    { label: 'Home', href: 'qveeco.html' },
     { label: 'Products', href: 'category.html' },
     { label: capitalizeFirstLetter(product.type || 'Product') },
   ]);
@@ -367,10 +367,10 @@ function renderProductReviews(product) {
     if (index >= visibleReviewsCount) article.classList.add('hidden');
 
     article.innerHTML = `
-      <img src="/src/assets/images/${review.rating}-star.svg" alt="${review.rating} stars" />
+      <img src="/assets/images/${review.rating}-star.svg" alt="${review.rating} stars" />
       <h3 class="ff-primary my-2 flex gap-1 text-2xl font-bold">
         ${review.name}
-        <img src="/src/assets/images/check-icon.svg" alt="verified" class="-mt-1" />
+        <img src="/assets/images/check-icon.svg" alt="verified" class="-mt-1" />
       </h3>
       <p class="text-black/60">"${review.testimonial}"</p>
       <p class="mt-6 text-black/60">Posted on ${review.date}</p>
