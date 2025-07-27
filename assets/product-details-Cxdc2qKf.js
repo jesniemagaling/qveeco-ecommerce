@@ -17,7 +17,7 @@ import{i as u,p,b,a as g,g as f,f as l}from"./breadcrumb-CYujIPXD.js";import{c a
       <article class="grid gap-1 py-2">
         <h3 class="product-heading">${e.name.toUpperCase()}</h3>
         <div class="flex items-center gap-3.5 py-1">
-          <img src="/assets/images/${e.rating}-star.svg" alt="" />
+          <img src="/src/assets/images/${e.rating}-star.svg" alt="" />
           <p class="ff-primary text-normal pt-1 text-black">${e.rating}.0/<span class="text-normal text-black/60">5</span></p>
         </div>
         <strong class="heading-2">$${l(e.priceCents)}</strong>
@@ -266,7 +266,7 @@ import{i as u,p,b,a as g,g as f,f as l}from"./breadcrumb-CYujIPXD.js";import{c a
                   Latest
                   <span
                     ><img
-                      src="/assets/images/dropdown-icon.svg"
+                      src="/src/assets/images/dropdown-icon.svg"
                       alt=""
                       class="-mt-0.5 w-12 md:-mt-0 md:w-14"
                   /></span>
@@ -295,10 +295,10 @@ import{i as u,p,b,a as g,g as f,f as l}from"./breadcrumb-CYujIPXD.js";import{c a
       </div>
     </div>
   `}let d=2;document.addEventListener("DOMContentLoaded",()=>{u();const e=v(),t=p.find(o=>o.id===e);t&&(d=2,b(".breadcrumbs ul",[{label:"Home",href:"qveeco.html"},{label:"Products",href:"category.html"},{label:y(t.type||"Product")}]),w(t),C(),k(),h())});function v(){return new URLSearchParams(window.location.search).get("id")}function w(e){const t=document.getElementById("productContainer");t&&(t.innerHTML=x(e),m(e))}function m(e){const t=document.getElementById("productRatingContainer"),o=document.getElementById("ratingLoadMoreBtn");if(!t||!o)return;t.innerHTML="";const n=e.reviews||[];n.forEach((a,r)=>{const s=document.createElement("article");s.classList.add("review-item"),r>=d&&s.classList.add("hidden"),s.innerHTML=`
-      <img src="/assets/images/${a.rating}-star.svg" alt="${a.rating} stars" />
+      <img src="/src/assets/images/${a.rating}-star.svg" alt="${a.rating} stars" />
       <h3 class="ff-primary my-2 flex gap-1 text-2xl font-bold">
         ${a.name}
-        <img src="/assets/images/check-icon.svg" alt="verified" class="-mt-1" />
+        <img src="/src/assets/images/check-icon.svg" alt="verified" class="-mt-1" />
       </h3>
       <p class="text-black/60">"${a.testimonial}"</p>
       <p class="mt-6 text-black/60">Posted on ${a.date}</p>
