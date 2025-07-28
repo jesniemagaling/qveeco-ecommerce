@@ -20,11 +20,12 @@
       media="(prefers-color-scheme: dark)"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <!-- Email Js -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <title>qvee</title>
-    <script type="module" crossorigin src="/qveeco-ecommerce/assets/product-CWrv_-6p.js"></script>
+    <script type="module" crossorigin src="/qveeco-ecommerce/assets/product-CmL4SuSX.js"></script>
     <link rel="modulepreload" crossorigin href="/qveeco-ecommerce/assets/breadcrumb-BskWwaws.js">
+    <link rel="modulepreload" crossorigin href="/qveeco-ecommerce/assets/emailHandler-D0p-4OFJ.js">
     <link rel="stylesheet" crossorigin href="/qveeco-ecommerce/assets/breadcrumb-DiCpevCM.css">
   </head>
   <body>
@@ -448,10 +449,16 @@
         <h1 class="heading-1 text-white xl:max-w-[720px] xl:text-5xl">
           STAY UP TO DATE ABOUT OUR LATEST OFFERS
         </h1>
-        <form action="subscribe" class="mr-auto md:mr-0 md:ml-auto xl:max-w-[420px]">
+        <form class="mr-auto md:mr-0 md:ml-auto xl:max-w-[420px]" id="subscribe-form">
           <label class="input h-[44px] w-full rounded-full bg-white lg:h-[48px] xl:h-[52px]">
             <img src="/qveeco-ecommerce/assets/images/email-icon.svg" alt="" />
-            <input class="text-sm" type="email" required placeholder="Enter your email address" />
+            <input
+              class="text-sm"
+              type="email"
+              name="user_email"
+              required
+              placeholder="Enter your email address"
+            />
           </label>
           <button type="submit" class="btn-secondary mt-3 py-2.5 lg:py-2.5 xl:py-3">
             Subscribe to Newsletter
@@ -519,6 +526,54 @@
         </div>
       </div>
     </footer>
-
+
+    <!-- Toast -->
+    <div
+      id="toast-email-success"
+      class="fixed bottom-10 left-1/2 z-50 mb-4 flex hidden w-full max-w-xs -translate-x-1/2 items-center rounded-lg bg-white p-4 text-black/60 shadow-sm"
+      role="alert"
+    >
+      <div
+        class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-green-100 text-green-500"
+      >
+        <svg
+          class="h-5 w-5"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
+          />
+        </svg>
+        <span class="sr-only">Check icon</span>
+      </div>
+      <div class="ms-3 text-sm font-normal">Email sent successfully.</div>
+      <button
+        type="button"
+        class="-mx-1.5 -my-1.5 ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300"
+        data-dismiss-target="#toast-email-success"
+        aria-label="Close"
+      >
+        <span class="sr-only">Close</span>
+        <svg
+          class="h-3 w-3"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 14 14"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+          />
+        </svg>
+      </button>
+    </div>
+
   </body>
 </html>
