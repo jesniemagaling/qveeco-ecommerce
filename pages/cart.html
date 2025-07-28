@@ -23,10 +23,10 @@
     <!-- Email Js -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <title>qvee</title>
-    <script type="module" crossorigin src="/qveeco-ecommerce/assets/cart-CCcdpPgI.js"></script>
-    <link rel="modulepreload" crossorigin href="/qveeco-ecommerce/assets/emailHandler-DBcLYORO.js">
+    <script type="module" crossorigin src="/qveeco-ecommerce/assets/cart-Bn1jU4OH.js"></script>
+    <link rel="modulepreload" crossorigin href="/qveeco-ecommerce/assets/emailHandler-OspaDWTX.js">
     <link rel="modulepreload" crossorigin href="/qveeco-ecommerce/assets/formatter-byuH9jKl.js">
-    <link rel="stylesheet" crossorigin href="/qveeco-ecommerce/assets/emailHandler-DiCpevCM.css">
+    <link rel="stylesheet" crossorigin href="/qveeco-ecommerce/assets/emailHandler-CNtEWiKS.css">
   </head>
   <body>
     <header class="fixed z-10 w-full bg-white px-4 py-6 lg:px-14">
@@ -225,7 +225,7 @@
         </svg>
         <span class="sr-only">Error icon</span>
       </div>
-      <div class="ms-3 text-sm font-normal">Item has been removed.</div>
+      <div class="ms-3 text-sm font-normal" id="remove-toast-msg">Item has been removed.</div>
       <button
         type="button"
         class="-mx-1.5 -my-1.5 ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300"
@@ -271,7 +271,7 @@
         </svg>
         <span class="sr-only">Warning icon</span>
       </div>
-      <div class="ms-3 text-sm font-normal" id="warning-msg">Add an item to continue.</div>
+      <div class="ms-3 text-sm font-normal" id="warning-toast-msg">Add an item to continue.</div>
       <button
         type="button"
         class="-mx-1.5 -my-1.5 ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300"
@@ -297,7 +297,7 @@
       </button>
     </div>
     <div
-      id="toast-email-success"
+      id="toast-success"
       class="fixed bottom-10 left-1/2 z-50 mb-4 flex hidden w-full max-w-xs -translate-x-1/2 items-center rounded-lg bg-white p-4 text-black/60 shadow-sm"
       role="alert"
     >
@@ -317,11 +317,11 @@
         </svg>
         <span class="sr-only">Check icon</span>
       </div>
-      <div class="ms-3 text-sm font-normal">Email sent successfully.</div>
+      <div class="ms-3 text-sm font-normal" id="success-toast-msg"></div>
       <button
         type="button"
         class="-mx-1.5 -my-1.5 ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300"
-        data-dismiss-target="#toast-email-success"
+        data-dismiss-target="#toast-success"
         aria-label="Close"
       >
         <span class="sr-only">Close</span>
