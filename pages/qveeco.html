@@ -2,16 +2,32 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/qveeco-ecommerce/vite.svg" />
+    <!-- Light theme favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="/qveeco-ecommerce/assets/images/qv-icon-dark.png"
+      sizes="32x32"
+      media="(prefers-color-scheme: light)"
+    />
+
+    <!-- Dark theme favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="/qveeco-ecommerce/assets/images/qv-icon-light.png"
+      sizes="32x32"
+      media="(prefers-color-scheme: dark)"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <title>qvee</title>
-    <script type="module" crossorigin src="/qveeco-ecommerce/assets/homepage-M8HcueGO.js"></script>
-    <link rel="modulepreload" crossorigin href="/qveeco-ecommerce/assets/breadcrumb-DEYYAhfd.js">
+    <script type="module" crossorigin src="/qveeco-ecommerce/assets/homepage-DxE3poAJ.js"></script>
+    <link rel="modulepreload" crossorigin href="/qveeco-ecommerce/assets/breadcrumb-CS2UdukA.js">
     <link rel="modulepreload" crossorigin href="/qveeco-ecommerce/assets/formatter-byuH9jKl.js">
-    <link rel="modulepreload" crossorigin href="/qveeco-ecommerce/assets/product-details-Bq8RMnjn.js">
-    <link rel="stylesheet" crossorigin href="/qveeco-ecommerce/assets/breadcrumb-CHp01UfK.css">
+    <link rel="modulepreload" crossorigin href="/qveeco-ecommerce/assets/product-details-DdnQMjRd.js">
+    <link rel="stylesheet" crossorigin href="/qveeco-ecommerce/assets/breadcrumb-D0jhZuwW.css">
     <link rel="stylesheet" crossorigin href="/qveeco-ecommerce/assets/homepage-BH4JZYC6.css">
   </head>
   <body>
@@ -101,7 +117,7 @@
           >
 
           <div
-            class="ff-primary text-neutral mx-auto mt-10 mb-6 grid w-2xs grid-cols-2 gap-4 sm:mx-0 sm:w-full sm:grid-cols-3 sm:text-lg"
+            class="ff-primary text-neutral mx-auto mt-8 mb-6 grid w-xs grid-cols-2 gap-4 sm:mx-0 sm:w-full sm:grid-cols-3 sm:text-lg"
           >
             <div class="brands">
               <h2 class="text-3xl font-bold sm:text-5xl">200+</h2>
@@ -250,26 +266,15 @@
         <h1 class="heading-1 text-white xl:max-w-[720px] xl:text-5xl">
           STAY UP TO DATE ABOUT OUR LATEST OFFERS
         </h1>
-        <form
-          action="subscribe"
-          class="mr-auto md:mr-0 md:ml-auto xl:max-w-[420px]"
-          id="subscribeForm"
-        >
+        <form action="subscribe" class="mr-auto md:mr-0 md:ml-auto xl:max-w-[420px]">
           <label class="input h-[44px] w-full rounded-full bg-white lg:h-[48px] xl:h-[52px]">
             <img src="/qveeco-ecommerce/assets/images/email-icon.svg" alt="" />
-            <input
-              class="text-sm"
-              type="email"
-              name="email"
-              required
-              placeholder="Enter your email address"
-            />
+            <input class="text-sm" type="email" required placeholder="Enter your email address" />
           </label>
           <button type="submit" class="btn-secondary mt-3 py-2.5 lg:py-2.5 xl:py-3">
             Subscribe to Newsletter
           </button>
         </form>
-        <p id="formStatus" style="margin-top: 10px" class="text-white"></p>
       </div>
       <div class="mx-4 my-8 mb-10 grid items-center gap-8 lg:grid-cols-5 lg:justify-around">
         <div class="grid gap-2">
