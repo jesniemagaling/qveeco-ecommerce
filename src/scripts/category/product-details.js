@@ -4,6 +4,7 @@ import { initNavbarToggle } from '../utils/nav';
 import { formatCurrency } from '../utils/money';
 import { breadcrumbList } from '../utils/breadcrumb';
 import { capitalizeFirstLetter } from '../utils/formatter';
+const imageBase = `${import.meta.env.BASE_URL}assets/images`;
 
 // Generate product detail HTML
 function createProductDetailHTML(product) {
@@ -12,9 +13,15 @@ function createProductDetailHTML(product) {
       <div class="flex flex-col items-start gap-4 lg:mb-auto lg:flex-row">
         <!-- Thumbnails -->
         <div class="order-2 flex h-full justify-between gap-2 lg:order-1 lg:flex-col">
-          <img src="${product.image}" alt="Thumb 1" class="max-h-xl w-full max-w-[10rem] cursor-pointer rounded-2xl border border-gray-300 object-cover hover:border-black" />
-          <img src="${product.image}" alt="Thumb 2" class="max-h-xl w-full max-w-[10rem] cursor-pointer rounded-2xl border border-gray-300 object-cover hover:border-black" />
-          <img src="${product.image}" alt="Thumb 3" class="max-h-xl w-full max-w-[10rem] cursor-pointer rounded-2xl border border-gray-300 object-cover hover:border-black" />
+          <div class="max-w-[10rem]">
+            <img src="${product.image}" alt="Thumb 1" class="max-h-xl w-full cursor-pointer rounded-2xl border border-gray-300 object-cover hover:border-black" />
+          </div>
+          <div class="max-w-[10rem]">
+          <img src="${product.image}" alt="Thumb 2" class="max-h-xl w-full cursor-pointer rounded-2xl border border-gray-300 object-cover hover:border-black" />
+          </div>
+          <div class="max-w-[10rem]">
+          <img src="${product.image}" alt="Thumb 3" class="max-h-xl w-full cursor-pointer rounded-2xl border border-gray-300 object-cover hover:border-black" />
+          </div>
         </div>
 
         <!-- Main Image -->
@@ -23,14 +30,14 @@ function createProductDetailHTML(product) {
         </div>
       </div>
 
-      <article class="grid gap-1 py-2">
+      <article class="grid gap-1 py-4">
         <h3 class="product-heading">${product.name.toUpperCase()}</h3>
         <div class="flex items-center gap-3.5 py-1">
-          <img src="/assets/images/${product.rating}-star.svg" alt="" />
+          <img src="${imageBase}/${product.rating}-star.svg" alt="" />
           <p class="ff-primary text-normal pt-1 text-black">${product.rating}.0/<span class="text-normal text-black/60">5</span></p>
         </div>
         <strong class="heading-2">$${formatCurrency(product.priceCents)}</strong>
-        <p class="mt-6 sec-heading lg:text-lg xl:text-xl">${product.description}</p>
+        <p class="mt-4 sec-heading text-lg xl:text-xl">${product.description}</p>
 
         <div class="mt-6 grid gap-3 text-sm text-black/60">
           <h2>Choose Size</h2>
@@ -279,7 +286,7 @@ function createProductDetailHTML(product) {
                   Latest
                   <span
                     ><img
-                      src="/assets/images/dropdown-icon.svg"
+                      src="${imageBase}/dropdown-icon.svg"
                       alt=""
                       class="-mt-0.5 w-12 md:-mt-0 md:w-14"
                   /></span>
@@ -367,10 +374,10 @@ function renderProductReviews(product) {
     if (index >= visibleReviewsCount) article.classList.add('hidden');
 
     article.innerHTML = `
-      <img src="/assets/images/${review.rating}-star.svg" alt="${review.rating} stars" />
+      <img src="${imageBase}/${review.rating}-star.svg" alt="${review.rating} stars" />
       <h3 class="ff-primary my-2 flex gap-1 text-2xl font-bold">
         ${review.name}
-        <img src="/assets/images/check-icon.svg" alt="verified" class="-mt-1" />
+        <img src="${imageBase}/check-icon.svg" alt="verified" class="-mt-1" />
       </h3>
       <p class="text-black/60">"${review.testimonial}"</p>
       <p class="mt-6 text-black/60">Posted on ${review.date}</p>
@@ -436,8 +443,10 @@ function initCartHandlers() {
 }
 
 export function updateCartDisplay() {
-  const cartQuantity = getCartQuantity();
-  document.getElementById('cartCount').textContent = cartQuantity;
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cartQuantity = getCartQuantity(cart);
+  const displayQuantity = cartQuantity === 0 ? 13 : cartQuantity;
+  document.getElementById('cartCount').textContent = displayQuantity;
 }
 
 // --- Tabs and FAQ ---

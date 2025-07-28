@@ -2,24 +2,24 @@ import { getCart, groupCartItems } from '../utils/cartUtils';
 import { products } from '../utils/productUtils';
 import { formatCurrency } from '../utils/money';
 
-const cart = getCart();
-let totalProduct = 0;
+const imageBase = `${import.meta.env.BASE_URL}assets/images`;
 
 export function renderPaymentSummary() {
+  const cart = getCart();
   let productPriceCents = 0;
+  let totalProduct = 0;
+
   const discountRate = 0.13;
   const taxRate = 0.05;
   const deliveryFee = 900;
   const groupedItems = groupCartItems(cart);
 
   Object.values(groupedItems).forEach((cartItem) => {
-    const productId = cartItem.productId;
-    const matchingProduct = products.find((product) => product.id === productId);
+    const matchingProduct = products.find((product) => product.id === cartItem.productId);
     totalProduct += cartItem.quantity;
 
     if (matchingProduct) {
-      const itemTotal = matchingProduct.priceCents * cartItem.quantity;
-      productPriceCents += itemTotal;
+      productPriceCents += matchingProduct.priceCents * cartItem.quantity;
     }
   });
 
@@ -34,17 +34,13 @@ export function renderPaymentSummary() {
       <!-- Header -->
       <button class="mb-4 flex w-full items-center justify-between" id="cartDropdown">
         <h2 class="heading-2 font-normal text-black/60">${totalProduct} Items in Cart</h2>
-        <img
-          src="/assets/images/dropdown-icon.svg"
-          alt=""
-          class="transform transition-transform duration-100"
-          id="dropdownIcon"
-        />
+        <img src="${imageBase}/dropdown-icon.svg" alt="" class="transform transition-transform duration-100" id="dropdownIcon" />
       </button>
+
       <!-- Cart Item -->
-      <div class="hidden space-y-2" id="cartCollapse">
-      </div>
+      <div class="hidden space-y-2" id="cartCollapse"></div>
     </div>
+
     <div class="heading-2 flex items-center justify-between">
       <p class="font-normal text-black/60">Subtotal</p>
       <span id="subTotal">$${formatCurrency(productPriceCents)}</span>
@@ -65,10 +61,11 @@ export function renderPaymentSummary() {
       <p class="font-normal text-black">Total</p>
       <span>$${formatCurrency(productTotal)}</span>
     </div>
+
     <div class="flex items-center gap-2">
       <div class="relative flex-grow">
         <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-          <img src="/assets/images/discount-icon.svg" alt="" />
+          <img src="${imageBase}/discount-icon.svg" alt="" />
         </div>
         <input
           type="text"
@@ -78,11 +75,14 @@ export function renderPaymentSummary() {
       </div>
       <button class="btn-primary max-w-26 py-4">Apply</button>
     </div>
-    <button class="btn-primary mt-4 py-4">
-      Place Order
-    </button>
+
+    <button class="btn-primary mt-4 py-4" id="placeOrder">Place Order</button>
   `;
 
-  const paymentSummary = document.getElementById('paymentSummaryContainer');
-  paymentSummary.innerHTML = paymentSummaryHTML;
+  const container = document.getElementById('paymentSummaryContainer');
+  if (container) {
+    container.innerHTML = paymentSummaryHTML;
+  } else {
+    console.error('paymentSummaryContainer not found in the DOM.');
+  }
 }

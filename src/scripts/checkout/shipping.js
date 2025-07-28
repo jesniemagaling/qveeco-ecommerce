@@ -1,3 +1,5 @@
+const imageBase = `${import.meta.env.BASE_URL}assets/images`;
+
 export function renderShippingForm() {
   let shippingFormHTML = '';
 
@@ -12,6 +14,7 @@ export function renderShippingForm() {
         id="email"
         name="email"
         required
+        placeholder="Your valid email address"
         class="w-full rounded-full border border-black/20 px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none"
       />
     </div>
@@ -26,6 +29,7 @@ export function renderShippingForm() {
         id="fullname"
         name="fullname"
         required
+        placeholder="Your full name"
         class="w-full rounded-full border border-black/20 px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none"
       />
     </div>
@@ -46,7 +50,7 @@ export function renderShippingForm() {
         <!-- Add options here -->
       </select>
       <div class="pointer-events-none absolute right-4 bottom-5 flex items-center">
-        <img src="/assets/images/dropdown-icon.svg" alt="" />
+        <img src="${imageBase}/dropdown-icon.svg" alt="" />
       </div>
     </div>
 
@@ -65,7 +69,7 @@ export function renderShippingForm() {
         <!-- Add options here -->
       </select>
       <div class="pointer-events-none absolute right-4 bottom-5 flex items-center">
-        <img src="/assets/images/dropdown-icon.svg" alt="" />
+        <img src="${imageBase}/dropdown-icon.svg" alt="" />
       </div>
     </div>
 
@@ -84,7 +88,7 @@ export function renderShippingForm() {
         <!-- Add options here -->
       </select>
       <div class="pointer-events-none absolute right-4 bottom-5 flex items-center">
-        <img src="/assets/images/dropdown-icon.svg" alt="" />
+        <img src="${imageBase}/dropdown-icon.svg" alt="" />
       </div>
     </div>
 
@@ -103,7 +107,7 @@ export function renderShippingForm() {
         <!-- Add options here -->
       </select>
       <div class="pointer-events-none absolute right-4 bottom-5 flex items-center">
-        <img src="/assets/images/dropdown-icon.svg" alt="" />
+        <img src="${imageBase}/dropdown-icon.svg" alt="" />
       </div>
     </div>
 
@@ -122,7 +126,7 @@ export function renderShippingForm() {
         <!-- Add options here -->
       </select>
       <div class="pointer-events-none absolute right-4 bottom-5 flex items-center">
-        <img src="/assets/images/dropdown-icon.svg" alt="" />
+        <img src="${imageBase}/dropdown-icon.svg" alt="" />
       </div>
     </div>
 
@@ -144,20 +148,28 @@ export function renderShippingForm() {
     <!-- Phone -->
     <div>
       <label for="phone" class="mb-1 block font-medium"
-        >Phone <span class="text-red-500">*</span></label
+        >Phone Number <span class="text-red-500">*</span></label
       >
       <input
         type="tel"
         id="phone"
         name="phone"
         required
+        placeholder="Your valid phone number"
         class="w-full rounded-full border border-black/20 px-4 py-3 focus:ring-2 focus:ring-black focus:outline-none"
       />
     </div>
   `;
 
   const shippingContainer = document.getElementById('shippingForm');
-  shippingContainer.innerHTML = shippingFormHTML;
+  if (!shippingContainer) {
+    console.warn('Shipping form container not found.');
+    return;
+  }
+
+  // SAFER: use insertAdjacentHTML for <form>
+  shippingContainer.innerHTML = '';
+  shippingContainer.insertAdjacentHTML('beforeend', shippingFormHTML);
 
   const regionSelect = document.getElementById('region');
   const provinceSelect = document.getElementById('province');
@@ -260,4 +272,51 @@ export function renderShippingForm() {
         });
       });
   });
+  bindShippingListeners();
+}
+
+export function bindShippingListeners() {
+  const regionSelect = document.getElementById('region');
+  const provinceSelect = document.getElementById('province');
+  const citySelect = document.getElementById('city');
+  const barangaySelect = document.getElementById('barangay');
+
+  if (!regionSelect || !provinceSelect || !citySelect || !barangaySelect) {
+    console.warn('Shipping form not found in DOM yet.');
+    return;
+  }
+
+  provinceSelect.addEventListener('click', () => {
+    if (!regionSelect.value) {
+      showWarningToast('Please select a region first.');
+    }
+  });
+
+  citySelect.addEventListener('click', () => {
+    if (!regionSelect.value || (!provinceSelect.value && regionSelect.value !== '130000000')) {
+      showWarningToast('Please select a region and province first.');
+    }
+  });
+
+  barangaySelect.addEventListener('click', () => {
+    if (!citySelect.value) {
+      showWarningToast('Please select a city first.');
+    }
+  });
+}
+function showWarningToast(message) {
+  const toast = document.getElementById('toast-warning');
+  const msg = document.getElementById('warning-msg');
+
+  if (!toast || !msg) {
+    console.warn('Toast element not found');
+    return;
+  }
+
+  msg.textContent = message;
+  toast.classList.remove('hidden');
+
+  setTimeout(() => {
+    toast.classList.add('hidden');
+  }, 3000);
 }

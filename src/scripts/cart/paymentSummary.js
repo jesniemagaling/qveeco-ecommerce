@@ -1,13 +1,13 @@
 import { getCart, groupCartItems } from '../utils/cartUtils';
 import { products } from '../utils/productUtils';
 import { formatCurrency } from '../utils/money';
+const imageBase = `${import.meta.env.BASE_URL}assets/images`;
 
 const cart = getCart();
 
 export function renderPaymentSummary() {
   let productPriceCents = 0;
   let itemListHTML = '';
-
   const groupedItems = groupCartItems(cart);
 
   // Step 2: Render item list summary with merged quantities
@@ -40,7 +40,7 @@ export function renderPaymentSummary() {
     <div class="flex items-center gap-2">
       <div class="relative flex-grow">
         <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-          <img src="/assets/images/discount-icon.svg" alt="" />
+          <img src="${imageBase}/discount-icon.svg" alt="" />
         </div>
         <input
           type="text"
@@ -50,9 +50,9 @@ export function renderPaymentSummary() {
       </div>
       <button class="btn-primary max-w-26 py-4">Apply</button>
     </div>
-    <a href="checkout.html"><button class="btn-primary mt-4 flex items-center justify-center gap-2 py-4" id="checkoutBtn">
-      Go to Checkout <img src="/assets/images/arrow-right.svg" alt="" />
-    </button></a>
+    <button class="checkout-btn btn-primary mt-4 flex items-center justify-center gap-2 py-4">
+      Go to Checkout <img src="${imageBase}/arrow-right.svg" alt="" />
+    </button>
     
   `;
 

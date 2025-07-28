@@ -6,16 +6,19 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "daisyui": "^5.0.46",
+    "gh-pages": "^6.3.0",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "vite": "^7.0.4"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
+    "emailjs-com": "^3.2.0",
     "swiper": "^11.2.10",
     "tailwindcss": "^4.1.11"
   }

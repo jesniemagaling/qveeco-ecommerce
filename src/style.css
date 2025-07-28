@@ -32,6 +32,7 @@
     overflow-x: hidden;
     scroll-padding-top: 100px;
   }
+  html,
   html:focus-within {
     scroll-behavior: smooth;
   }
@@ -107,7 +108,7 @@
   }
 
   .btn-secondary {
-    @apply w-full cursor-pointer rounded-full border border-0 border-neutral-300 bg-white px-4 py-[16.5px] text-center text-sm text-[16px] font-medium text-black transition-colors duration-200 sm:text-base;
+    @apply w-full cursor-pointer rounded-full border border-0 border-neutral-300 bg-white px-4 py-[16.5px] text-center text-[14.67px] font-medium text-black transition-colors duration-200 sm:text-base;
   }
   .btn-secondary:hover {
     @apply bg-neutral-100;

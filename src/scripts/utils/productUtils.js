@@ -1,7 +1,9 @@
+const imageBase = `${import.meta.env.BASE_URL}assets/images`;
+
 export const products = [
   {
     id: 'JK-BOM-BLK-001',
-    image: '/assets/images/black-bomber-jacket.png',
+    image: `${imageBase}/black-bomber-jacket.png`,
     name: 'Cropped Tech Bomber – Black',
     description:
       'Turn heads with the Cropped Tech Bomber in black. Sleek and stylish, it’s the perfect blend of streetwear edge and everyday comfort.',
@@ -48,7 +50,7 @@ export const products = [
   },
   {
     id: 'SW-SFT-BLU-041',
-    image: '/assets/images/blue-sweatshirt.png',
+    image: `${imageBase}/blue-sweatshirt.png`,
     name: 'Vintage Sweatshirt – Blue',
     description:
       'Stay cozy in the Vintage Sweatshirt. The classic blue tone adds a laid-back feel to your casual lineup.',
@@ -95,7 +97,7 @@ export const products = [
   },
   {
     id: 'KN-CDGN-TEL-011',
-    image: '/assets/images/teal-cardigan.png',
+    image: `${imageBase}/teal-cardigan.png`,
     name: 'Soft Knit Cardigan – Teal',
     description:
       'Wrap yourself in comfort with the Soft Knit Cardigan in teal. A relaxed piece that brings warmth and versatility to any look.',
@@ -140,7 +142,7 @@ export const products = [
   },
   {
     id: 'PT-DNM-LGT-028',
-    image: '/assets/images/vintage-denim.png',
+    image: `${imageBase}/light-denim-pants.png`,
     name: 'Loose Fit Denim – Light',
     description:
       'Relaxed and roomy, this light-wash denim brings effortless vintage style to everyday outfits.',
@@ -194,7 +196,7 @@ export const products = [
   },
   {
     id: 'SH-SWTS-GRY-031',
-    image: '/assets/images/grey-sweatshorts.png',
+    image: `${imageBase}/grey-sweatshorts.png`,
     name: 'Relaxed Sweat Shorts – Grey',
     description:
       'Kick back in comfort with these relaxed sweat shorts. Soft grey tones make them easy to pair with anything.',
@@ -248,7 +250,7 @@ export const products = [
   },
   {
     id: 'PO-MIN-BLK-039',
-    image: '/assets/images/black-polo.png',
+    image: `${imageBase}/black-polo.png`,
     name: 'Boxy Polo Shirt – Black',
     description:
       'Minimal and bold, the Boxy Polo in black brings structured ease to any casual outfit.',
@@ -307,7 +309,7 @@ export const products = [
   },
   {
     id: 'TS-CLS-BGE-007',
-    image: '/assets/images/beige-shirt.png',
+    image: `${imageBase}/beige-shirt.png`,
     name: 'Everyday Shirt – Beige',
     description:
       'Simple, clean, and reliable. This beige shirt is made for effortless everyday wear.',
@@ -362,7 +364,7 @@ export const products = [
   },
   {
     id: 'JK-VARS-NVY-004',
-    image: '/assets/images/varsity-jacket.png',
+    image: `${imageBase}/varsity-jacket.png`,
     name: 'Varsity Wool – Navy',
     description: 'Classic varsity style with a wool blend. The deep navy shade adds timeless cool.',
     rating: 4,
@@ -415,7 +417,7 @@ export const products = [
   },
   {
     id: 'TS-SPT-RED-010',
-    image: '/assets/images/football-jersey.png',
+    image: `${imageBase}/football-jersey.png`,
     name: 'Retro Mesh Football Jersey – Red',
     description:
       'Bring sporty vibes to your day with this breathable retro mesh football jersey in bold red.',
@@ -474,7 +476,7 @@ export const products = [
   },
   {
     id: 'KN-VINT-MUL-016',
-    image: '/assets/images/vintage-knit-sweater.png',
+    image: `${imageBase}/vintage-knit-sweater.png`,
     name: 'Vintage Knit Sweater – Multi',
     description:
       'Cozy up in this multicolor knit sweater that combines warmth with a throwback twist.',
@@ -535,7 +537,7 @@ export const products = [
   },
   {
     id: 'PT-SWTP-GRY-022',
-    image: '/assets/images/grey-sweatpants.png',
+    image: `${imageBase}/grey-sweatpants.png`,
     name: 'Classic Sweatpants – Grey',
     description:
       'Soft and casual, these grey sweatpants are your go-to for weekends and relaxed days.',
@@ -594,7 +596,7 @@ export const products = [
   },
   {
     id: 'SH-DNMS-LGT-032',
-    image: '/assets/images/light-denim-shorts.png',
+    image: `${imageBase}/light-denim-shorts.png`,
     name: 'Denim Shorts – Light Wash',
     description:
       'Laid-back and classic. These faded denim shorts are perfect for warm days and cool looks.',
@@ -654,7 +656,7 @@ export const products = [
   },
   {
     id: 'PO-RES-BGE-035',
-    image: '/assets/images/beige-polo.png',
+    image: `${imageBase}/beige-polo.png`,
     name: 'Resort Collar Polo – Beige',
     description: 'Effortless style meets vacation-ready comfort in this resort collar polo.',
     rating: 4,
@@ -707,7 +709,7 @@ export const products = [
   },
   {
     id: 'SW-HOOD-GRY-042',
-    image: '/assets/images/grey-hoodie.png',
+    image: `${imageBase}/grey-hoodie.png`,
     name: 'Essential Zip Hoodie – Grey',
     description:
       'A layering staple, the Essential Zip Hoodie keeps you warm without weighing you down.',
@@ -750,7 +752,7 @@ export const products = [
   },
   {
     id: 'JK-LTHR-BLK-005',
-    image: '/assets/images/leather-jacket.png',
+    image: `${imageBase}/leather-jacket.png`,
     name: 'Classic Leather Jacket – Black',
     description:
       'Nothing beats the edge of a classic leather jacket. Black, bold, and built to last.',
@@ -807,7 +809,7 @@ export const products = [
   },
   {
     id: 'KN-VEST-OLV-015',
-    image: '/assets/images/olive-knit-vest.png',
+    image: `${imageBase}/olive-knit-vest.png`,
     name: 'Classic Knit Vest – Olive',
     description:
       'Layer smart with the Classic Knit Vest. Olive green brings just the right contrast.',
@@ -852,7 +854,7 @@ export const products = [
   },
   {
     id: 'PT-DNM-GRY-029',
-    image: '/assets/images/grey-denim.png',
+    image: `${imageBase}/grey-denim.png`,
     name: 'Classic Vintage Denim – Grey',
     description: 'A vintage cut with a modern grey tone. These jeans are made to move with you.',
     rating: 5,
@@ -902,7 +904,7 @@ export const products = [
   },
   {
     id: 'SH-CHNS-BGE-034',
-    image: '/assets/images/beige-chino-shorts.png',
+    image: `${imageBase}/beige-chino-shorts.png`,
     name: 'Soft Chino Shorts – Beige',
     description:
       'A refined short for casual days. These beige chinos are soft, light, and breathable.',
@@ -953,7 +955,7 @@ export const products = [
   },
   {
     id: 'KN-CDGN-BGE-013',
-    image: '/assets/images/beige-cardigan.png',
+    image: `${imageBase}/beige-cardigan.png`,
     name: 'Essential Cardigan – Beige',
     description:
       'Lightweight layering made easy. The Essential Cardigan in beige is versatile for any season.',
@@ -1011,7 +1013,7 @@ export const products = [
   },
   {
     id: 'PO-BOX-PUR-037',
-    image: '/assets/images/purple-polo.png',
+    image: `${imageBase}/purple-polo.png`,
     name: 'Oversized Polo Shirt – Purple',
     description:
       'Statement-making comfort in a bold purple tone. This oversized polo adds flair to any casual outfit.',
@@ -1068,7 +1070,7 @@ export const products = [
   },
   {
     id: 'KN-COOG-MIX-017',
-    image: '/assets/images/coogi-knit-sweater.png',
+    image: `${imageBase}/coogi-knit-sweater.png`,
     name: 'Coogi-Style Knit Sweater',
     description:
       'Colorful, bold, and undeniably cozy. This knit sweater brings retro energy to cooler days.',
@@ -1125,7 +1127,7 @@ export const products = [
   },
   {
     id: 'PT-TRSR-BGE-018',
-    image: '/assets/images/beige-trouser.png',
+    image: `${imageBase}/beige-trouser.png`,
     name: 'Tapered Trousers – Beige',
     description:
       'Smart tailoring meets casual ease. These tapered beige trousers refine your everyday rotation.',
@@ -1183,7 +1185,7 @@ export const products = [
   },
   {
     id: 'KN-VEST-RED-014',
-    image: '/assets/images/red-knit-vest.png',
+    image: `${imageBase}/red-knit-vest.png`,
     name: 'Textured Knit Vest – Red',
     description:
       'Stand out with the bold color and rich texture of this red knit vest—ideal for layering.',
@@ -1235,7 +1237,7 @@ export const products = [
   },
   {
     id: 'SW-HVY-BGE-040',
-    image: '/assets/images/beige-sweatshirt.png',
+    image: `${imageBase}/beige-sweatshirt.png`,
     name: 'Heavyweight Sweatshirt – Beige',
     description:
       'Thicker and warmer than your average crewneck. This heavyweight sweatshirt brings lasting comfort.',
@@ -1281,7 +1283,7 @@ export const products = [
   },
   {
     id: 'TS-CLS-PUR-006',
-    image: '/assets/images/purple-shirt.png',
+    image: `${imageBase}/purple-shirt.png`,
     name: 'Drop Shoulder Shirt – Purple',
     description:
       'A relaxed silhouette in a striking shade. This drop shoulder shirt redefines casual boldness.',
@@ -1342,7 +1344,7 @@ export const products = [
 export const newArrival = [
   {
     id: 'JK-VARS-NVY-004',
-    image: '/assets/images/varsity-jacket.png',
+    image: `${imageBase}/varsity-jacket.png`,
     name: 'Varsity Wool – Navy',
     rating: 4,
     category: 'streetwear',
@@ -1353,7 +1355,7 @@ export const newArrival = [
   },
   {
     id: 'PO-MIN-BLK-039',
-    image: '/assets/images/black-polo.png',
+    image: `${imageBase}/black-polo.png`,
     name: 'Boxy Polo Shirt – Black',
     rating: 5,
     category: 'modern',
@@ -1364,7 +1366,7 @@ export const newArrival = [
   },
   {
     id: 'SH-DNMS-LGT-032',
-    image: '/assets/images/light-denim-shorts.png',
+    image: `${imageBase}/light-denim-shorts.png`,
     name: 'Denim Shorts – Light Wash',
     rating: 5,
     category: 'casual',
@@ -1375,32 +1377,32 @@ export const newArrival = [
   },
   {
     id: 'KN-COOG-MIX-017',
-    image: '/assets/images/coogi-knit-sweater.png',
+    image: `${imageBase}/coogi-knit-sweater.png`,
     name: 'Coogi-Style Knit Sweater',
     rating: 5,
     category: 'streetwear',
     type: 'knitted',
     size: ['Small', 'Medium', 'Large', 'X-large'],
     color: 'black',
-    priceCents: 110000,
+    priceCents: 11000,
   },
 ];
 
 export const topSelling = [
   {
-    id: 'TS-SPT-RED-010',
-    image: '/assets/images/football-jersey.png',
-    name: 'Retro Mesh Football Jersey – Red',
-    rating: 5,
-    category: 'streetwear',
-    type: 'shirts',
-    size: ['Small', 'Medium', 'Large'],
-    color: 'red',
-    priceCents: 9000,
+    id: 'KN-VEST-OLV-015',
+    image: `${imageBase}/olive-knit-vest.png`,
+    name: 'Classic Knit Vest – Olive',
+    rating: 4,
+    category: 'formal',
+    type: 'knitted',
+    size: ['X-Small', 'Small', 'Medium', 'Large'],
+    color: 'green',
+    priceCents: 6000,
   },
   {
     id: 'SW-SFT-BLU-041',
-    image: '/assets/images/blue-sweatshirt.png',
+    image: `${imageBase}/blue-sweatshirt.png`,
     name: 'Vintage Sweatshirt – Blue',
     rating: 5,
     category: 'casual',
@@ -1411,7 +1413,7 @@ export const topSelling = [
   },
   {
     id: 'KN-CDGN-BGE-013',
-    image: '/assets/images/beige-cardigan.png',
+    image: `${imageBase}/beige-cardigan.png`,
     name: 'Essential Cardigan – Beige',
     rating: 5,
     category: 'modern',
@@ -1422,7 +1424,7 @@ export const topSelling = [
   },
   {
     id: 'KN-VINT-MUL-016',
-    image: '/assets/images/vintage-knit-sweater.png',
+    image: `${imageBase}/vintage-knit-sweater.png`,
     name: 'Vintage Knit Sweater – Multi',
     rating: 5,
     category: 'casual',

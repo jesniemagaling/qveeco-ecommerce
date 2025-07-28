@@ -3,6 +3,8 @@ import tailwindcss from '@tailwindcss/vite';
 import { resolve } from 'path';
 
 export default defineConfig({
+  base: '/qveeco-ecommerce/',
+
   plugins: [tailwindcss()],
 
   server: {

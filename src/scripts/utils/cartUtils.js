@@ -1,18 +1,7 @@
 let cart = JSON.parse(localStorage.getItem('cart'));
 
 if (!Array.isArray(cart)) {
-  cart = [
-    {
-      productId: '',
-      size: 'Large',
-      quantity: 1,
-    },
-    {
-      productId: '',
-      size: 'Medium',
-      quantity: 3,
-    },
-  ];
+  cart = [];
 
   // Save the default cart to localStorage immediately
   localStorage.setItem('cart', JSON.stringify(cart));

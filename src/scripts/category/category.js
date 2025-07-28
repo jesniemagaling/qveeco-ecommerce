@@ -3,11 +3,13 @@ import { initNavbarToggle } from '../utils/nav';
 import { formatCurrency } from '../utils/money';
 import { breadcrumbList } from '../utils/breadcrumb';
 import { getCartQuantity } from '../utils/cartUtils';
+const imageBase = `${import.meta.env.BASE_URL}assets/images`;
 
 document.addEventListener('DOMContentLoaded', () => {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   const cartQuantity = getCartQuantity(cart);
-  document.getElementById('cartCount').textContent = cartQuantity;
+  const displayQuantity = cartQuantity === 0 ? 13 : cartQuantity;
+  document.getElementById('cartCount').textContent = displayQuantity;
   initNavbarToggle();
   breadcrumbList('.breadcrumbs ul', [
     { label: 'Home', href: 'qveeco.html' },
@@ -144,7 +146,7 @@ function createProductElement(product) {
       <img src="${product.image}" class="w-full max-w-[460px]" alt="" />
       <h3 class="heading-2 xl:text-xl">${product.name}</h3>
       <div class="flex items-center gap-3.5 py-1">
-        <img src="/assets/images/${product.rating}-star.svg" alt="" />
+        <img src="${imageBase}/${product.rating}-star.svg" alt="" />
         <p class="ff-primary text-normal pt-1 text-black">
           ${product.rating}.0/<span class="text-normal text-black/60">5</span>
         </p>

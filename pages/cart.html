@@ -2,11 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <!-- Light theme favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/images/qv-icon-dark.png"
+      sizes="32x32"
+      media="(prefers-color-scheme: light)"
+    />
+
+    <!-- Dark theme favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/images/qv-icon-light.png"
+      sizes="32x32"
+      media="(prefers-color-scheme: dark)"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/src/style.css" rel="stylesheet" />
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <!-- Email Js -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <title>qvee</title>
   </head>
   <body>
@@ -61,8 +77,9 @@
               </div>
               <ul
                 tabindex="0"
-                class="dropdown-content menu bg-base-100 rounded-box z-1 mt-2 w-52 p-2 text-white shadow-sm"
+                class="dropdown-content menu bg-base-100 rounded-box z-1 mt-2 w-52 p-2 text-black shadow-sm dark:text-white"
               >
+                <li><a href="category.html">All</a></li>
                 <li><a href="category.html?style=casual">Casual</a></li>
                 <li><a href="category.html?style=formal">Formal</a></li>
                 <li><a href="category.html?style=modern">Modern</a></li>
@@ -104,12 +121,21 @@
         <h1 class="heading-1 text-white xl:max-w-[720px] xl:text-5xl">
           STAY UP TO DATE ABOUT OUR LATEST OFFERS
         </h1>
-        <form action="subscribe" class="mr-auto md:mr-0 md:ml-auto xl:max-w-[420px]">
+
+        <form class="mr-auto md:mr-0 md:ml-auto xl:max-w-[420px]" id="subscribe-form">
           <label class="input h-[44px] w-full rounded-full bg-white lg:h-[48px] xl:h-[52px]">
             <img src="/assets/images/email-icon.svg" alt="" />
-            <input class="text-sm" type="email" required placeholder="Enter your email address" />
+            <input
+              class="text-sm"
+              type="email"
+              name="user_email"
+              required
+              placeholder="Enter your email address"
+            />
           </label>
-          <button class="btn-secondary mt-3 py-2 lg:py-2.5 xl:py-3">Subscribe to Newsletter</button>
+          <button type="submit" class="btn-secondary mt-3 py-2.5 lg:py-2.5 xl:py-3">
+            Subscribe to Newsletter
+          </button>
         </form>
       </div>
       <div class="mx-4 my-8 mb-10 grid items-center gap-8 lg:grid-cols-5 lg:justify-around">
@@ -177,7 +203,7 @@
     <!-- Toast -->
     <div
       id="toast-remove"
-      class="fixed right-10 bottom-10 z-50 mb-4 flex hidden w-full max-w-xs items-center rounded-lg bg-white p-4 text-black/60 shadow-sm"
+      class="fixed bottom-10 left-1/2 z-50 mb-4 flex hidden w-full max-w-xs -translate-x-1/2 items-center rounded-lg bg-white p-4 text-black/60 shadow-sm"
       role="alert"
     >
       <div
@@ -221,7 +247,100 @@
         </svg>
       </button>
     </div>
+    <div
+      id="toast-warning"
+      class="fixed bottom-10 left-1/2 z-50 mb-4 flex hidden w-full max-w-xs -translate-x-1/2 items-center rounded-lg bg-white p-4 text-black/60 shadow-sm"
+      role="alert"
+    >
+      <div
+        class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-orange-100 text-orange-500"
+      >
+        <svg
+          class="h-5 w-5"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM10 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-4a1 1 0 0 1-2 0V6a1 1 0 0 1 2 0v5Z"
+          />
+        </svg>
+        <span class="sr-only">Warning icon</span>
+      </div>
+      <div class="ms-3 text-sm font-normal" id="warning-msg">Add an item to continue.</div>
+      <button
+        type="button"
+        class="-mx-1.5 -my-1.5 ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300"
+        data-dismiss-target="#toast-warning"
+        aria-label="Close"
+      >
+        <span class="sr-only">Close</span>
+        <svg
+          class="h-3 w-3"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 14 14"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      id="toast-email-success"
+      class="fixed bottom-10 left-1/2 z-50 mb-4 flex hidden w-full max-w-xs -translate-x-1/2 items-center rounded-lg bg-white p-4 text-black/60 shadow-sm"
+      role="alert"
+    >
+      <div
+        class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-green-100 text-green-500"
+      >
+        <svg
+          class="h-5 w-5"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
+          />
+        </svg>
+        <span class="sr-only">Check icon</span>
+      </div>
+      <div class="ms-3 text-sm font-normal">Email sent successfully.</div>
+      <button
+        type="button"
+        class="-mx-1.5 -my-1.5 ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300"
+        data-dismiss-target="#toast-email-success"
+        aria-label="Close"
+      >
+        <span class="sr-only">Close</span>
+        <svg
+          class="h-3 w-3"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 14 14"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+          />
+        </svg>
+      </button>
+    </div>
 
     <script type="module" src="/src/scripts/cart/cart.js"></script>
+    <script type="module" src="/src/scripts/utils/emailHandler.js"></script>
   </body>
 </html>

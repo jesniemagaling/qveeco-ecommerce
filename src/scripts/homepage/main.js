@@ -4,12 +4,14 @@ import { initNavbarToggle } from '../utils/nav';
 import { formatCurrency } from '../utils/money';
 import { getCartQuantity } from '../utils/cartUtils';
 import { getProductIdFromURL } from '../category/product-details';
+const imageBase = `${import.meta.env.BASE_URL}assets/images`;
 
 // navbar initialization
 document.addEventListener('DOMContentLoaded', () => {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
   const cartQuantity = getCartQuantity(cart);
-  document.getElementById('cartCount').textContent = cartQuantity;
+  const displayQuantity = cartQuantity === 0 ? 13 : cartQuantity;
+  document.getElementById('cartCount').textContent = displayQuantity;
 
   const productId = getProductIdFromURL();
   const product = products.find((p) => p.id === productId);
@@ -28,7 +30,7 @@ newArrival.forEach((product) => {
       </figure>
       <h3 class="heading-2">${product.name}</h3>
       <div class="flex items-center gap-3.5 py-1">
-        <img src="/assets/images/${product.rating}-star.svg" class="" alt="" />
+        <img src="${imageBase}/${product.rating}-star.svg" class="" alt="" />
         <p class="ff-primary text-normal pt-1 text-black">
           ${product.rating}.0/<span class="text-normal text-black/60">5</span>
         </p>
@@ -51,7 +53,7 @@ topSelling.forEach((product) => {
       </figure>
       <h3 class="heading-2">${product.name}</h3>
       <div class="flex items-center gap-3.5 py-1">
-        <img src="/assets/images/${product.rating}-star.svg" class="" alt="" />
+        <img src="${imageBase}/${product.rating}-star.svg" class="" alt="" />
         <p class="ff-primary text-normal pt-1 text-black">
           ${product.rating}.0/<span class="text-normal text-black/60">5</span>
         </p>
@@ -114,13 +116,36 @@ function createRatingElement({ rating, name, testimonial }) {
   el.className = 'rating-card p-4';
 
   el.innerHTML = `
-    <img src="/assets/images/${rating}-star.svg" alt="${rating} stars" />
+    <img src="${imageBase}/${rating}-star.svg" alt="${rating} stars" />
     <h3 class="ff-primary my-2 flex gap-1 text-2xl font-bold">
       ${name}
-      <img src="/assets/images/check-icon.svg" alt="verified" class="-mt-1" />
+      <img src="${imageBase}/check-icon.svg" alt="verified" class="-mt-1" />
     </h3>
     <p class="text-black/60">"${testimonial}"</p>
   `;
 
   return el;
 }
+
+/*
+(function () {
+  emailjs.init('-HTl4rU_tkX-7EmKx'); // your public key
+})();
+
+const form = document.getElementById('subscribe-form');
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  emailjs
+    .sendForm('service_f2hrrub', 'template_tbbw2fg', this)
+    .then(() => {
+      alert('Auto-reply email sent successfully!');
+      form.reset();
+    })
+    .catch((error) => {
+      alert('Failed to send email. Please try again.');
+      console.error(error);
+    });
+});
+*/
