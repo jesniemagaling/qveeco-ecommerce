@@ -1,4 +1,4 @@
-import{c as y,d as h,p as x,f as u,g as C,i as S,b as E}from"./emailHandler-BFc5NzdT.js";const $=h();function I(){let a="";const t=y($);Object.values(t).forEach(c=>{const r=c.productId,d=x.find(i=>i.id===r);d&&(a+=`
+import{c as y,d as h,p as x,f as u,g as C,i as S,b as E}from"./emailHandler-DBcLYORO.js";const $=h();function I(){let a="";const t=y($);Object.values(t).forEach(c=>{const r=c.productId,d=x.find(i=>i.id===r);d&&(a+=`
       <article class="flex items-start gap-4">
         <img
           src="${d.image}"
