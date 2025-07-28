@@ -2,7 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/qveeco-ecommerce/vite.svg" />
+    <!-- Light theme favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="/qveeco-ecommerce/assets/images/qv-icon-dark.png"
+      sizes="32x32"
+      media="(prefers-color-scheme: light)"
+    />
+
+    <!-- Dark theme favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="/qveeco-ecommerce/assets/images/qv-icon-light.png"
+      sizes="32x32"
+      media="(prefers-color-scheme: dark)"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>qvee</title>
     <script type="module" crossorigin src="/qveeco-ecommerce/assets/breadcrumb-CS2UdukA.js"></script>
@@ -64,6 +80,7 @@
                 tabindex="0"
                 class="dropdown-content menu bg-base-100 rounded-box z-1 mt-2 w-52 p-2 text-white shadow-sm"
               >
+                <li><a href="category.html">All</a></li>
                 <li><a href="category.html?style=casual">Casual</a></li>
                 <li><a href="category.html?style=formal">Formal</a></li>
                 <li><a href="category.html?style=modern">Modern</a></li>
