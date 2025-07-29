@@ -8,10 +8,10 @@ const cart = getCart();
 export function renderCartItems() {
   let cartItemsHTML = '';
 
-  // Step 1: Group items by productId
+  // Group items by productId
   const groupedItems = groupCartItems(cart);
 
-  // Step 2: Render the merged summary
+  // Render the merged summary
   Object.values(groupedItems).forEach((cartItem) => {
     const productId = cartItem.productId;
     const matchingProduct = products.find((product) => product.id === productId);

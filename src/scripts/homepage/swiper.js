@@ -1,4 +1,4 @@
-// Import Swiper and its styles at the top of the file
+// Import Swiper and styles
 import Swiper from 'swiper';
 import 'swiper/swiper-bundle.css';
 

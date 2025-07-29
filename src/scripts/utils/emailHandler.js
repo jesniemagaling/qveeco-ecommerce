@@ -1,7 +1,7 @@
 import { showSuccessToast, initToastDismiss } from './showtoast';
 
 (function () {
-  emailjs.init('-HTl4rU_tkX-7EmKx'); // Your EmailJS Public Key
+  emailjs.init('-HTl4rU_tkX-7EmKx');
 })();
 
 document.addEventListener('DOMContentLoaded', function () {

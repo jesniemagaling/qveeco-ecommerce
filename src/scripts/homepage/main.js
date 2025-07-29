@@ -65,7 +65,7 @@ topSelling.forEach((product) => {
 
 document.querySelector('.js-top-selling').innerHTML = topSellingHTML;
 
-// Delegate clicks to each product card
+// delegate clicks to each product card
 document.querySelectorAll('.js-product-card').forEach((card) => {
   card.addEventListener('click', () => {
     const productId = card.dataset.productId;
@@ -86,7 +86,7 @@ document.getElementById('navSearchForm').addEventListener('submit', function (e)
   }
 });
 
-// Create customer rating
+// create customer rating
 const swiperWrapper = document.querySelector('.swiper-wrapper');
 const maxPerSlide = 3;
 const totalSlides = Math.ceil(ratings.length / maxPerSlide);
@@ -126,26 +126,3 @@ function createRatingElement({ rating, name, testimonial }) {
 
   return el;
 }
-
-/*
-(function () {
-  emailjs.init('-HTl4rU_tkX-7EmKx'); // your public key
-})();
-
-const form = document.getElementById('subscribe-form');
-
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-
-  emailjs
-    .sendForm('service_f2hrrub', 'template_tbbw2fg', this)
-    .then(() => {
-      alert('Auto-reply email sent successfully!');
-      form.reset();
-    })
-    .catch((error) => {
-      alert('Failed to send email. Please try again.');
-      console.error(error);
-    });
-});
-*/

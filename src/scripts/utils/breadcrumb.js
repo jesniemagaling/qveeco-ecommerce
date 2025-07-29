@@ -1,4 +1,3 @@
-// breadcrumb.js
 export function breadcrumbList(selector, items = []) {
   const ul = document.querySelector(selector);
   if (!ul) return;

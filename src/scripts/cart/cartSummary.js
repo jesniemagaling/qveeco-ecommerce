@@ -15,7 +15,7 @@ export function renderItemCart() {
     const productId = cartItem.productId;
     const matchingProduct = products.find((product) => product.id === productId);
 
-    // ✅ Skip if product not found
+    // Skip if product not found
     if (!matchingProduct) {
       console.warn('Product not found for ID:', productId);
       return;

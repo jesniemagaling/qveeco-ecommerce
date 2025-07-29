@@ -168,7 +168,7 @@ export function renderShippingForm() {
     return;
   }
 
-  // SAFER: use insertAdjacentHTML for <form>
+  // insertAdjacentHTML for form element
   shippingContainer.innerHTML = '';
   shippingContainer.insertAdjacentHTML('beforeend', shippingFormHTML);
   bindShippingListeners();

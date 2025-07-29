@@ -325,6 +325,7 @@ let visibleReviewsCount = 2;
 // Initialization
 document.addEventListener('DOMContentLoaded', () => {
   initNavbarToggle();
+  initToastDismiss();
 
   const productId = getProductIdFromURL();
   const product = products.find((p) => p.id === productId);
@@ -351,7 +352,7 @@ export function getProductIdFromURL() {
   return urlParams.get('id');
 }
 
-// --- Render Product Details ---
+// Render Product Details
 function renderProductDetails(product) {
   const container = document.getElementById('productContainer');
   if (!container) return;
@@ -360,7 +361,7 @@ function renderProductDetails(product) {
   renderProductReviews(product);
 }
 
-// --- Render Reviews ---
+// Render Reviews
 function renderProductReviews(product) {
   const reviewsContainer = document.getElementById('productRatingContainer');
   const loadMoreBtn = document.getElementById('ratingLoadMoreBtn');
@@ -394,7 +395,7 @@ function renderProductReviews(product) {
   };
 }
 
-// --- Add to Cart ---
+// Add to Cart
 function initCartHandlers() {
   const addToCartBtn = document.getElementById('addToCartBtn');
   const itemCount = document.getElementById('itemCount');
@@ -450,7 +451,7 @@ export function updateCartDisplay() {
   document.getElementById('cartCount').textContent = displayQuantity;
 }
 
-// --- Tabs and FAQ ---
+// Tabs and FAQ
 function initTabs() {
   const tabs = [
     { btn: 'productDetailsBtn', section: 'productDetails' },
@@ -490,20 +491,3 @@ function initTabs() {
     faqLoadMoreBtn.classList.add('hidden');
   });
 }
-
-function showToast() {
-  const toast = document.getElementById('toast-success');
-  if (!toast) return;
-
-  // Show the toast
-  toast.classList.remove('hidden');
-
-  // Auto-hide after 3 seconds (optional)
-  setTimeout(() => {
-    toast.classList.add('hidden');
-  }, 3000);
-}
-
-document.querySelector('[data-dismiss-target="#toast-success"]')?.addEventListener('click', () => {
-  document.getElementById('toast-success')?.classList.add('hidden');
-});

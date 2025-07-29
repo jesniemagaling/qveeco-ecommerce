@@ -47,11 +47,3 @@ export function groupCartItems(cart) {
 
   return groupedItems;
 }
-
-function updateCartBadge() {
-  const cartQuantity = getCartQuantity();
-  const cartCountElement = document.getElementById('cartCount');
-  if (cartCountElement) {
-    cartCountElement.textContent = cartQuantity === 0 ? 13 : cartQuantity;
-  }
-}
