@@ -1,4 +1,4 @@
-import{c as x,d as v,p as k,f as p,k as f,g as E,i as S,b as C,j as I,s as $}from"./emailHandler-OspaDWTX.js";const B=v();function L(){let i="";const s=x(B);Object.values(s).forEach(a=>{const d=a.productId,l=k.find(r=>r.id===d);l&&(i+=`
+import{d as x,e as v,p as k,f as p,k as f,g as E,i as S,b as C,a as I,s as $}from"./emailHandler-CeslL5sG.js";const B=v();function L(){let i="";const s=x(B);Object.values(s).forEach(a=>{const d=a.productId,l=k.find(r=>r.id===d);l&&(i+=`
       <article class="flex items-start gap-4">
         <img
           src="${l.image}"
