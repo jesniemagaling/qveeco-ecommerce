@@ -4,7 +4,7 @@ import { formatCurrency } from '../utils/money';
 
 const imageBase = `${import.meta.env.BASE_URL}assets/images`;
 
-export function renderPaymentSummary() {
+export function renderOrderSummary() {
   const cart = getCart();
   let productPriceCents = 0;
   let totalProduct = 0;

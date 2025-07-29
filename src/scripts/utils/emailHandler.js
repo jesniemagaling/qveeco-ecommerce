@@ -1,3 +1,5 @@
+import { showSuccessToast, initToastDismiss } from './showtoast';
+
 (function () {
   emailjs.init('-HTl4rU_tkX-7EmKx'); // Your EmailJS Public Key
 })();
@@ -15,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     emailjs
       .sendForm('service_f2hrrub', 'template_tbbw2fg', form)
       .then(() => {
-        showToast();
+        showSuccessToast('Email sent successfully.');
         form.reset();
       })
       .catch((error) => {
@@ -23,23 +25,5 @@ document.addEventListener('DOMContentLoaded', function () {
         alert('Failed to send email. Please try again.');
       });
   });
-
-  function showToast() {
-    if (!toast) return;
-
-    toast.classList.remove('hidden');
-    toast.classList.add('flex');
-
-    setTimeout(() => {
-      toast.classList.remove('flex');
-      toast.classList.add('hidden');
-    }, 3000); // Auto-hide after 3 seconds
-  }
-
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-      toast.classList.remove('flex');
-      toast.classList.add('hidden');
-    });
-  }
+  initToastDismiss();
 });

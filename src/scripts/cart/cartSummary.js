@@ -3,6 +3,7 @@ import { products } from '../utils/productUtils';
 import { renderPaymentSummary } from './paymentSummary';
 import { formatCurrency } from '../utils/money';
 import { capitalizeFirstLetter } from '../utils/formatter';
+import { showRemoveToast } from '../utils/showtoast';
 const imageBase = `${import.meta.env.BASE_URL}assets/images`;
 
 const cart = getCart();
@@ -113,25 +114,8 @@ document.getElementById('orderSummaryContainer').addEventListener('click', (e) =
       saveToStorage();
       renderItemCart();
       renderPaymentSummary();
-      showToast();
+      showRemoveToast('Item has been removed.');
     }
     console.log(productId);
   }
-});
-
-function showToast() {
-  const toast = document.getElementById('toast-remove');
-  if (!toast) return;
-
-  // Show the toast
-  toast.classList.remove('hidden');
-
-  // Auto-hide after 3 seconds (optional)
-  setTimeout(() => {
-    toast.classList.add('hidden');
-  }, 3000);
-}
-
-document.querySelector('[data-dismiss-target="#toast-remove"]')?.addEventListener('click', () => {
-  document.getElementById('toast-remove')?.classList.add('hidden');
 });

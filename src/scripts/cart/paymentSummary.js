@@ -50,9 +50,9 @@ export function renderPaymentSummary() {
       </div>
       <button class="btn-primary max-w-26 py-4">Apply</button>
     </div>
-    <button class="checkout-btn btn-primary mt-4 flex items-center justify-center gap-2 py-4">
+    <a href="checkout.html"><button class="checkout-btn btn-primary mt-4 flex items-center justify-center gap-2 py-4">
       Go to Checkout <img src="${imageBase}/arrow-right.svg" alt="" />
-    </button>
+    </button></a>
     
   `;
 

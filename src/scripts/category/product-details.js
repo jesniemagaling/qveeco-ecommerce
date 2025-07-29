@@ -4,6 +4,7 @@ import { initNavbarToggle } from '../utils/nav';
 import { formatCurrency } from '../utils/money';
 import { breadcrumbList } from '../utils/breadcrumb';
 import { capitalizeFirstLetter } from '../utils/formatter';
+import { showSuccessToast, initToastDismiss } from '../utils/showtoast';
 const imageBase = `${import.meta.env.BASE_URL}assets/images`;
 
 // Generate product detail HTML
@@ -419,7 +420,7 @@ function initCartHandlers() {
       size: preferSize,
       quantity: quantityToAdd,
     });
-    showToast();
+    showSuccessToast('Item added successfully.');
     updateCartDisplay();
     quantity = 1;
     itemCount.textContent = '1';

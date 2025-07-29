@@ -3,6 +3,7 @@ import { breadcrumbList } from '../utils/breadcrumb';
 import { renderItemCart } from './cartSummary';
 import { renderPaymentSummary } from '../cart/paymentSummary';
 import { getCart, getCartQuantity } from '../utils/cartUtils';
+import { showWarningToast, initToastDismiss } from '../utils/showtoast';
 
 document.addEventListener('DOMContentLoaded', () => {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -17,30 +18,18 @@ document.addEventListener('DOMContentLoaded', () => {
   ]);
   renderItemCart();
   renderPaymentSummary();
+  initToastDismiss();
 
-  // Handle checkout button click
+  /* Handle checkout button click
   const checkoutBtn = document.querySelector('.checkout-btn');
   checkoutBtn?.addEventListener('click', () => {
     const cart = getCart();
     if (cart.length === 0) {
-      showWarningToast();
+      showWarningToast('Add an item to continue.');
     } else {
       console.log('Proceed to checkout');
       window.location.href = 'checkout.html';
     }
   });
-});
-
-function showWarningToast() {
-  const toast = document.getElementById('toast-warning');
-  if (!toast) return;
-
-  toast.classList.remove('hidden');
-  setTimeout(() => {
-    toast.classList.add('hidden');
-  }, 3000);
-}
-
-document.querySelector('[data-dismiss-target="#toast-warning"]')?.addEventListener('click', () => {
-  document.getElementById('toast-warning')?.classList.add('hidden');
+  */
 });

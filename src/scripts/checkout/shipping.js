@@ -1,3 +1,4 @@
+import { showWarningToast } from '../utils/showtoast';
 const imageBase = `${import.meta.env.BASE_URL}assets/images`;
 
 export function renderShippingForm() {
@@ -170,27 +171,24 @@ export function renderShippingForm() {
   // SAFER: use insertAdjacentHTML for <form>
   shippingContainer.innerHTML = '';
   shippingContainer.insertAdjacentHTML('beforeend', shippingFormHTML);
+  bindShippingListeners();
 
   const regionSelect = document.getElementById('region');
   const provinceSelect = document.getElementById('province');
   const citySelect = document.getElementById('city');
   const barangaySelect = document.getElementById('barangay');
 
-  // Helper to reset and disable
-  function resetSelect(select, placeholder, disable = true) {
+  // Helper to clear select
+  function resetSelect(select, placeholder) {
     select.innerHTML = `<option value="" disabled selected hidden>${placeholder}</option>`;
-    select.disabled = disable;
+    select.disabled = false;
   }
 
   // Load Regions on page load
   fetch('https://psgc.gitlab.io/api/regions/')
     .then((res) => res.json())
     .then((regions) => {
-      resetSelect(regionSelect, 'Select your region', false); // enable region
-      resetSelect(provinceSelect, 'Select your state or province');
-      resetSelect(citySelect, 'Select your town or city');
-      resetSelect(barangaySelect, 'Select your local area');
-
+      resetSelect(regionSelect, 'Select your region');
       regions.forEach((region) => {
         const option = document.createElement('option');
         option.value = region.code;
@@ -199,21 +197,22 @@ export function renderShippingForm() {
       });
     });
 
-  // Region selected
+  // Load Provinces OR Cities when region is selected
   regionSelect.addEventListener('change', () => {
     const regionCode = regionSelect.value;
-
+    resetSelect(provinceSelect, 'Select your state or province');
     resetSelect(citySelect, 'Select your town or city');
     resetSelect(barangaySelect, 'Select your local area');
 
-    // NCR logic (no provinces)
     if (regionCode === '130000000') {
+      // NCR has no provinces
       resetSelect(provinceSelect, 'No province in NCR', true);
-      resetSelect(citySelect, 'Select your town or city', false);
+      provinceSelect.disabled = true;
 
       fetch(`https://psgc.gitlab.io/api/regions/${regionCode}/cities-municipalities/`)
         .then((res) => res.json())
         .then((cities) => {
+          resetSelect(citySelect, 'Select your town or city');
           cities.forEach((city) => {
             const option = document.createElement('option');
             option.value = city.code;
@@ -222,8 +221,7 @@ export function renderShippingForm() {
           });
         });
     } else {
-      // Enable and load provinces
-      resetSelect(provinceSelect, 'Select your state or province', false);
+      provinceSelect.disabled = false;
 
       fetch(`https://psgc.gitlab.io/api/regions/${regionCode}/provinces/`)
         .then((res) => res.json())
@@ -238,10 +236,10 @@ export function renderShippingForm() {
     }
   });
 
-  // Province selected
+  // Load Cities/Municipalities when province is selected
   provinceSelect.addEventListener('change', () => {
     const provinceCode = provinceSelect.value;
-    resetSelect(citySelect, 'Select your town or city', false);
+    resetSelect(citySelect, 'Select your town or city');
     resetSelect(barangaySelect, 'Select your local area');
 
     fetch(`https://psgc.gitlab.io/api/provinces/${provinceCode}/cities-municipalities/`)
@@ -256,10 +254,10 @@ export function renderShippingForm() {
       });
   });
 
-  // City selected
+  // Load Barangays when city/municipality is selected
   citySelect.addEventListener('change', () => {
     const cityCode = citySelect.value;
-    resetSelect(barangaySelect, 'Select your local area', false);
+    resetSelect(barangaySelect, 'Select your local area');
 
     fetch(`https://psgc.gitlab.io/api/cities-municipalities/${cityCode}/barangays/`)
       .then((res) => res.json())
@@ -272,7 +270,6 @@ export function renderShippingForm() {
         });
       });
   });
-  bindShippingListeners();
 }
 
 export function bindShippingListeners() {
@@ -294,7 +291,7 @@ export function bindShippingListeners() {
 
   citySelect.addEventListener('click', () => {
     if (!regionSelect.value || (!provinceSelect.value && regionSelect.value !== '130000000')) {
-      showWarningToast('Please select a region and province first.');
+      showWarningToast('Please select a province first.');
     }
   });
 
@@ -303,20 +300,4 @@ export function bindShippingListeners() {
       showWarningToast('Please select a city first.');
     }
   });
-}
-function showWarningToast(message) {
-  const toast = document.getElementById('toast-warning');
-  const msg = document.getElementById('warning-msg');
-
-  if (!toast || !msg) {
-    console.warn('Toast element not found');
-    return;
-  }
-
-  msg.textContent = message;
-  toast.classList.remove('hidden');
-
-  setTimeout(() => {
-    toast.classList.add('hidden');
-  }, 3000);
 }
