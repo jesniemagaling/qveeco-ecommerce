@@ -1,7 +1,7 @@
 # Qveeco E-commerce
 
 **Qveeco** is a simple e-commerce web app built using **Vanilla JavaScript** and **Tailwind CSS**.  
-It was created as a follow-up learning project after understanding core JavaScript concepts, focusing on DOM manipulation, Local Storage, UI responsiveness, and building interactive features without frameworks.
+It was created as a follow-up learning project after understanding core JavaScript concepts, focusing on DOM manipulation, local Storage, UI responsiveness, and building interactive features without frameworks.
 
 ---
 
@@ -22,7 +22,7 @@ It's a hands-on, beginner-to-intermediate project that simulates core e-commerce
 ## Key Features
 
 - Product listing with image, title, and price
-- Advance filtering products
+- Advanced filtering products
 - Add to Cart / Remove from Cart functionality
 - Real-time cart item count and total price
 - Responsive layout using Tailwind CSS
